@@ -13,6 +13,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+var adminAppUrl = "https://syndeo-admin.herokuapp.com";
+
 // API Routes
-// var APIRoute = "https://stretch-be-master.herokuapp.com/";
+// var APIRoute = "https://syndeo-admin.herokuapp.com";
 var APIRoute = "http://127.0.0.1:5000/";
