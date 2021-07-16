@@ -56,7 +56,7 @@
                   <div class="col-md-9">
                     <div class="d-flex align-items-center">
                       <div class="me-3">
-                        <img src="assets/images/placeholder.png" class="rounded-circle avatar avatar-lg" alt="">
+                        <img src="assets/images/png/placeholder.png" class="rounded-circle avatar avatar-lg" alt="">
                       </div>
                       <div>
                         <button type="submit" class="btn btn-outline-white

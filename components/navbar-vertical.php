@@ -2,8 +2,11 @@
  <nav class="navbar-vertical navbar">
     <div class="nav-scroller">
         <!-- Brand logo -->
-        <a class="navbar-brand" href="index.php">  
-            <img src="assets/images/brand/logo/logo.svg" alt="" />
+        <a class="navbar-brand m-2" href="index.php">  
+            <div class="d-flex">
+                <img src="assets/images/png/logo.png" alt="" class=""/>
+                <div class="row align-items-center h3 text-white mx-3">Syndeo</div>
+            </div>
         </a>
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
