@@ -42,7 +42,7 @@
                   <div class="avatar-xxl avatar-indicators avatar-online me-2
                       position-relative d-flex justify-content-end
                       align-items-end mt-n10">
-                    <img src="assets/images/avatar/avatar-1.jpg" class="avatar-xxl
+                    <img src="assets/images/placeholder.png" class="avatar-xxl
                         rounded-circle border border-4 border-white-color-40" alt="">
                     <a href="#!" class="position-absolute top-0 right-0 me-2" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Verified">
                       <img src="assets/images/svg/checked-mark.svg" alt="" height="30" width="30">
@@ -147,7 +147,7 @@
                     <div class="d-flex align-items-center">
                       <div>
                         <div class="icon-shape icon-lg border p-4 rounded-1">
-                          <img src="assets/images/brand/slack-logo.svg" alt="">
+                          <img src="assets/images/placeholder.png" alt="">
                         </div>
                       </div>
                       <!-- text -->
@@ -163,19 +163,19 @@
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-1.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-2.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-3.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                       </div>
@@ -201,7 +201,7 @@
                       <div>
                         <!-- icon shape -->
                         <div class="icon-shape icon-lg border p-4 rounded-1">
-                          <img src="assets/images/brand/3dsmax-logo.svg" alt="">
+                          <img src="assets/images/placeholder.png" alt="">
                         </div>
                       </div>
                       <!-- text -->
@@ -217,19 +217,19 @@
                         <span class="avatar avatar-sm">
                              <!-- img -->
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-4.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <span class="avatar avatar-sm">
                              <!-- img -->
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-5.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <span class="avatar avatar-sm">
                              <!-- img -->
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-6.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                       </div>
@@ -255,7 +255,7 @@
                       <div>
                         <!-- icon shape -->
                         <div class="icon-shape icon-lg border p-4 rounded-1">
-                          <img src="assets/images/brand/github-logo.svg" alt="">
+                          <img src="assets/images/placeholder.png" alt="">
                         </div>
                       </div>
                       <!-- text -->
@@ -270,19 +270,19 @@
                         <span class="avatar avatar-sm">
                              <!-- img -->
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-7.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <span class="avatar avatar-sm">
                              <!-- img -->
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-8.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <span class="avatar avatar-sm">
                              <!-- img -->
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-9.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                       </div>
@@ -308,7 +308,7 @@
                       <!-- icon shape -->
                       <div>
                         <div class="icon-shape icon-lg border p-4 rounded-1">
-                          <img src="assets/images/brand/dropbox-logo.svg" alt="">
+                          <img src="assets/images/placeholder.png" alt="">
                         </div>
                       </div>
                       <!-- text -->
@@ -324,19 +324,19 @@
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-10.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-11.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-12.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                       </div>
@@ -363,7 +363,7 @@
                       <div>
                         <div class="icon-shape icon-lg border p-4 rounded-1
                             bg-primary">
-                          <img src="assets/images/brand/layers-logo.svg" alt="">
+                          <img src="assets/images/placeholder.png" alt="">
                         </div>
                       </div>
                       <!-- text -->
@@ -378,19 +378,19 @@
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-13.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-14.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                         <!-- img -->
                         <span class="avatar avatar-sm">
                             <img alt="avatar"
-                              src="assets/images/avatar/avatar-15.jpg"
+                              src="assets/images/placeholder.png"
                               class="rounded-circle">
                           </span>
                       </div>
@@ -423,7 +423,7 @@
                     <!-- avatar -->
                     <div class="d-flex align-items-center">
                       <div>
-                        <img src="assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle">
+                        <img src="assets/images/placeholder.png" alt="" class="avatar avatar-md rounded-circle">
                       </div>
                       <div class="ms-3">
                         <h5 class="mb-0 fw-bold">Jitu Chauhan</h5>
@@ -448,7 +448,7 @@
                   <div class="mb-4">
                     <!-- text -->
                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspen disse var ius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-                    <img src="assets/images/blog/blog-img-1.jpg" class="rounded-3 w-100" alt="">
+                    <img src="assets/images/placeholder.png" class="rounded-3 w-100" alt="">
                   </div>
                   <!-- icons -->
                   <div class="mb-4">
@@ -467,19 +467,19 @@
                       <span class="avatar avatar-sm">
                             <!-- img -->
                           <img alt="avatar"
-                            src="assets/images/avatar/avatar-7.jpg"
+                            src="assets/images/placeholder.png"
                             class="rounded-circle">
                         </span>
                       <span class="avatar avatar-sm">
                              <!-- img -->
                           <img alt="avatar"
-                            src="assets/images/avatar/avatar-8.jpg"
+                            src="assets/images/placeholder.png"
                             class="rounded-circle">
                         </span>
                       <span class="avatar avatar-sm">
                              <!-- img -->
                           <img alt="avatar"
-                            src="assets/images/avatar/avatar-9.jpg"
+                            src="assets/images/placeholder.png"
                             class="rounded-circle">
                         </span>
                     </div>
@@ -489,7 +489,7 @@
                   <div class="row">
                     <div class="col-xl-1 col-lg-2 col-md-2 col-12 mb-3 mb-lg-0">
                       <!-- avatar -->
-                      <img src="assets/images/avatar/avatar-1.jpg" class="avatar avatar-md rounded-circle" alt="">
+                      <img src="assets/images/placeholder.png" class="avatar avatar-md rounded-circle" alt="">
                     </div>
                     <!-- input -->
                     <div class="col-xl-11 col-lg-10 col-md-9 col-12 ">
@@ -524,7 +524,7 @@
                     <div class="d-flex align-items-center">
                       <!-- img -->
                       <div>
-                        <img src="assets/images/avatar/avatar-1.jpg" class="rounded-circle avatar-md" alt="">
+                        <img src="assets/images/placeholder.png" class="rounded-circle avatar-md" alt="">
                       </div>
                       <!-- text -->
                       <div class="ms-3 ">
@@ -545,7 +545,7 @@
                     <div class="d-flex align-items-center">
                       <!-- img -->
                       <div>
-                        <img src="assets/images/avatar/avatar-2.jpg" class="rounded-circle avatar-md" alt="">
+                        <img src="assets/images/placeholder.png" class="rounded-circle avatar-md" alt="">
                       </div>
                       <!-- content -->
                       <div class="ms-3 ">
@@ -567,7 +567,7 @@
                     <div class="d-flex align-items-center">
                       <!-- img -->
                       <div>
-                        <img src="assets/images/avatar/avatar-3.jpg" class="rounded-circle avatar-md" alt="">
+                        <img src="assets/images/placeholder.png" class="rounded-circle avatar-md" alt="">
                       </div>
                       <!-- text -->
                       <div class="ms-3 ">
@@ -589,7 +589,7 @@
                     <!-- img -->
                     <div class="d-flex align-items-center">
                       <div>
-                        <img src="assets/images/avatar/avatar-4.jpg" class="rounded-circle avatar-md" alt="">
+                        <img src="assets/images/placeholder.png" class="rounded-circle avatar-md" alt="">
                       </div>
                       <!-- text -->
                       <div class="ms-3 ">
@@ -619,7 +619,7 @@
                       <div class="d-flex mb-5">
                         <!-- img -->
                         <div>
-                          <img src="assets/images/avatar/avatar-6.jpg" class="rounded-circle avatar-md" alt="">
+                          <img src="assets/images/placeholder.png" class="rounded-circle avatar-md" alt="">
                         </div>
                         <!-- content -->
                         <div class="ms-3 ">
@@ -632,7 +632,7 @@
                       <div class="d-flex mb-5">
                         <!-- img -->
                         <div>
-                          <img src="assets/images/avatar/avatar-7.jpg" class="rounded-circle avatar-md" alt="">
+                          <img src="assets/images/placeholder.png" class="rounded-circle avatar-md" alt="">
                         </div>
                         <!-- content -->
                         <div class="ms-3 ">
@@ -645,7 +645,7 @@
                       <div class="d-flex">
                         <!-- img -->
                         <div>
-                          <img src="assets/images/avatar/avatar-9.jpg" class="rounded-circle avatar-md" alt="">
+                          <img src="assets/images/placeholder.png" class="rounded-circle avatar-md" alt="">
                         </div>
                         <!-- content -->
                         <div class="ms-3 ">
