@@ -42,8 +42,12 @@
                 <div>
                   <!-- Button -->
                   <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Sign
-                      in</button>
+                    <button type="submit" class="btn btn-primary" id="signInButton">
+                      <span id="signInButtonText">Sign in</span>
+                      <div class="spinner-border spinner-border-sm text-light d-none" id="signInButtonLoader" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                      </div>
+                    </button>
                   </div>
 
                   <div class="d-md-flex justify-content-center mt-4">

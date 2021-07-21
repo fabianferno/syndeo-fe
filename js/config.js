@@ -18,3 +18,12 @@ var adminAppUrl = "https://syndeo-admin.herokuapp.com";
 // API Routes
 // var APIRoute = "https://syndeo-admin.herokuapp.com";
 var APIRoute = "http://127.0.0.1:5000/";
+
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+      window.location.href = "index.php";
+    }).catch((error) => {
+      // An error happened.
+    });
+}
