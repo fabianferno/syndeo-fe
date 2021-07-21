@@ -1,6 +1,13 @@
 $(document).ready(() => {
-    document.getElementById('pageLoader').classList.add('d-none');
-    document.getElementById('pageContent').classList.remove('d-none');
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          window.location.href = "home.php"
+        } else {
+            // signed out
+            document.getElementById('pageLoader').classList.add('d-none');
+            document.getElementById('pageContent').classList.remove('d-none');
+        }
+      });
 })
 
 document.getElementById('signInForm').addEventListener('submit', (e) => {
