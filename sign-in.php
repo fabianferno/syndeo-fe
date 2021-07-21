@@ -14,7 +14,7 @@
       </div>
   </div>
   <!-- Page Loader Ends Here -->
-  <div id="pageContent">
+  <div id="pageContent" class="d-none">
     <div class="container d-flex flex-column">
       <div class="row align-items-center justify-content-center g-0
           min-vh-100">
