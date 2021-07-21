@@ -41,9 +41,9 @@
                     <div class="row align-items-center mb-8">
                       <div class="col-md-3 mb-3 mb-md-0">
                         <h5 class="mb-0"></h5>
-                        </h6>Profile Picture</h6>
+                        </h6>Your Picture</h6>
                         <div class="col-md-4">
-                          <div class="mx-auto" style="width: 290px;">
+                          <div class="mx-auto" style="width: 240px;">
                       <input type="file" class="form-control" id="customFile" />
                           </div>
                       </div>
