@@ -8,8 +8,6 @@
 
   <body>
     <div id="db-wrapper">
-      <!-- navbar vertical -->
-      <?php include "components/navbar-vertical.php" ?>
        <!-- Page content -->
       <div id="page-content">
       <?php include "components/header.php" ?>
@@ -41,13 +39,13 @@
                 <div class="card-body text-center">
                   
                     <!-- Put your content here --> 
-                    Content
+                    Landing page.
 
                 </div>
                 
                 <!-- card footer  -->
                 <div class="card-footer bg-white border-white text-end">
-                  <a href="#" class="btn btn-primary">Button</a>
+                  <!-- <a href="#" class="btn btn-primary">Button</a> -->
 
                 </div>
               </div>

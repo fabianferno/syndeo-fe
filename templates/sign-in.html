@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <?php include "components/css-assets.php" ?>
-  <title>Sign In | Syndeo </title>
+  @@include("../partials/head.html")
+  <title>Sign In | Dash Ui - Bootstrap 5 Admin Dashboard Template</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
           <!-- Card body -->
           <div class="card-body p-6">
             <div class="mb-4">
-              <a href="index.php"><img src="assets/images/png/placeholder" class="mb-2" alt="image"></a>
+              <a href="../index.html"><img src="../assets/images/brand/logo/logo-primary.svg" class="mb-2" alt=""></a>
               <p class="mb-6">Please enter your user information.</p>
             </div>
             <!-- Form -->
@@ -51,11 +51,11 @@
 
                 <div class="d-md-flex justify-content-between mt-4">
                   <div class="mb-2 mb-md-0">
-                    <!-- <a href="sign-in.php" class="fs-5">Create An
-                        Account </a> -->
+                    <a href="sign-up.html" class="fs-5">Create An
+                        Account </a>
                   </div>
                   <div>
-                    <a href="forget-password.php" class="text-inherit
+                    <a href="forget-password.html" class="text-inherit
                         fs-5">Forgot your password?</a>
                   </div>
 
@@ -70,7 +70,7 @@
     </div>
   </div>
   <!-- Scripts -->
-  <?php include "components/js-assets.php" ?>
+  @@include("../partials/scripts.html")
 </body>
 
 </html>
