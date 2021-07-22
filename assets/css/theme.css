@@ -7097,6 +7097,9 @@ textarea.form-control-lg {
 .vw-100 {
   width: 100vw !important; }
 
+.vw-80 {
+  width: 80vw !important; }
+
 .min-vw-100 {
   min-width: 100vw !important; }
 
