@@ -156,7 +156,7 @@
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-3">
                                             <label for="higherStudies" class="form-label d-flex justify-content-between">Higher Studies (if any) 
-                                                <button class="btn btn-primary btn-sm" onclick="addFields('higherStudiesGroup')"><span class="fas fa-plus text-white"></span> Add</button>
+                                                <a class="btn btn-primary btn-sm" onclick="addFields('higherStudiesGroup')"><span class="fas fa-plus text-white"></span> Add</a>
                                             </label>
                                             <div class="input-group mb-2 d-none" id="higherStudiesGroup">
                                                 <input type="text" class="form-control higherStudies" name="" placeholder="Higher Studies">
@@ -168,7 +168,7 @@
                                         </div>
                                         <div class="col-12 col-md-6 mb-3">
                                             <label for="licenseAndCerts" class="form-label d-flex justify-content-between">Licenses and Certifications
-                                                <button class="btn btn-primary btn-sm" onclick="addFields('licenseAndCertsGroup')"><span class="fas fa-plus text-white"></span> Add</button>
+                                                <a class="btn btn-primary btn-sm" onclick="addFields('licenseAndCertsGroup')"><span class="fas fa-plus text-white"></span> Add</a>
                                             </label>
                                             <div class="input-group mb-2 d-none" id="licenseAndCertsGroup">
                                                 <input type="text" class="form-control licenseAndCerts" name="licenseAndCerts" placeholder="Licenses and Certifications">
