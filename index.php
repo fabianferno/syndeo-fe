@@ -24,8 +24,8 @@
             <div class="text-center">
               <h1 class="display-4 fw-bold">Syndeo</h1>
               <p class="mb-4"></p>
-              <a href="sign-in.php" class="btn btn-primary">Sign In</a>
-              <a href="create-profile.php" class="btn btn-dark-secondary">Sign Up</a>
+              <a href="login.php" class="btn btn-primary">Login</a>
+              <a href="sign-up.php" class="btn btn-dark-secondary">Sign Up</a>
             </div>
           </div>
           <!-- content -->

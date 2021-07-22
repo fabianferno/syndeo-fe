@@ -47,7 +47,7 @@
                       </div>
                     </button>
                 </div>
-                <div class="d-flex justify-content-center">Don't have an account? &nbsp; <a href="create-profile.php">Sign up</a></div>
+                <div class="d-flex justify-content-center">Don't have an account? &nbsp; <a href="sign-up.php">Sign up</a></div>
               </form>
             </div>
           </div>
