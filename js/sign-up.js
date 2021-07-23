@@ -11,7 +11,7 @@ $(document).ready(() => {
     for (var i = 0; i < years; i++) {
       if (i == years-1 && ((new Date()).getMonth() < 6))
           break;
-      var string = (yearStarted+i) + '-' + (yearStarted+i + 1);
+      var string = (yearStarted+i) + '-' + (yearStarted+i + 4);
 
       var ele = document.createElement('option');
       ele.value = string;
@@ -69,7 +69,7 @@ $(document).ready(() => {
 
 
     // Submit
-    document.getElementById('signUpForm').addEventListener('submit', () => {
+    document.getElementById('signUpButton').addEventListener('click', () => {
 
         document.getElementById('signUpButton').setAttribute('disabled', 'disabled');
         document.getElementById('signUpButtonText').classList.add('d-none');
@@ -78,78 +78,83 @@ $(document).ready(() => {
 
         var fullName = document.getElementById('fullName').value;
         var email = document.getElementById('email').value.trim();
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('reTypePassword').value;
+        var password = document.getElementById('password').value.trim();
+        var confirmPassword = document.getElementById('reTypePassword').value.trim();
         var type = $('input[name="roleRadio"]').val();
 
         var validDomain = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(licet.ac.in)$/;  
 
-        if (password === confirmPassword && password != '') {
-          if (type == "student" && !(email.toLowerCase().match(validDomain))) {
-            document.getElementById('email').classList.add('is-invalid');
-            document.getElementById('invalidEmail').classList.remove('d-none');
-            showSubmitButton();
-            return;
-          }
+        if (validateForm()) {
+          if (password === confirmPassword) {
+            if (type == "student" && !(email.toLowerCase().match(validDomain))) {
+              document.getElementById('email').classList.add('is-invalid');
+              document.getElementById('invalidEmail').classList.remove('d-none');
+              showSubmitButton();
+              return;
+            }
 
-          firebase.auth().createUserWithEmailAndPassword(email, password)
-          .then((userCredential) => {
-            // Signed in 
-            window.user = userCredential.user;
-            window.uid = userCredential.user.uid;
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              // Signed in 
+              window.user = userCredential.user;
+              window.uid = userCredential.user.uid;
 
-            var gender = $('input[name="genderRadio"]').val();
-            // get all values
+              var gender = $('input[name="genderRadio"]').val();
+              // get all values
 
-            user.updateProfile({
-              displayName: fullName,
-              photoURL: photoURL
-            })
-            .then(() => {
-                $.ajax({
-                  type: "POST",
-                  url: APIRoute + "routename",
-                  datatype: "html",
-                  data: {
-                    uid: window.uid,
-                    // .. 
-                },
-                success: function(response) {
-                  if (response == "success") {
+              user.updateProfile({
+                displayName: fullName,
+                photoURL: photoURL
+              })
+              .then(() => {
+                  $.ajax({
+                    type: "POST",
+                    url: APIRoute + "routename",
+                    datatype: "html",
+                    data: {
+                      uid: window.uid,
+                      // .. 
+                  },
+                  success: function(response) {
+                    if (response == "success") {
 
-                    localStorage.type = type;
-                    document.getElementById('signUpButtonLoader').classList.add('d-none');
-                    document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
-                    window.location.href = "home.php";
+                      localStorage.type = type;
+                      document.getElementById('signUpButtonLoader').classList.add('d-none');
+                      document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
+                      window.location.href = "home.php";
 
-                  } else if (response == "exists") {
-                    document.getElementById('message-exists').classList.remove('d-none');
-                    showSubmitButton();
-                  } else {
+                    } else if (response == "exists") {
+                      document.getElementById('message-exists').classList.remove('d-none');
+                      showSubmitButton();
+                    } else {
+                      document.getElementById('message-error').classList.remove('d-none');
+                      showSubmitButton();
+                    }
+                    
+                  },
+                  error: (error) =>{
+                    console.log(error);
                     document.getElementById('message-error').classList.remove('d-none');
                     showSubmitButton();
-                  }
-                  
-                },
-                error: (error) =>{
-                  console.log(error);
-                  document.getElementById('message-error').classList.remove('d-none');
-                  showSubmitButton();
-                },
+                  },
+                })
               })
+              
+              
             })
-            
-            
-          })
-          .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // ..
-          });
+            .catch((error) => {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // ..
+            });
+          } else {
+            document.getElementById('reTypePassword').classList.add('is-invalid');
+            document.getElementById('incorrectPassword').classList.remove('d-none');
+            showSubmitButton();
+          }
         } else {
-          document.getElementById('reTypePassword').classList.add('is-invalid');
-          document.getElementById('incorrectPassword').classList.remove('d-none');
           showSubmitButton();
+          document.getElementById('message-empty').classList.remove('d-none');
         }
 
     });
@@ -177,7 +182,19 @@ function resetForm() {
   document.getElementById('invalidEmail').classList.add('d-none');
   document.getElementById('message-error').classList.add('d-none');
   document.getElementById('message-exists').classList.add('d-none');
+  document.getElementById('message-empty').classList.add('d-none');
   document.getElementById('incorrectPassword').classList.add('d-none');
+}
+
+function validateForm() {
+  var flag = true;
+  document.querySelectorAll('input[required=""]').forEach((element) => {
+    if( element.value == "") {
+        element.classList.add('is-invalid')
+        flag = false;
+    }
+  })
+  return flag;
 }
 
 function showSubmitButton() {

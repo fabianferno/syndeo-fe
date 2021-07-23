@@ -204,6 +204,7 @@
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
                                     <small class="text-danger d-none" id="message-error">There was a problem creating your profile. Please try again later.</small>
+                                    <small class="text-danger d-none" id="message-empty">One or more required fields is empty.</small>
                                     <small class="text-danger d-none" id="message-exists">An Account with this email already exists. Try <a href="login.php">Signing in</a></small>
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
