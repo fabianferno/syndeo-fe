@@ -25,7 +25,7 @@
                                 <h2 class="fw-bold my-auto">Syndeo</h2>
                             </div>
                             <h4 class="fw-bold text-start mb-3">Create Profile</h4>
-                            <form>
+                            <form id="signUpForm">
                                 <div class="row mb-3">
                                     <div class="col-12 col-md-4 mt-4">
                                         <!-- avatar -->
@@ -57,6 +57,7 @@
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="email" id="email" class="form-control" name="email" placeholder="example@mail.com" required="">
+                                            <small class="text-danger d-none" style="font-size: 10px;" id="invalidEmail"> Invalid Domain </small>
                                         </div>
                                         <div class="mb-3">
                                             <div class="d-flex justify-content-around">
@@ -163,8 +164,6 @@
                                                 <span class="d-flex justify-content-center align-items-center bg-primary minusButton" style="width: 2em;"> <span class="fas fa-minus text-white"></span> </span>
                                             </div>
                                             <span id="higherStudiesGroupFields"></span>
-                                            
-                                            
                                         </div>
                                         <div class="col-12 col-md-6 mb-3">
                                             <label for="licenseAndCerts" class="form-label d-flex justify-content-between">Licenses and Certifications
@@ -180,7 +179,7 @@
                                     <div class="row mb-3 mx-0" id="tagsRow">
                                         <label for="tags" class="form-label mb-0">Tags</label>
                                         <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
-                                        <input type="text" id="tags" class="form-control" data-role="tagsinput" name="tags" placeholder="" required=""> 
+                                        <input type="text" id="tags" class="form-control" data-role="tagsinput" name="tags" placeholder="" > 
                                     </div>
                                     <div class="row mb-3">
                                         <label class="form-check-label" for="agreeForMentorship">
@@ -200,10 +199,21 @@
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="reTypePassword" class="form-label">Re-Type Password</label>
                                         <input type="password" id="reTypePassword" class="form-control" name="reTypePassword" placeholder="**************" required="">
+                                        <small class="text-danger d-none" style="font-size: 10px;" id="incorrectPassword"> Incorrect Password </small>
                                     </div>
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
-                                    <button id="SignUpButton" class="btn btn-dark-secondary"> Sign Up!</button>
+                                    <small class="text-danger d-none" id="message-error">There was a problem creating your profile. Please try again later.</small>
+                                    <small class="text-danger d-none" id="message-exists">An Account with this email already exists. Try <a href="login.php">Signing in</a></small>
+                                </div>
+                                <div class="mb-3 d-flex justify-content-end">
+                                    <button type="submit" id="signUpButton" class="btn btn-dark-secondary">
+                                        <span id="signUpButtonText">Sign Up!</span> 
+                                        <span id="signUpButtonTextSuccess" class="d-none">Done!</span> 
+                                        <div class="spinner-border-sm text-white d-none" id="signUpButtonLoader">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </button>
                                 </div>
                             </form>
                         </div>

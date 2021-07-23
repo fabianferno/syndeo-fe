@@ -2,6 +2,8 @@
 
 $(document).ready(() => {
 
+  var photoURL = userAppUrl + "assets/images/png/avatar.jpg"
+
    // Generate dropdown values for batch
     var yearStarted = 2010;
     var currentYear = (new Date()).getFullYear();
@@ -54,50 +56,101 @@ $(document).ready(() => {
               '<div class="upload-loader"><div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div></div>'
             );
       
-            // Dummy timeout; call API or AJAX below
+            // call API or AJAX below to upload this image
             setTimeout(() => {
               $(holder).removeClass("uploadInProgress");
               $(holder).find(".upload-loader").remove();
-              // If upload successful
-              if (Math.random() < 0.9) {
-                $(wrapper).append(
-                  '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i> Profile image updated successfully</div>'
-                );
-      
-                // Clear input after upload
-                $(triggerInput).val("");
-      
-                setTimeout(() => {
-                  $(wrapper).find('[role="alert"]').remove();
-                }, 3000);
-              } else {
-                $(holder).find(".pic").attr("src", currentImg);
-                $(wrapper).append(
-                  '<div class="snackbar show" role="alert"><i class="fa fa-times-circle text-danger"></i> There is an error while uploading! Please try again later.</div>'
-                );
-      
-                // Clear input after upload
-                $(triggerInput).val("");
-                setTimeout(() => {
-                  $(wrapper).find('[role="alert"]').remove();
-                }, 3000);
-              }
+              
+              photoURL = "" // Update Photo URL after upolading the image
             }, 1500);
           };
-        } else {
-          $(wrapper).append(
-            '<div class="alert alert-danger d-inline-block p-2 small" role="alert">Please choose the valid image.</div>'
-          );
-          setTimeout(() => {
-            $(wrapper).find('role="alert"').remove();
-          }, 3000);
         }
       });
 
 
     // Submit
-    document.getElementById('SignUpButton').addEventListener('click', () => {
+    document.getElementById('signUpForm').addEventListener('submit', () => {
 
+        document.getElementById('signUpButton').setAttribute('disabled', 'disabled');
+        document.getElementById('signUpButtonText').classList.add('d-none');
+        document.getElementById('signUpButtonLoader').classList.remove('d-none');
+        resetForm();
+
+        var fullName = document.getElementById('fullName').value;
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('reTypePassword').value;
+        var type = $('input[name="roleRadio"]').val();
+
+        var validDomain = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(licet.ac.in)$/;  
+
+        if (password === confirmPassword && password != '') {
+          if (type == "student" && !(email.toLowerCase().match(validDomain))) {
+            document.getElementById('email').classList.add('is-invalid');
+            document.getElementById('invalidEmail').classList.remove('d-none');
+            showSubmitButton();
+            return;
+          }
+
+          firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            // Signed in 
+            window.user = userCredential.user;
+            window.uid = userCredential.user.uid;
+
+            var gender = $('input[name="genderRadio"]').val();
+            // get all values
+
+            user.updateProfile({
+              displayName: fullName,
+              photoURL: photoURL
+            })
+            .then(() => {
+                $.ajax({
+                  type: "POST",
+                  url: APIRoute + "routename",
+                  datatype: "html",
+                  data: {
+                    uid: window.uid,
+                    // .. 
+                },
+                success: function(response) {
+                  if (response == "success") {
+
+                    localStorage.type = type;
+                    document.getElementById('signUpButtonLoader').classList.add('d-none');
+                    document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
+                    window.location.href = "home.php";
+
+                  } else if (response == "exists") {
+                    document.getElementById('message-exists').classList.remove('d-none');
+                    showSubmitButton();
+                  } else {
+                    document.getElementById('message-error').classList.remove('d-none');
+                    showSubmitButton();
+                  }
+                  
+                },
+                error: (error) =>{
+                  console.log(error);
+                  document.getElementById('message-error').classList.remove('d-none');
+                  showSubmitButton();
+                },
+              })
+            })
+            
+            
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ..
+          });
+        } else {
+          document.getElementById('reTypePassword').classList.add('is-invalid');
+          document.getElementById('incorrectPassword').classList.remove('d-none');
+          showSubmitButton();
+        }
 
     });
 })
@@ -116,4 +169,19 @@ function addFields(id) {
 
 function removeFields(id) {
   $('#'+id).remove();
+}
+
+
+function resetForm() {
+  $('input[required=""]').removeClass('is-invalid');
+  document.getElementById('invalidEmail').classList.add('d-none');
+  document.getElementById('message-error').classList.add('d-none');
+  document.getElementById('message-exists').classList.add('d-none');
+  document.getElementById('incorrectPassword').classList.add('d-none');
+}
+
+function showSubmitButton() {
+  document.getElementById('signUpButtonLoader').classList.add('d-none');
+  document.getElementById('signUpButton').removeAttribute('disabled');
+  document.getElementById('signUpButtonText').classList.remove('d-none');
 }
