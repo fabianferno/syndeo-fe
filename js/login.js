@@ -1,7 +1,10 @@
 $(document).ready(() => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          window.location.href = "home.php"
+            if (user.emailVerified) window.location.href = "home.php";
+            else window.location.href = "verify-account.php";
+
+            
         } else {
             // signed out
             document.getElementById('pageLoader').classList.add('d-none');

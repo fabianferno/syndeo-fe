@@ -121,7 +121,15 @@ $(document).ready(() => {
                       localStorage.type = type;
                       document.getElementById('signUpButtonLoader').classList.add('d-none');
                       document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
-                      window.location.href = "home.php";
+
+                      window.user
+                      .sendEmailVerification()
+                      .then(function () {
+                        window.location.href = "verify-account.php";
+                      })
+                      .catch(function (error) {
+                        // An error happened.
+                      });
 
                     } else if (response == "exists") {
                       document.getElementById('message-exists').classList.remove('d-none');
