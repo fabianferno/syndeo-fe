@@ -27,11 +27,8 @@ $(document).ready(() => {
                 // Signed in
                 window.user = userCredential.user;
 
-                localStorage.uid = userCredential.user.uid;
-                localStorage.fullName = userCredential.user.displayName;
-                localStorage.email = userCredential.user.email;
+                // TODO: get userType and isActive and save in localstorage
                 
-                console.log(localStorage.uid);
                 window.location.href = "home.php";
             })
             .catch((error) => {

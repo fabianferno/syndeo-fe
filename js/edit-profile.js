@@ -12,22 +12,26 @@ $(document).ready(() => {
             document.getElementById('username').innerHTML = user.displayName;
             document.getElementById('avatar').innerHTML = user.profileURL;
             photoURL = user.photoURL;
+
+            var path = window.location.pathname;
+            var page = path.split("/").pop();
+            console.log(page);
+        
+            $('[href="' + page + '"]').addClass("active");
             
             $('.bootstrap-tagsinput').addClass('form-control');
+            document.getElementById('formTitle').innerHTML = localStorage.type + "'s Basic information";
 
             $.ajax({
                 type: "GET",
-                url: APIRoute + "users",
+                url: APIRoute + "users?uid=" + window.uid,
                 datatype: "html",
-                data: {
-                  uid: window.uid,
-                },
+                
                 success: function (response) {
                     localStorage.type = response.type;
                     if ( response.type == "mentor") {
                         document.getElementById('mentorFields').classList.remove('d-none');
                     }
-                    document.getElementById('formTitle').innerHTML = response.type + "'s Basic information";
                     document.getElementById('profilePic').src = user.profileURL;
 
                     // Populate data
@@ -120,7 +124,7 @@ $(document).ready(() => {
               })
               .then(() => {
                   $.ajax({
-                    type: "UPDATE",
+                    type: "PUT",
                     url: APIRoute + "users",
                     datatype: "html",
                     data: {
@@ -133,6 +137,7 @@ $(document).ready(() => {
                       localStorage.type = type;
                       showSubmitButton();
                       document.getElementById('message-success').classList.remove('d-none');
+                      window.location.href = "profile.php";
 
 
                     } else {

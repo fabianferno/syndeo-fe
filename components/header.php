@@ -84,7 +84,7 @@
         <a class="rounded-circle" href="#" role="button" id="dropdownUser"
           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="avatar avatar-md avatar-indicators avatar-online">
-            <img alt="avatar" id="avatar" src="assets/images/png/placeholder.png"
+            <img alt="avatar" id="avatar" src="assets/images/png/avatar.jpg"
               class="rounded-circle" />
           </div>
         </a>
@@ -100,19 +100,19 @@
 
           <ul class="list-unstyled">
             <li>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="edit-profile.php">
                 <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
                 Profile
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="settings.php">
                 <i class="me-2 icon-xxs dropdown-item-icon"
                   data-feather="settings"></i>Account Settings
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="index.html">
+              <a class="dropdown-item" onclick="logout()">
                 <i class="me-2 icon-xxs dropdown-item-icon"
                   data-feather="power"></i>Sign Out
               </a>

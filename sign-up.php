@@ -57,7 +57,7 @@
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="email" id="email" class="form-control" name="email" placeholder="example@mail.com" required="">
-                                            <small class="text-danger d-none" style="font-size: 10px;" id="invalidEmail"> Invalid Domain </small>
+                                            <small class="text-danger d-none" style="font-size: 10px;" id="invalidEmail"> Invalid Domain. Try using an email id ends with 'licet.ac.in' </small>
                                         </div>
                                         <div class="mb-3">
                                             <div class="d-flex justify-content-around">

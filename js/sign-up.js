@@ -81,6 +81,7 @@ $(document).ready(() => {
         var password = document.getElementById('password').value.trim();
         var confirmPassword = document.getElementById('reTypePassword').value.trim();
         var type = $('input[name="roleRadio"]').val();
+        var isActive;
 
         var validDomain = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(licet.ac.in)$/;  
 
@@ -99,6 +100,9 @@ $(document).ready(() => {
               window.user = userCredential.user;
               window.uid = userCredential.user.uid;
 
+              if (type == "mentor") {
+                 isActive = document.getElementById('agreeForMentorship').checked;
+              }
               var gender = $('input[name="genderRadio"]').val();
               // get all values
 
@@ -119,6 +123,7 @@ $(document).ready(() => {
                     if (response == "success") {
 
                       localStorage.type = type;
+                      localStorage.isActive = isActive;
                       document.getElementById('signUpButtonLoader').classList.add('d-none');
                       document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
 
@@ -153,7 +158,7 @@ $(document).ready(() => {
             .catch((error) => {
               var errorCode = error.code;
               var errorMessage = error.message;
-              // ..
+              document.getElementById('message-error').innerHTML = errorMessage;
             });
           } else {
             document.getElementById('reTypePassword').classList.add('is-invalid');

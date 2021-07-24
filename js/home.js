@@ -10,6 +10,12 @@ $(document).ready(() => {
             document.getElementById('username').innerHTML = user.displayName;
             document.getElementById('avatar').innerHTML = user.profileURL;
 
+            var path = window.location.pathname;
+            var page = path.split("/").pop();
+            console.log(page);
+        
+            $('[href="' + page + '"]').addClass("active");
+
 
 
           } else {
