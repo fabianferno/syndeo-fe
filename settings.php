@@ -75,7 +75,7 @@
                                     <small class="text-success d-none" id="message-success">Saved!</small>
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary" id="changePasswordButton">
+                                    <button type="submit" class="btn btn-dark-secondary" id="changePasswordButton">
                                         <span id="changePasswordBtnText">Save</span> 
                                         <div class="spinner-border-sm text-white d-none" id="changePasswordLoader">
                                             <span class="visually-hidden">Loading...</span>
@@ -112,7 +112,7 @@
                                     <small class="text-danger d-none" id="message-not-saved">Changes not Saved. Try again later.</small>
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary" id="saveToggleSwitchChanges" onclick="saveToggleButtonChanges()">
+                                    <button type="submit" class="btn btn-dark-secondary" id="saveToggleSwitchChanges" onclick="saveToggleButtonChanges()">
                                         <span id="ToggleSwitchBtnText">Save</span> 
                                         <div class="spinner-border-sm text-white d-none" id="ToggleSwitchLoader">
                                             <span class="visually-hidden">Loading...</span>
@@ -141,7 +141,7 @@
                             </div>
                             <p>This will Delete your account in Syndeo. </p>
                             <p id="mentor-message" class="d-none"> If you are a Mentor and you are willing to take a break from mentorship programme, simply turn off the mentorship program switch above.</p>
-                            <button class="btn btn-danger" id="deleteAccountBtn" onclick="deleteAccount()"> Delete Account</button>
+                            <button class="btn btn-danger" id="deleteAccountBtn" data-toggle="modal" data-target="#deleteModal"> Delete Account</button>
                             <p class="text-danger d-none" id="message-delete-fail">Failed to delete!</p>
                             </div>
                         </div>
@@ -150,6 +150,26 @@
             </div>
         </div>
       </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header border-white">
+                <h5 class="modal-title" id="exampleModalLabel">Are you Sure?</h5>
+                <button class="close bg-white" data-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                This cannot be undone. 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="deleteAccount()">Yes, Delete this Account</button>
+                <button type="button" class="btn btn-dark-secondary">Cancel</button>
+            </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
