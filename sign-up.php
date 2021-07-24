@@ -77,11 +77,11 @@
                                 <div class="row">
                                     <div class="col-12 col-md-4 mb-3">
                                         <label for="batch" class="form-label">Batch</label>
-                                        <select name="batch" class="form-control" id="batch"></select>
+                                        <select name="batch" class="form-select" id="batch"></select>
                                     </div>
                                     <div class="col-12 col-md-8 mb-3">
                                         <label for="department" class="form-label">Department</label>
-                                        <select name="department" class="form-control" id="department">
+                                        <select name="department" class="form-select" id="department">
                                             <option value="Computer Science and Engineering">Computer Science and Engineering</option>
                                             <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
                                             <option value="Information Technology">Information Technology</option>

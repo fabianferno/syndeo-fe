@@ -109,7 +109,7 @@ $(document).ready(() => {
               .then(() => {
                   $.ajax({
                     type: "POST",
-                    url: APIRoute + "routename",
+                    url: APIRoute + "users",
                     datatype: "html",
                     data: {
                       uid: window.uid,

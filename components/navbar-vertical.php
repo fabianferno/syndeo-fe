@@ -2,7 +2,7 @@
  <nav class="navbar-vertical navbar">
      <div class="nav-scroller">
          <!-- logo -->
-         <a class="navbar-brand m-2" href="index.php">
+         <a class="navbar-brand m-2">
              <div class="d-flex">
                  <img src="assets/images/png/logo.png" alt="" class="" />
                  <div class="row align-items-center h3 text-white mx-3">Syndeo</div>
@@ -12,7 +12,7 @@
          <!-- Navbar nav -->
          <ul class="navbar-nav flex-column" id="sideNavbar">
              <li class="nav-item">
-                 <a class="nav-link has-arrow" href="index.php">
+                 <a class="nav-link has-arrow" href="home.php">
                      <i class="fas fa-home mx-2"></i> Home
                  </a>
              </li>
