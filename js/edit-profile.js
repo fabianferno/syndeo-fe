@@ -6,8 +6,6 @@ $(document).ready(() => {
           window.user = user;
           if (user.emailVerified) {
             window.uid = user.uid;
-            document.getElementById('pageLoader').classList.add('d-none');
-            document.getElementById('pageContent').classList.remove('d-none');
 
             document.getElementById('username').innerHTML = user.displayName;
             document.getElementById('avatar').innerHTML = user.profileURL;
@@ -21,6 +19,11 @@ $(document).ready(() => {
             
             $('.bootstrap-tagsinput').addClass('form-control');
             document.getElementById('formTitle').innerHTML = localStorage.type + "'s Basic information";
+            if (localStorage.type == "mentor") {
+              document.getElementById('mentorFields').classList.remove('d-none')
+            } else {
+              document.getElementById('search-mentors-link').classList.remove('d-none')
+            }
 
             $.ajax({
                 type: "GET",
@@ -38,7 +41,11 @@ $(document).ready(() => {
                     document.getElementById('fullName').value = response.fullName;
                     // .. and so
                 },
-                error: function (error) {}
+                error: function (error) {},
+                completed: function(res) {
+                  document.getElementById('pageLoader').classList.add('d-none');
+                  document.getElementById('pageContent').classList.remove('d-none');
+                }
 
             })
 

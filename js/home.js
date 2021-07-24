@@ -13,6 +13,12 @@ $(document).ready(() => {
             var path = window.location.pathname;
             var page = path.split("/").pop();
             console.log(page);
+
+            if (localStorage.type == "mentor") {
+              
+            } else {
+              document.getElementById('search-mentors-link').classList.remove('d-none')
+            }
         
             $('[href="' + page + '"]').addClass("active");
 

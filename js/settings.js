@@ -14,6 +14,8 @@ $(document).ready(() => {
                 document.getElementById('mentor-message').classList.remove('d-none');
                 document.getElementById('profile-visibility').classList.remove('d-none');
                 document.getElementById('mentorship-switch').checked = localStorage.isActive;
+            } else {
+                document.getElementById('search-mentors-link').classList.remove('d-none')
             }
 
             var path = window.location.pathname;

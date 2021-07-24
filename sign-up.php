@@ -117,8 +117,8 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
-                                        <label for="prefContact" class="form-label">Your Contact Preference (Optional)</label>
-                                        <input type="text" id="prefContact" class="form-control" name="prefContact" placeholder="Eg. Mail, WhatsApp...">
+                                        <label for="designation" class="form-label">Designation</label>
+                                        <input type="text" id="designation" class="form-control" name="designation" placeholder="Eg. Senior Analyst" required="">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -130,6 +130,17 @@
                                         <label for="language" class="form-label">Languages Known</label>
                                         <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
                                         <input type="text" id="language" class="form-control" name="language" data-role="tagsinput" required="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-3 tagsinput"> 
+                                        <label for="areasOfInterest" class="form-label mb-0">Write down your areas of interest</label>
+                                        <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
+                                        <input type="text" id="areasOfInterest" class="form-control" data-role="tagsinput" name="areasOfInterest" required="">
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="prefContact" class="form-label">Your Contact Preference (Optional)</label>
+                                        <input type="text" id="prefContact" class="form-control" name="prefContact" placeholder="Eg. Mail, WhatsApp...">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -145,11 +156,6 @@
                                 <div class="row mb-3 mx-0">
                                     <label for="summary" class="form-label">Tell us a summary about yourself.</label>
                                     <textarea type="text" id="summary" class="form-control" name="summary" rows="5" placeholder="Do not exceed 60 words" required=""> </textarea>
-                                </div>
-                                <div class="row mb-3 mx-0 tagsinput">
-                                    <label for="areasOfInterest" class="form-label mb-0">Write down your areas of interest</label>
-                                    <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
-                                    <input type="text" id="areasOfInterest" class="form-control" data-role="tagsinput" name="areasOfInterest" required="">
                                 </div>
 
                                 <div id="mentorFields" class="d-none">

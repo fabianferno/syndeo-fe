@@ -117,10 +117,14 @@
                             </div>
                         </div>
                         <div class="row">
-                          <div class="mb-3">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="designation" class="form-label">Designation</label>
+                                <input type="text" id="designation" class="form-control" name="designation" placeholder="Eg. Senior Analyst" required="">
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
                               <label for="prefContact" class="form-label">Your Contact Preference (Optional)</label>
                               <input type="text" id="prefContact" class="form-control" name="prefContact" placeholder="Eg. Mail, WhatsApp...">
-                          </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
@@ -180,12 +184,6 @@
                                 <label for="tags" class="form-label mb-0">Tags</label>
                                 <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
                                 <input type="text" id="tags" class="form-control" data-role="tagsinput" name="tags" placeholder="" > 
-                            </div>
-                            <div class="row mb-3">
-                                <label class="form-check-label" for="agreeForMentorship">
-                                    <input type="checkbox" class="form-check-input mx-3" id="agreeForMentorship" >
-                                    Let me in the Mentorship Program
-                                </label>
                             </div>
                         </div>
                         <div class="mb-3 d-flex justify-content-end">
