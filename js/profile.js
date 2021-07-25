@@ -45,8 +45,11 @@ $(document).ready(() => {
                     document.getElementById('languages').innerHTML = response.languages;
 
 
-                    if (localStorage.type == 'student' && response.type == 'mentor')
+                    if (localStorage.type == 'student' && response.type == 'mentor') {
                         document.getElementById('askMentorshipBtn').classList.remove('d-none')
+                        document.getElementById('askMentorshipBtn').setAttribute('data-uid', response.uid)
+                    }
+                        
                     
                     if (response.type == 'mentor') {
                         document.getElementById('mentorsInfo').classList.remove('d-none');
@@ -70,8 +73,11 @@ $(document).ready(() => {
                         }
                     }
 
-                    if (localStorage.type == 'mentor' && response.type == 'student')
+                    if (localStorage.type == 'mentor' && response.type == 'student'){
+                        var allocationId = url.searchParams.get("allocationId");
                         document.getElementById('acceptMentorshipRequest').classList.remove('d-none')
+                        document.getElementById('askMentorshipBtn').getAttribute('data-allocationId', allocationId);
+                    }
 
                 },
                 error: function (error) {},
@@ -92,3 +98,30 @@ $(document).ready(() => {
       });
     
 })
+
+function acceptMentorshipRequest() {
+    var allocationId = document.getElementById('askMentorshipBtn').getAttribute('data-allocationId');
+    $.ajax({
+        type: "PUT",
+        url: APIRoute + "mentor/agree",
+        datatype: "html",
+        data: {
+            allocationId: allocationId,
+        },
+        success: function (response) {}
+    })
+}
+
+function askForMentorship() {
+    var mentorUid = document.getElementById('askMentorshipBtn').getAttribute('data-uid');
+    $.ajax({
+        type: "POST",
+        url: APIRoute + "allocations",
+        datatype: "html",
+        data: {
+            menteeUid: window.uid,
+            mentorUid: mentorUid,
+        },
+        success: function (response) {}
+    })
+}

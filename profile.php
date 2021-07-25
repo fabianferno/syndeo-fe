@@ -58,8 +58,8 @@
                 <!-- nav -->
                 <div class="d-flex justify-content-center justify-content-md-end pb-4 mx-4">
                     <a href="edit-profile.php" class="btn btn-outline-primary d-none" id="editProfileButton">Edit Profile</a>
-                    <a class="btn btn-dark-secondary d-none" id="askMentorshipBtn">Ask for mentorship</a>
-                    <a class="btn btn-dark-secondary d-none" id="acceptMentorshipRequest">Accept Mentorship Request</a>
+                    <a class="btn btn-dark-secondary d-none" id="askMentorshipBtn" onclick="askForMentorship()">Ask for mentorship</a>
+                    <a class="btn btn-dark-secondary d-none" id="acceptMentorshipRequest" onclick="acceptMentorshipRequest()">Accept Mentorship Request</a>
                   </div>
               </div>
             </div>
