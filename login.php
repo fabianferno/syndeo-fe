@@ -41,6 +41,7 @@
                   <small class="my-2 d-flex justify-content-end">
                     <a href="forget-password.php">Forgot your password?</a>
                   </small>
+                  <small class="my-2 d-flex justify-content-end" id="message-error"></small>
                 </div>
                 <div>
                   <!-- Button -->

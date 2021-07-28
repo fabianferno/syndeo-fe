@@ -18,6 +18,7 @@ $(document).ready(() => {
         document.getElementById('signInButton').setAttribute('disabled', 'disabled');
         document.getElementById('signInButtonText').classList.add('d-none');
         document.getElementById('signInButtonLoader').classList.remove('d-none');
+        document.getElementById('message-error').innerHTML = '';
 
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
@@ -28,13 +29,12 @@ $(document).ready(() => {
                 window.user = userCredential.user;
 
                 // TODO: get userType and isActive and save in localstorage
-                
                 window.location.href = "home.php";
             })
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-
+                document.getElementById('message-error').innerHTML = errorMessage;
                 console.log(errorMessage)
             });
     })

@@ -166,7 +166,7 @@
                                                 <a class="btn btn-primary btn-sm" onclick="addFields('higherStudiesGroup')"><span class="fas fa-plus text-white"></span> Add</a>
                                             </label>
                                             <div class="input-group mb-2 d-none" id="higherStudiesGroup">
-                                                <input type="text" class="form-control higherStudies" name="" placeholder="Higher Studies">
+                                                <input type="text" class="form-control" name="" placeholder="Higher Studies">
                                                 <span class="d-flex justify-content-center align-items-center bg-primary minusButton" style="width: 2em;"> <span class="fas fa-minus text-white"></span> </span>
                                             </div>
                                             <span id="higherStudiesGroupFields"></span>
@@ -176,7 +176,7 @@
                                                 <a class="btn btn-primary btn-sm" onclick="addFields('licenseAndCertsGroup')"><span class="fas fa-plus text-white"></span> Add</a>
                                             </label>
                                             <div class="input-group mb-2 d-none" id="licenseAndCertsGroup">
-                                                <input type="text" class="form-control licenseAndCerts" name="licenseAndCerts" placeholder="Licenses and Certifications">
+                                                <input type="text" class="form-control" name="licenseAndCerts" placeholder="Licenses and Certifications">
                                                 <span class="d-flex justify-content-center align-items-center bg-primary minusButton" style="width: 2em;"> <span class="fas fa-minus text-white"></span> </span>
                                             </div>
                                             <span id="licenseAndCertsGroupFields"></span>
@@ -209,15 +209,16 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
+                                    <small class="text-danger" id="message-err"></small>
                                     <small class="text-danger d-none" id="message-error">There was a problem creating your profile. Please try again later.</small>
                                     <small class="text-danger d-none" id="message-empty">One or more required fields is empty.</small>
                                     <small class="text-danger d-none" id="message-exists">An Account with this email already exists. Try <a href="login.php">Signing in</a></small>
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
-                                    <button type="submit" id="signUpButton" class="btn btn-dark-secondary">
+                                    <button type="button" id="signUpButton" class="btn btn-dark-secondary">
                                         <span id="signUpButtonText">Sign Up!</span> 
                                         <span id="signUpButtonTextSuccess" class="d-none">Done!</span> 
-                                        <div class="spinner-border-sm text-white d-none" id="signUpButtonLoader">
+                                        <div class="spinner-border text-white d-none" id="signUpButtonLoader">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
                                     </button>

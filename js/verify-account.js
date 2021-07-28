@@ -3,11 +3,14 @@ $(document).ready(() => {
         if (user) {
             window.user = user;
             if (user.emailVerified) window.location.href = "home.php";
+            else {
+                document.getElementById('pageLoader').classList.add('d-none');
+                document.getElementById('pageContent').classList.remove('d-none');
+            }
 
         } else {
             // signed out
-            document.getElementById('pageLoader').classList.add('d-none');
-            document.getElementById('pageContent').classList.remove('d-none');
+            window.location.href = "index.php"
         }
     });
 });

@@ -2,8 +2,7 @@
 
 $(document).ready(() => {
 
-  var photoURL = userAppUrl + "assets/images/png/avatar.jpg"
-
+  var photoURL = "https://i.ibb.co/R3hT89r/avatar.png";
    // Generate dropdown values for batch
     var yearStarted = 2010;
     var currentYear = (new Date()).getFullYear();
@@ -35,34 +34,22 @@ $(document).ready(() => {
     })
 
     $(".uploadProfileInput").on("change", function () {
-        var triggerInput = this;
-        var currentImg = $(this).closest(".pic-holder").find(".pic").attr("src");
         var holder = $(this).closest(".pic-holder");
         var wrapper = $(this).closest(".profile-pic-wrapper");
         $(wrapper).find('[role="alert"]').remove();
-        var files = !!this.files ? this.files : [];
+        files = !!this.files ? this.files : [];
         if (!files.length || !window.FileReader) {
           return;
         }
         if (/^image/.test(files[0].type)) {
           // only image file
+          window.file = files[0]
           var reader = new FileReader(); // instance of the FileReader
           reader.readAsDataURL(files[0]); // read the local file
       
           reader.onloadend = function () {
-            $(holder).addClass("uploadInProgress");
             $(holder).find(".pic").attr("src", this.result);
-            $(holder).append(
-              '<div class="upload-loader"><div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div></div>'
-            );
-      
-            // call API or AJAX below to upload this image
-            setTimeout(() => {
-              $(holder).removeClass("uploadInProgress");
-              $(holder).find(".upload-loader").remove();
-              
-              photoURL = "" // Update Photo URL after upolading the image
-            }, 1500);
+            photoURL = this.result;
           };
         }
       });
@@ -81,7 +68,6 @@ $(document).ready(() => {
         var password = document.getElementById('password').value.trim();
         var confirmPassword = document.getElementById('reTypePassword').value.trim();
         var type = $('input[name="roleRadio"]').val();
-        var isActive;
 
         var validDomain = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(licet.ac.in)$/;  
 
@@ -91,7 +77,7 @@ $(document).ready(() => {
               document.getElementById('email').classList.add('is-invalid');
               document.getElementById('invalidEmail').classList.remove('d-none');
               showSubmitButton();
-              return;
+              return false;
             }
 
             firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -100,24 +86,90 @@ $(document).ready(() => {
               window.user = userCredential.user;
               window.uid = userCredential.user.uid;
 
-              if (type == "mentor") {
-                 isActive = document.getElementById('agreeForMentorship').checked;
-              }
               var gender = $('input[name="genderRadio"]').val();
-              // get all values
+              var batch = document.getElementById('batch').value;
+              var department = document.getElementById('department').value;
+              var dob = document.getElementById('dob').value;
+              var phone = document.getElementById('phone').value;
+              var designation = document.getElementById('designation').value;
+              var country = document.getElementById('country').value;
+              var language = document.getElementById('language').value;
+              var areasOfInterest = document.getElementById('areasOfInterest').value;
+              var summary = document.getElementById('summary').value;
 
-              user.updateProfile({
-                displayName: fullName,
-                photoURL: photoURL
+              var prefContact = document.getElementById('prefContact').value;
+              prefContact = (prefContact != '') ? prefContact : null;
+
+              var linkedIn = document.getElementById('linkedIn').value;
+              linkedIn = (linkedIn != '') ? linkedIn : null;
+
+              var resumeLink = document.getElementById('resumeLink').value;
+              resumeLink = (resumeLink != '') ? resumeLink : null;
+
+      // ------------------------ MENTOR's FIELDS -----------------------------
+
+              let higherStudies = [];
+              Array.from(document.getElementsByClassName('higherStudies')).forEach(field => {
+                if (field.value != '')
+                  higherStudies.push(field.value);
               })
-              .then(() => {
+              higherStudies.length == 0 ? null : higherStudies.join(',');
+
+
+              let licenseAndCerts = [];
+              Array.from(document.getElementsByClassName('licenseAndCerts')).forEach(field => {
+                if (field.value != '')  
+                  licenseAndCerts.push(field.value);
+              })
+              licenseAndCerts.length == 0 ? null : licenseAndCerts.join(',');
+
+
+              var tags = document.getElementById('tags').value;
+              let _tags = tags.split(',')
+              _tags.forEach( tag => tag.trim() )
+              tags = _tags.length != 0 ? _tags.join(",") : null;
+
+              var isActive = document.getElementById('agreeForMentorship').checked ? 1 : 0;
+
+
+      // ------------------------ MENTOR's FIELDS -----------------------------
+
+              uploadImage(photoURL)
+              .then((res) => {
+                photoURL = res.data.url;
+                console.log(res.data.delete_url)
+                user.updateProfile({
+                  displayName: fullName,
+                  photoURL: res.data.url
+                })
+                .then(() => {
                   $.ajax({
                     type: "POST",
                     url: APIRoute + "users",
                     datatype: "html",
                     data: {
                       uid: window.uid,
-                      // .. 
+                      fullName: fullName,
+                      email: email,
+                      gender: gender,
+                      dateOfBirth: dob,
+                      mobile: phone,
+                      batch: batch,
+                      department: department,
+                      isMentor: (type == "mentor") ? 1 : 0,
+                      designation: designation,
+                      linkedInURL: linkedIn,
+                      contactPref: prefContact,
+                      languages: language,
+                      resumeLink: resumeLink,
+                      areasOfInterest: areasOfInterest,
+                      higherEd: higherStudies,
+                      licensesAndCerts: licenseAndCerts,
+                      tags: tags,
+                      profileURL: res.data.url,
+                      summary: summary,
+                      country: country,
+                      isActive: isActive,
                   },
                   success: function(response) {
                     if (response == "success") {
@@ -145,21 +197,31 @@ $(document).ready(() => {
                     }
                     
                   },
-                  error: (error) =>{
-                    console.log(error);
-                    document.getElementById('message-error').classList.remove('d-none');
-                    showSubmitButton();
-                  },
+                    error: (error) =>{
+                      console.log(error);
+                      document.getElementById('message-error').classList.remove('d-none');
+                      showSubmitButton();
+                    },
+                  })
                 })
+              }).catch((error) => {
+                console.log(error)
+                console.log('img upload failed')
+                showSubmitButton();
               })
-              
               
             })
             .catch((error) => {
+              console.log(error)
               var errorCode = error.code;
               var errorMessage = error.message;
-              document.getElementById('message-error').innerHTML = errorMessage;
-            });
+              if (errorCode == "auth/email-already-in-use")
+                  document.getElementById('message-exists').classList.remove('d-none');
+              else
+                  document.getElementById('message-err').innerHTML = errorMessage;
+              showSubmitButton();
+            })
+            
           } else {
             document.getElementById('reTypePassword').classList.add('is-invalid');
             document.getElementById('incorrectPassword').classList.remove('d-none');
@@ -173,6 +235,29 @@ $(document).ready(() => {
     });
 })
 
+function uploadImage(photoURL) {
+  return new Promise((resolve, reject) => {
+      // Upload image in imgBB
+      $.ajax({
+        type: "POST",
+        url: "https://api.imgbb.com/1/upload",
+        datatype: "html",
+        data: {
+          key: "b94ccad1f31df8111248bdf621675911",
+          image: photoURL,
+        },
+        success: (res) => {
+          console.log(res)
+          resolve(res)
+        },
+        error: (error) => {
+          console.log(error)
+          reject(error)
+        }
+      })
+  })                
+}
+
 function addFields(id) {
   var inputField = document.getElementById(id).cloneNode(true);
   var parentElement = document.getElementById(id+'Fields')
@@ -180,6 +265,7 @@ function addFields(id) {
 
   inputField.id = newId;
   inputField.classList.remove('d-none');
+  inputField.firstChild.nextSibling.classList.add(id.replace('Group', ''));
 
   parentElement.appendChild(inputField);
   inputField.lastChild.previousSibling.setAttribute('onclick', 'removeFields("'+newId+'")')
@@ -197,6 +283,7 @@ function resetForm() {
   document.getElementById('message-exists').classList.add('d-none');
   document.getElementById('message-empty').classList.add('d-none');
   document.getElementById('incorrectPassword').classList.add('d-none');
+  document.getElementById('message-err').innerHTML = '';
 }
 
 function validateForm() {
