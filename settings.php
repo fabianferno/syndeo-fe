@@ -77,7 +77,7 @@
                                 <div class="mb-3 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-dark-secondary" id="changePasswordButton">
                                         <span id="changePasswordBtnText">Save</span> 
-                                        <div class="spinner-border-sm text-white d-none" id="changePasswordLoader">
+                                        <div class="spinner-border spinner-border-sm text-white d-none" id="changePasswordLoader">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
                                     </button>
@@ -114,7 +114,7 @@
                                 <div class="mb-3 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-dark-secondary" id="saveToggleSwitchChanges" onclick="saveToggleButtonChanges()">
                                         <span id="ToggleSwitchBtnText">Save</span> 
-                                        <div class="spinner-border-sm text-white d-none" id="ToggleSwitchLoader">
+                                        <div class="spinner-border spinner-border-sm text-white d-none" id="ToggleSwitchLoader">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
                                     </button>

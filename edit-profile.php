@@ -194,7 +194,7 @@
                         <div class="mb-3 d-flex justify-content-end">
                             <button type="submit" id="editProfileButton" class="btn btn-dark-secondary">
                                 <span id="editProfileButtonText">Save Changes</span> 
-                                <div class="spinner-border-sm text-white d-none" id="editProfileButtonLoader">
+                                <div class="spinner-border spinner-border-sm text-white d-none" id="editProfileButtonLoader">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
                             </button>

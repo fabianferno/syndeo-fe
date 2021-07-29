@@ -218,7 +218,7 @@
                                     <button type="button" id="signUpButton" class="btn btn-dark-secondary">
                                         <span id="signUpButtonText">Sign Up!</span> 
                                         <span id="signUpButtonTextSuccess" class="d-none">Done!</span> 
-                                        <div class="spinner-border text-white d-none" id="signUpButtonLoader">
+                                        <div class="spinner-border spinner-border-sm text-white d-none" id="signUpButtonLoader">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
                                     </button>

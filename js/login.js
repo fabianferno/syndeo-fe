@@ -36,6 +36,9 @@ $(document).ready(() => {
                 var errorMessage = error.message;
                 document.getElementById('message-error').innerHTML = errorMessage;
                 console.log(errorMessage)
+                document.getElementById('signInButton').removeAttribute('disabled');
+                document.getElementById('signInButtonText').classList.remove('d-none');
+                document.getElementById('signInButtonLoader').classList.add('d-none');
             });
     })
 
