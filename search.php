@@ -65,6 +65,10 @@
                           <img src="assets/images/create-profile/enter-role.svg" class="rounded mx-auto d-block">
                       </div>
 
+                      <div id="message-error" class="text-danger d-flex justify-content-center d-none">
+                          <p>There was an error while Searching profiles. Please try again later.</p>
+                      </div>
+
                       <div class="card border-grey mx-3" id="results">
                         <div class="table-responsive">
                           <table class="table text-nowrap">

@@ -22,7 +22,7 @@ $(document).ready(() => {
         
             $('[href="' + page + '"]').addClass("active");
 
-            document.getElementById('search').onsubmit((e) => {
+            document.getElementById('search').addEventListener('submit', (e) => {
                 e.preventDefault();
                 search();
             })
