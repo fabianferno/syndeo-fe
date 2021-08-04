@@ -69,26 +69,11 @@
                           <p>There was an error while Searching profiles. Please try again later.</p>
                       </div>
 
-                      <div class="card border-grey mx-3" id="results">
+                      <div class="card border-grey mx-3">
                         <div class="table-responsive">
                           <table class="table text-nowrap">
-                            <tbody id="rowsHolder">
-                              <tr id="sampleRow" class="">
-                                <td class="align-middle">
-                                  <div class="d-flex align-items-center">
-                                    <div>
-                                      <img src="" alt="" class="avatar-md avatar rounded-circle profilePic">
-                                    </div>
-                                    <div class="ms-3 lh-1">
-                                      <h5 class="fw-bold mb-1 fullName">Hello World</h5>
-                                      <p class="mb-0 designation">Designation</p>
-                                    </div>
-                                  </div>
-                                </td>
-                                <td class="align-middle">
-                                  <p class="my-auto"><span class="fas fa-map-marker-alt"></span> <span class="country"> India</span></p>
-                                </td>
-                              </tr>
+                            <tbody id="resultsHolder">
+                            </tbody>
                           </table>
                         </div>
                       </div>
@@ -96,7 +81,7 @@
                   </div>
                   
                   <!-- card footer  -->
-                  <div class="card-footer bg-white border-white text-center result">
+                  <!-- <div class="card-footer bg-white border-white text-center result">
                     <ul class="pagination justify-content-center">
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -112,7 +97,7 @@
                         </a>
                       </li>
                     </ul>
-                  </div>
+                  </div> -->
                 </div>
 
               </div>

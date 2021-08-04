@@ -58,7 +58,9 @@ function search() {
     } else if (response == "no-results") {
 
     } else {
-
+      for (var i = 0; i < response.length; i++) {
+        document.getElementById('resultsHolder').appendChild(getChildElement(fullName, Designation, Country))
+      }
     }
     
   },
@@ -67,4 +69,33 @@ function search() {
       document.getElementById('message-error').classList.remove('d-none');
     },
   })
+}
+
+
+function getChildElement(fullName, Designation, Country) {
+  var tr = document.createElement('tr');
+
+  var profile = document.createElement('td');
+  var country = document.createElement('td');
+
+  country.classList.add('align-middle');
+  profile.classList.add('align-middle','d-flex','align-items-center','ms-3','lh-1');
+
+  var name = document.createElement('h5')
+  name.classList.add('fw-bold','mb-1')
+  name.innerHTML = fullName;
+  var designation = document.createElement('p')
+  designation.classList.add('mb-0');
+  designation.innerHTML = Designation;
+  var countryText = document.createElement('p')
+  countryText.classList.add('my-auto');
+  countryText.innerHTML = "<span class='fas fa-map-marker-alt'></span> " + Country;
+
+  profile.appendChild(name)
+  profile.appendChild(designation)
+  country.appendChild(countryText)
+  tr.appendChild(profile);
+  tr.appendChild(country);
+
+  return tr;
 }
