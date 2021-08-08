@@ -2,209 +2,209 @@
 
 $(document).ready(() => {
 
-   // Generate dropdown values for batch
-    var yearStarted = 2010;
-    var currentYear = (new Date()).getFullYear();
-    var years = currentYear-yearStarted;
-    for (var i = 0; i < years; i++) {
-      if (i == years-1 && ((new Date()).getMonth() < 6))
-          break;
-      var string = (yearStarted+i) + '-' + (yearStarted+i + 4);
+  // Generate dropdown values for batch
+  var yearStarted = 2010;
+  var currentYear = (new Date()).getFullYear();
+  var years = currentYear - yearStarted;
+  for (var i = 0; i < years; i++) {
+    if (i == years - 1 && ((new Date()).getMonth() < 6))
+      break;
+    var string = (yearStarted + i) + '-' + (yearStarted + i + 4);
 
-      var ele = document.createElement('option');
-      ele.value = string;
-      ele.innerHTML = string;
+    var ele = document.createElement('option');
+    ele.value = string;
+    ele.innerHTML = string;
 
-      document.getElementById('batch').appendChild(ele)
+    document.getElementById('batch').appendChild(ele)
+  }
+
+  document.getElementById('pageLoader').classList.add('d-none');
+  document.getElementById('pageContent').classList.remove('d-none');
+
+  $('.bootstrap-tagsinput').addClass('form-control');
+
+  // Show and hide mentor text fields
+  $('input[name="roleRadio"]').on('change', (e) => {
+    if (e.target.value == "mentor")
+      $('#mentorFields').removeClass('d-none');
+    else
+      $('#mentorFields').addClass('d-none');
+
+  })
+
+  $(".uploadProfileInput").on("change", function () {
+    var holder = $(this).closest(".pic-holder");
+    var wrapper = $(this).closest(".profile-pic-wrapper");
+    $(wrapper).find('[role="alert"]').remove();
+    files = !!this.files ? this.files : [];
+    if (!files.length || !window.FileReader) {
+      return;
     }
-    
-    document.getElementById('pageLoader').classList.add('d-none');
-    document.getElementById('pageContent').classList.remove('d-none');
-    
-    $('.bootstrap-tagsinput').addClass('form-control');
+    if (/^image/.test(files[0].type)) {
+      // only image file
+      window.file = files[0]
+      var reader = new FileReader(); // instance of the FileReader
+      reader.readAsDataURL(files[0]); // read the local file
 
-    // Show and hide mentor text fields
-    $('input[name="roleRadio"]').on('change', (e) => {
-      if (e.target.value == "mentor") 
-        $('#mentorFields').removeClass('d-none');
-      else
-        $('#mentorFields').addClass('d-none');
+      reader.onloadend = function () {
+        $(holder).find(".pic").attr("src", this.result);
+      };
+    }
+  });
 
-    })
 
-    $(".uploadProfileInput").on("change", function () {
-        var holder = $(this).closest(".pic-holder");
-        var wrapper = $(this).closest(".profile-pic-wrapper");
-        $(wrapper).find('[role="alert"]').remove();
-        files = !!this.files ? this.files : [];
-        if (!files.length || !window.FileReader) {
-          return;
+  // Submit
+  document.getElementById('signUpButton').addEventListener('click', () => {
+
+    document.getElementById('signUpButton').setAttribute('disabled', 'disabled');
+    document.getElementById('signUpButtonText').classList.add('d-none');
+    document.getElementById('signUpButtonLoader').classList.remove('d-none');
+    resetForm();
+
+    var password = document.getElementById('password').value.trim();
+    var confirmPassword = document.getElementById('reTypePassword').value.trim();
+    var type = $('input[name="roleRadio"]').val();
+
+    var validDomain = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(licet.ac.in)$/;
+
+    if (validateForm()) {
+      if (password === confirmPassword) {
+        if (type == "student" && !(email.toLowerCase().match(validDomain))) {
+          document.getElementById('email').classList.add('is-invalid');
+          document.getElementById('invalidEmail').classList.remove('d-none');
+          showSubmitButton();
+          return false;
         }
-        if (/^image/.test(files[0].type)) {
-          // only image file
-          window.file = files[0]
-          var reader = new FileReader(); // instance of the FileReader
-          reader.readAsDataURL(files[0]); // read the local file
-      
-          reader.onloadend = function () {
-            $(holder).find(".pic").attr("src", this.result);
-          };
-        }
-      });
+
+        var prefContact = document.getElementById('prefContact').value;
+        prefContact = (prefContact != '') ? prefContact : null;
+
+        var linkedIn = document.getElementById('linkedIn').value;
+        linkedIn = (linkedIn != '') ? linkedIn : null;
+
+        var resumeLink = document.getElementById('resumeLink').value;
+        resumeLink = (resumeLink != '') ? resumeLink : null;
+
+        // ------------------------ MENTOR's FIELDS -----------------------------
+
+        let higherStudies = [];
+        Array.from(document.getElementsByClassName('higherStudies')).forEach(field => {
+          if (field.value != '')
+            higherStudies.push(field.value);
+        })
+        higherStudies.length == 0 ? null : higherStudies.join(',');
 
 
-    // Submit
-    document.getElementById('signUpButton').addEventListener('click', () => {
+        let licenseAndCerts = [];
+        Array.from(document.getElementsByClassName('licenseAndCerts')).forEach(field => {
+          if (field.value != '')
+            licenseAndCerts.push(field.value);
+        })
+        licenseAndCerts.length == 0 ? null : licenseAndCerts.join(',');
 
-        document.getElementById('signUpButton').setAttribute('disabled', 'disabled');
-        document.getElementById('signUpButtonText').classList.add('d-none');
-        document.getElementById('signUpButtonLoader').classList.remove('d-none');
-        resetForm();
 
-        var password = document.getElementById('password').value.trim();
-        var confirmPassword = document.getElementById('reTypePassword').value.trim();
-        var type = $('input[name="roleRadio"]').val();
+        var tags = document.getElementById('tags').value;
+        let _tags = tags.split(',')
+        _tags.forEach(tag => tag.trim())
+        tags = _tags.length != 0 ? _tags.join(",") : null;
 
-        var validDomain = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(licet.ac.in)$/;  
+        var isActive = document.getElementById('agreeForMentorship').checked ? 1 : 0;
 
-        if (validateForm()) {
-          if (password === confirmPassword) {
-            if (type == "student" && !(email.toLowerCase().match(validDomain))) {
-              document.getElementById('email').classList.add('is-invalid');
-              document.getElementById('invalidEmail').classList.remove('d-none');
+
+        // ------------------------ MENTOR's FIELDS -----------------------------
+        var formdata = new FormData();
+        formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
+        formdata.append("fullName", document.getElementById('fullName').value);
+        formdata.append("email", document.getElementById('email').value.trim());
+        formdata.append("gender", $('input[name="genderRadio"]').val());
+        formdata.append("dateOfBirth", document.getElementById('dob').value);
+        formdata.append("mobile", document.getElementById('phone').value);
+        formdata.append("batch", document.getElementById('batch').value);
+        formdata.append("department", document.getElementById('department').value);
+        formdata.append("designation", document.getElementById('designation').value);
+        formdata.append("languages", document.getElementById('language').value);
+        formdata.append("areasOfInterest", document.getElementById('areasOfInterest').value);
+        formdata.append("country", document.getElementById('country').value);
+        formdata.append("summary", document.getElementById('summary').value);
+        formdata.append("isMentor", (type == "mentor") ? 1 : 0);
+        formdata.append("linkedInURL", linkedIn);
+        formdata.append("contactPref", prefContact);
+        formdata.append("resumeLink", resumeLink);
+        formdata.append("higherEd", higherStudies);
+        formdata.append("licensesAndCerts", licenseAndCerts);
+        formdata.append("tags", tags);
+        formdata.append("isActive", isActive);
+        formdata.append("password", password);
+
+        $.ajax({
+          type: "POST",
+          url: APIRoute + "users",
+          datatype: "html",
+          data: formdata,
+
+          success: function (response) {
+            if (response == "success") {
+
+              localStorage.type = type;
+              localStorage.isActive = isActive;
+              document.getElementById('signUpButtonLoader').classList.add('d-none');
+              document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
+
+              window.user
+                .sendEmailVerification()
+                .then(function () {
+                  window.location.href = "verify-account.php";
+                })
+                .catch(function (error) {
+                  // An error happened.
+                });
+
+            } else if (response == "exists") {
+              document.getElementById('message-exists').classList.remove('d-none');
               showSubmitButton();
-              return false;
+            } else {
+              document.getElementById('message-error').classList.remove('d-none');
+              showSubmitButton();
             }
 
-              var prefContact = document.getElementById('prefContact').value;
-              prefContact = (prefContact != '') ? prefContact : null;
-
-              var linkedIn = document.getElementById('linkedIn').value;
-              linkedIn = (linkedIn != '') ? linkedIn : null;
-
-              var resumeLink = document.getElementById('resumeLink').value;
-              resumeLink = (resumeLink != '') ? resumeLink : null;
-
-      // ------------------------ MENTOR's FIELDS -----------------------------
-
-              let higherStudies = [];
-              Array.from(document.getElementsByClassName('higherStudies')).forEach(field => {
-                if (field.value != '')
-                  higherStudies.push(field.value);
-              })
-              higherStudies.length == 0 ? null : higherStudies.join(',');
-
-
-              let licenseAndCerts = [];
-              Array.from(document.getElementsByClassName('licenseAndCerts')).forEach(field => {
-                if (field.value != '')  
-                  licenseAndCerts.push(field.value);
-              })
-              licenseAndCerts.length == 0 ? null : licenseAndCerts.join(',');
-
-
-              var tags = document.getElementById('tags').value;
-              let _tags = tags.split(',')
-              _tags.forEach( tag => tag.trim() )
-              tags = _tags.length != 0 ? _tags.join(",") : null;
-
-              var isActive = document.getElementById('agreeForMentorship').checked ? 1 : 0;
-
-
-      // ------------------------ MENTOR's FIELDS -----------------------------
-              var formdata = new FormData();
-              formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
-              formdata.append("fullName", document.getElementById('fullName').value);
-              formdata.append("email", document.getElementById('email').value.trim());
-              formdata.append("gender", $('input[name="genderRadio"]').val());
-              formdata.append("dateOfBirth", document.getElementById('dob').value);
-              formdata.append("mobile", document.getElementById('phone').value);
-              formdata.append("batch", document.getElementById('batch').value);
-              formdata.append("department", document.getElementById('department').value);
-              formdata.append("designation", document.getElementById('designation').value);
-              formdata.append("languages", document.getElementById('language').value);
-              formdata.append("areasOfInterest", document.getElementById('areasOfInterest').value);
-              formdata.append("country", document.getElementById('country').value);
-              formdata.append("summary", document.getElementById('summary').value);
-              formdata.append("isMentor", (type == "mentor") ? 1 : 0);
-              formdata.append("linkedInURL", linkedIn);
-              formdata.append("contactPref", prefContact);
-              formdata.append("resumeLink", resumeLink);
-              formdata.append("higherEd", higherStudies);
-              formdata.append("licensesAndCerts", licenseAndCerts);
-              formdata.append("tags", tags);
-              formdata.append("isActive", isActive);
-              formdata.append("password", password);
-              
-                  $.ajax({
-                    type: "POST",
-                    url: APIRoute + "users",
-                    datatype: "html",
-                    data: formdata,
-
-                  success: function(response) {
-                    if (response == "success") {
-
-                      localStorage.type = type;
-                      localStorage.isActive = isActive;
-                      document.getElementById('signUpButtonLoader').classList.add('d-none');
-                      document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
-
-                      window.user
-                      .sendEmailVerification()
-                      .then(function () {
-                        window.location.href = "verify-account.php";
-                      })
-                      .catch(function (error) {
-                        // An error happened.
-                      });
-
-                    } else if (response == "exists") {
-                      document.getElementById('message-exists').classList.remove('d-none');
-                      showSubmitButton();
-                    } else {
-                      document.getElementById('message-error').classList.remove('d-none');
-                      showSubmitButton();
-                    }
-                    
-                  },
-                    error: (error) =>{
-                      console.log(error);
-                      document.getElementById('message-error').classList.remove('d-none');
-                      showSubmitButton();
-                    },
-                  })
-              
-            
-          } else {
-            document.getElementById('reTypePassword').classList.add('is-invalid');
-            document.getElementById('incorrectPassword').classList.remove('d-none');
+          },
+          error: (error) => {
+            console.log(error);
+            document.getElementById('message-error').classList.remove('d-none');
             showSubmitButton();
-          }
-        } else {
-          showSubmitButton();
-          document.getElementById('message-empty').classList.remove('d-none');
-        }
+          },
+        })
 
-    });
+
+      } else {
+        document.getElementById('reTypePassword').classList.add('is-invalid');
+        document.getElementById('incorrectPassword').classList.remove('d-none');
+        showSubmitButton();
+      }
+    } else {
+      showSubmitButton();
+      document.getElementById('message-empty').classList.remove('d-none');
+    }
+
+  });
 })
 
 
 function addFields(id) {
   var inputField = document.getElementById(id).cloneNode(true);
-  var parentElement = document.getElementById(id+'Fields')
-  var newId = id + '-' + (parseInt(parentElement.childNodes.length) +1)
+  var parentElement = document.getElementById(id + 'Fields')
+  var newId = id + '-' + (parseInt(parentElement.childNodes.length) + 1)
 
   inputField.id = newId;
   inputField.classList.remove('d-none');
   inputField.firstChild.nextSibling.classList.add(id.replace('Group', ''));
 
   parentElement.appendChild(inputField);
-  inputField.lastChild.previousSibling.setAttribute('onclick', 'removeFields("'+newId+'")')
+  inputField.lastChild.previousSibling.setAttribute('onclick', 'removeFields("' + newId + '")')
 }
 
 function removeFields(id) {
-  $('#'+id).remove();
+  $('#' + id).remove();
 }
 
 
@@ -221,9 +221,9 @@ function resetForm() {
 function validateForm() {
   var flag = true;
   document.querySelectorAll('input[required=""]').forEach((element) => {
-    if( element.value == "") {
-        element.classList.add('is-invalid')
-        flag = false;
+    if (element.value == "") {
+      element.classList.add('is-invalid')
+      flag = false;
     }
   })
   return flag;

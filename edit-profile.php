@@ -79,11 +79,11 @@
                                     <div class="d-flex justify-content-around">
                                         <label for="gender" class="form-label">Gender</label>
                                         <label class="form-check-label" for="genderMale">
-                                            <input type="radio" class="form-check-input" id="genderMale" name="genderRadio">
+                                            <input type="radio" class="form-check-input" id="genderMale" name="genderRadio" value="M">
                                             Male
                                         </label>
                                         <label class="form-check-label" for="genderFemale"> 
-                                            <input type="radio" class="form-check-input" id="genderFemale" name="genderRadio" checked>
+                                            <input type="radio" class="form-check-input" id="genderFemale" name="genderRadio" value="F" checked>
                                             Female
                                         </label>
                                     </div>
