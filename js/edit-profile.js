@@ -1,5 +1,4 @@
 $(document).ready(() => {
-    var photoURL;
 
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -31,8 +30,9 @@ $(document).ready(() => {
                 datatype: "html",
                 
                 success: function (response) {
-                    localStorage.type = response.type;
-                    if ( response.type == "mentor") {
+                    localStorage.type = response.isMentor == 1 ? "mentor" : "student";
+                    window.profilePic = response.profilePic;
+                    if ( response.isMentor == 1) {
                         document.getElementById('mentorFields').classList.remove('d-none');
                     }
                     document.getElementById('profilePic').src = user.profileURL;
@@ -77,34 +77,21 @@ $(document).ready(() => {
       }
     
       $(".uploadProfileInput").on("change", function () {
-        var triggerInput = this;
-        var currentImg = $(this).closest(".pic-holder").find(".pic").attr("src");
         var holder = $(this).closest(".pic-holder");
         var wrapper = $(this).closest(".profile-pic-wrapper");
         $(wrapper).find('[role="alert"]').remove();
-        var files = !!this.files ? this.files : [];
+        files = !!this.files ? this.files : [];
         if (!files.length || !window.FileReader) {
           return;
         }
         if (/^image/.test(files[0].type)) {
           // only image file
+          window.file = files[0]
           var reader = new FileReader(); // instance of the FileReader
           reader.readAsDataURL(files[0]); // read the local file
       
           reader.onloadend = function () {
-            $(holder).addClass("uploadInProgress");
             $(holder).find(".pic").attr("src", this.result);
-            $(holder).append(
-              '<div class="upload-loader"><div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div></div>'
-            );
-      
-            // call API or AJAX below to upload this image
-            setTimeout(() => {
-              $(holder).removeClass("uploadInProgress");
-              $(holder).find(".upload-loader").remove();
-              
-              photoURL = "" // Update Photo URL after upolading the image
-            }, 1500);
           };
         }
       });
@@ -118,48 +105,96 @@ $(document).ready(() => {
         document.getElementById('editProfileButtonLoader').classList.remove('d-none');
         resetForm();
 
-        var fullName = document.getElementById('fullName').value;
-        var gender = $('input[name="genderRadio"]').val();
-        // get all values
+        var prefContact = document.getElementById('prefContact').value;
+        prefContact = (prefContact != '') ? prefContact : null;
 
+        var linkedIn = document.getElementById('linkedIn').value;
+        linkedIn = (linkedIn != '') ? linkedIn : null;
+
+        var resumeLink = document.getElementById('resumeLink').value;
+        resumeLink = (resumeLink != '') ? resumeLink : null;
+
+// ------------------------ MENTOR's FIELDS -----------------------------
+
+        let higherStudies = [];
+        Array.from(document.getElementsByClassName('higherStudies')).forEach(field => {
+          if (field.value != '')
+            higherStudies.push(field.value);
+        })
+        higherStudies.length == 0 ? null : higherStudies.join(',');
+
+
+        let licenseAndCerts = [];
+        Array.from(document.getElementsByClassName('licenseAndCerts')).forEach(field => {
+          if (field.value != '')  
+            licenseAndCerts.push(field.value);
+        })
+        licenseAndCerts.length == 0 ? null : licenseAndCerts.join(',');
+
+
+        var tags = document.getElementById('tags').value;
+        let _tags = tags.split(',')
+        _tags.forEach( tag => tag.trim() )
+        tags = _tags.length != 0 ? _tags.join(",") : null;
+
+        var isActive = document.getElementById('agreeForMentorship').checked ? 1 : 0;
+
+
+// ------------------------ MENTOR's FIELDS -----------------------------
 
         if (validateForm()) {
+            var formdata = new FormData();
+            if (!!$('.uploadProfileInput').get(0).files[0])
+                formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
+            else 
+                formdata.append("profilePic", window.profilePic)
+            formdata.append("fullName", document.getElementById('fullName').value);
+            formdata.append("email", document.getElementById('email').value.trim());
+            formdata.append("uid", window.uid);
+            formdata.append("gender", $('input[name="genderRadio"]').val());
+            formdata.append("dateOfBirth", document.getElementById('dob').value);
+            formdata.append("mobile", document.getElementById('phone').value);
+            formdata.append("batch", document.getElementById('batch').value);
+            formdata.append("department", document.getElementById('department').value);
+            formdata.append("designation", document.getElementById('designation').value);
+            formdata.append("languages", document.getElementById('language').value);
+            formdata.append("areasOfInterest", document.getElementById('areasOfInterest').value);
+            formdata.append("country", document.getElementById('country').value);
+            formdata.append("summary", document.getElementById('summary').value);
+            formdata.append("isMentor", (localStorage.type == "mentor") ? 1 : 0);
+            formdata.append("linkedInURL", linkedIn);
+            formdata.append("contactPref", prefContact);
+            formdata.append("resumeLink", resumeLink);
+            formdata.append("higherEd", higherStudies);
+            formdata.append("licensesAndCerts", licenseAndCerts);
+            formdata.append("tags", tags);
+            formdata.append("isActive", isActive);
 
-              user.updateProfile({
-                displayName: fullName,
-                photoURL: photoURL
-              })
-              .then(() => {
-                  $.ajax({
-                    type: "PUT",
-                    url: APIRoute + "users",
-                    datatype: "html",
-                    data: {
-                      uid: window.uid,
-                      // .. 
-                  },
-                  success: function(response) {
-                    if (response == "success") {
+            $.ajax({
+              type: "PUT",
+              url: APIRoute + "users",
+              datatype: "html",
+              data: formdata,
 
-                      localStorage.type = type;
-                      showSubmitButton();
-                      document.getElementById('message-success').classList.remove('d-none');
-                      window.location.href = "profile.php";
+            success: function(response) {
+              if (response == "success") {
+                showSubmitButton();
+                document.getElementById('message-success').classList.remove('d-none');
+                window.location.href = "profile.php";
 
 
-                    } else {
-                      document.getElementById('message-error').classList.remove('d-none');
-                      showSubmitButton();
-                    }
-                    
-                  },
-                  error: (error) =>{
-                    console.log(error);
-                    document.getElementById('message-error').classList.remove('d-none');
-                    showSubmitButton();
-                  },
-                })
-              })
+              } else {
+                document.getElementById('message-error').classList.remove('d-none');
+                showSubmitButton();
+              }
+              
+            },
+            error: (error) =>{
+              console.log(error);
+              document.getElementById('message-error').classList.remove('d-none');
+              showSubmitButton();
+            },
+          })
               
         } else {
           showSubmitButton();
