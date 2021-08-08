@@ -134,6 +134,7 @@ $(document).ready(() => {
               formdata.append("licensesAndCerts", licenseAndCerts);
               formdata.append("tags", tags);
               formdata.append("isActive", isActive);
+              formdata.append("password", password);
               
                   $.ajax({
                     type: "POST",
