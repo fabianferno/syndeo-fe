@@ -31,7 +31,6 @@ $(document).ready(() => {
 
           success: function (response) {
             localStorage.type = response.isMentor == 1 ? "mentor" : "student";
-            window.profilePic = response.profilePic;
             if (response.isMentor == 1) {
               document.getElementById('mentorFields').classList.remove('d-none');
             }
@@ -59,10 +58,15 @@ $(document).ready(() => {
             document.getElementById('areasOfInterest').value = response.areasOfInterest;
 
             //Mentor Fields
-            document.getElementById('higherStudiesGroup').value = response.higherStudiesGroup;
-            document.getElementById('licenseAndCertsGroup').value = response.licenseAndCertsGroup;
+            response.higherEd.split(',').forEach((higherStudies, i) => {
+              addFields('higherStudiesGroup');
+              $('#higherStudiesGroup'+i).find('.higherStudies').val(higherStudies)
+            });
+            response.licensesAndCerts.split(',').forEach((higherStudies, i) => {
+              addFields('licenseAndCertsGroup');
+              $('#licenseAndCertsGroup'+i).find('.licenseAndCerts').val(higherStudies)
+            });
 
-            // .. and so
           },
           error: function (error) { },
           completed: function (res) {
@@ -170,7 +174,7 @@ $(document).ready(() => {
       if (!!$('.uploadProfileInput').get(0).files[0])
         formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
       else
-        formdata.append("profilePic", window.profilePic)
+        formdata.append("profilePic", document.getElementById('profilePic').src)
       formdata.append("fullName", document.getElementById('fullName').value);
       formdata.append("email", document.getElementById('email').value.trim());
       formdata.append("uid", window.uid);
@@ -204,7 +208,6 @@ $(document).ready(() => {
             showSubmitButton();
             document.getElementById('message-success').classList.remove('d-none');
             window.location.href = "profile.php";
-
 
           } else {
             document.getElementById('message-error').classList.remove('d-none');
