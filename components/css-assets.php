@@ -16,4 +16,5 @@
 <!-- build:css @@webRoot/assets/css/theme.min.css -->
 <link rel="stylesheet" href="assets/css/theme.css">
 <link rel="stylesheet" href="assets/css/custom.css">
+<link rel="stylesheet" href="assets/css/search-profile.css">
 <!-- endbuild -->
