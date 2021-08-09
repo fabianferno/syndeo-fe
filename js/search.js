@@ -53,9 +53,11 @@ function search() {
       query: query
   },
   success: function(response) {
+    
+
     if (response == "error") {
       document.getElementById('message-error').classList.remove('d-none');
-    } else if (response == "no-results") {
+    } else if (response.length == 0) {
 
     } else {
       for (var i = 0; i < response.length; i++) {

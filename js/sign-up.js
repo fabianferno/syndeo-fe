@@ -113,7 +113,10 @@ $(document).ready(() => {
 
         // ------------------------ MENTOR's FIELDS -----------------------------
         var formdata = new FormData();
+        if (!!$('.uploadProfileInput').get(0).files[0])
         formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
+      else
+        formdata.append("profilePic", document.getElementById('profilePic').src)
         formdata.append("fullName", document.getElementById('fullName').value);
         formdata.append("email", document.getElementById('email').value.trim());
         formdata.append("gender", $('input[name="genderRadio"]').val());
