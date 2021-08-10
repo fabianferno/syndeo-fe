@@ -53,14 +53,7 @@ function search() {
       query: query
   },
   success: function(response) {
-    $.each(response, function(i, item) {
-      var $tr = $('<tr>').append(
-          $('<td>').text(item.rank),
-          $('<td>').text(item.content),
-          $('<td>').text(item.UID)
-      ); //.appendTo('#records_table');
-      console.log($tr.wrap('<p>').html());
-  });
+  $
 
     if (response == "error") {
       document.getElementById('message-error').classList.remove('d-none');
