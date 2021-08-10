@@ -53,12 +53,11 @@ function search() {
       query: query
   },
   success: function(response) {
-  $
 
     if (response == "error") {
       document.getElementById('message-error').classList.remove('d-none');
     } else if (response.length == 0) {
-
+      document.getElementById('no-result').classList.remove('d-none');
     } else {
       for (var i = 0; i < response.length; i++) {
         document.getElementById('resultsHolder').appendChild(getChildElement(fullName, Designation, Country))

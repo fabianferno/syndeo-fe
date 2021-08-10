@@ -59,13 +59,18 @@
             </div>
 
             <!--Search Results-->
-        <!-- <div class="col-12">    
-            <div class="card card-margin">
-                <div class="card-body">
-                    <div class="col-lg-12">
-                        <div class="search-result">
-                            <div class="result-body">
 
+
+
+        <!--<div id="no-result"> 
+            <div class="col-12">    
+                <div class="card card-margin">
+                    <div class="card-body">
+                        <div class="col-lg-12">
+                            <div class="search-result">
+                                <div class="result-body">
+
+                                </div>
                             </div>
                         </div>
                     </div>
