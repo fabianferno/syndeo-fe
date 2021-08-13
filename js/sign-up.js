@@ -96,7 +96,7 @@ $(document).ready(() => {
 
                 let higherStudies = [];
                 Array.from(document.getElementsByClassName('higherStudies')).forEach(field => {
-                  if (field.value != '')
+                  if (field.value != '' && i != 0)
                     higherStudies.push(field.value);
                 })
                 higherStudies.length == 0 ? null : higherStudies.join(',');
@@ -104,7 +104,7 @@ $(document).ready(() => {
 
                 let licenseAndCerts = [];
                 Array.from(document.getElementsByClassName('licenseAndCerts')).forEach(field => {
-                  if (field.value != '')
+                  if (field.value != '' && i != 0)
                     licenseAndCerts.push(field.value);
                 })
                 licenseAndCerts.length == 0 ? null : licenseAndCerts.join(',');

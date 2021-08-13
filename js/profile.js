@@ -39,8 +39,11 @@ function pageScript () {
             
             if (response.isMentor == 1) {
                 document.getElementById('mentorsInfo').classList.remove('d-none');
+                var elem = document.createElement('p');
+                elem.innerHTML = 'None';
+
                 if (response.higherEd == null)  
-                    document.getElementById('higherEd').appendChild(document.createElement('p').innerHTML = 'None');
+                    document.getElementById('higherEd').appendChild(elem.cloneNode(true));
                 else {
                     response.higherEd.split(',').forEach((ed) =>{
                     var ele = document.createElement('p');
@@ -49,7 +52,7 @@ function pageScript () {
                     })
                 }
                 if (response.licensesAndCerts == null)
-                    document.getElementById('certs').appendChild(document.createElement('p').innerHTML = 'None');
+                    document.getElementById('certs').appendChild(elem.cloneNode(true));
                 else {
                     response.licensesAndCerts.split(',').forEach((ed) =>{
                         var ele = document.createElement('p');

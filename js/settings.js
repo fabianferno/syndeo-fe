@@ -3,7 +3,7 @@ function pageScript () {
     if (localStorage.type == "Mentor") {
         document.getElementById('mentor-message').classList.remove('d-none');
         document.getElementById('profile-visibility').classList.remove('d-none');
-        document.getElementById('mentorship-switch').checked = localStorage.isActive;
+        document.getElementById('mentorship-switch').checked = localStorage.isActive == 1 ? true : false;
     } else {
         document.getElementById('search-mentors-link').classList.remove('d-none')
     }
@@ -107,6 +107,7 @@ function saveToggleButtonChanges() {
         },
         success: function (response) {
             if (response == "success") {
+                localStorage.isActive = value;
                 document.getElementById('saveToggleSwitchChanges').removeAttribute('disabled');
                 document.getElementById('ToggleSwitchLoader').classList.add('d-none');
                 document.getElementById('ToggleSwitchBtnText').classList.remove('d-none');
