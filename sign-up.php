@@ -63,11 +63,11 @@
                                             <div class="d-flex justify-content-around">
                                                 <label for="gender" class="form-label">Gender</label>
                                                 <label class="form-check-label" for="genderMale">
-                                                    <input type="radio" class="form-check-input" id="genderMale" value="M" name="genderRadio">
+                                                    <input type="radio" class="form-check-input" id="genderMale" value="M" name="genderRadio" checked>
                                                     Male
                                                 </label>
                                                 <label class="form-check-label" for="genderFemale"> 
-                                                    <input type="radio" class="form-check-input" id="genderFemale" value="F" name="genderRadio" checked>
+                                                    <input type="radio" class="form-check-input" id="genderFemale" value="F" name="genderRadio">
                                                     Female
                                                 </label>
                                             </div>
@@ -97,7 +97,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="phone" class="form-label">Mobile</label>
-                                        <input type="tel" id="phone" class="form-control" name="phone" placeholder="Phone number" required="">
+                                        <input type="tel" id="phone" class="form-control" name="phone" placeholder="eg: +91 9876543210" required="">
+                                        <small class="text-danger d-none" style="font-size: 10px;" id="invalidPhone"> Invalid Phone Number.  </small>
                                     </div>
                                 </div>
                                 <div class="row">

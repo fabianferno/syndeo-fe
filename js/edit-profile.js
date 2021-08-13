@@ -1,92 +1,62 @@
-$(document).ready(() => {
+function pageScript() {
+  
+  $('.bootstrap-tagsinput').addClass('form-control');
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      window.user = user;
-      if (user.emailVerified) {
-        window.uid = user.uid;
+  $.ajax({
+    type: "GET",
+    url: APIRoute + "users?uid=" + window.uid,
+    datatype: "html",
 
-        document.getElementById('username').innerHTML = user.displayName;
-        document.getElementById('avatar').innerHTML = user.profileURL;
-        photoURL = user.photoURL;
+    success: function (response) {
+      localStorage.type = response.isMentor == 1 ? "mentor" : "student";
+      document.getElementById('formTitle').innerHTML = (response.isMentor == 1 ? "Mentor" : "Student") + "'s Basic information";
 
-        var path = window.location.pathname;
-        var page = path.split("/").pop();
-        console.log(page);
+      if (response.profilePic != null)
+        document.getElementById('profilePic').src = response.profilePic;
+      else
+        document.getElementById('profilePic').src = "assets/images/png/avatar.jpg";
 
-        $('[href="' + page + '"]').addClass("active");
+      // Populate data
+      document.getElementById('fullName').value = response.fullName;
+      document.getElementById('email').value = response.email;
+      if (response.gender == 'M')
+        document.getElementById('genderMale').checked = true;
+      else
+        document.getElementById('genderFemale').checked = true;
 
-        $('.bootstrap-tagsinput').addClass('form-control');
-        document.getElementById('formTitle').innerHTML = localStorage.type + "'s Basic information";
-        if (localStorage.type == "mentor") {
-          document.getElementById('mentorFields').classList.remove('d-none')
-        } else {
-          document.getElementById('search-mentors-link').classList.remove('d-none')
-        }
+      document.getElementById('batch').value = response.batch;
+      document.getElementById('dob').value = response.dob;
+      document.getElementById('phone').value = response.phone;
+      document.getElementById('designation').value = response.designation;
+      document.getElementById('prefContact').value = response.prefContact;
+      document.getElementById('country').value = response.country;
+      document.getElementById('language').value = response.language;
+      document.getElementById('linkedIn').value = response.linkedIn;
+      document.getElementById('resumeLink').value = response.resumeLink;
+      document.getElementById('summary').value = response.summary;
+      document.getElementById('areasOfInterest').value = response.areasOfInterest;
 
-        $.ajax({
-          type: "GET",
-          url: APIRoute + "users?uid=" + window.uid,
-          datatype: "html",
-
-          success: function (response) {
-            localStorage.type = response.isMentor == 1 ? "mentor" : "student";
-            if (response.isMentor == 1) {
-              document.getElementById('mentorFields').classList.remove('d-none');
-            }
-            document.getElementById('profilePic').src = response.profilePic;
-
-            // Populate data
-            document.getElementById('fullName').value = response.fullName;
-            document.getElementById('email').value = response.email;
-            document.getElementById('gender').value = response.gender;
-            if (response.gender == 'M')
-              document.getElementById('genderMale').checked = true;
-            else
-              document.getElementById('genderFemale').checked = true;
-
-            document.getElementById('batch').value = response.batch;
-            document.getElementById('dob').value = response.dob;
-            document.getElementById('phone').value = response.phone;
-            document.getElementById('designation').value = response.designation;
-            document.getElementById('prefContact').value = response.prefContact;
-            document.getElementById('country').value = response.country;
-            document.getElementById('language').value = response.language;
-            document.getElementById('linkedIn').value = response.linkedIn;
-            document.getElementById('resumeLink').value = response.resumeLink;
-            document.getElementById('summary').value = response.summary;
-            document.getElementById('areasOfInterest').value = response.areasOfInterest;
-
-            //Mentor Fields
-            response.higherEd.split(',').forEach((higherStudies, i) => {
-              addFields('higherStudiesGroup');
-              $('#higherStudiesGroup'+i).find('.higherStudies').val(higherStudies)
-            });
-            response.licensesAndCerts.split(',').forEach((higherStudies, i) => {
-              addFields('licenseAndCertsGroup');
-              $('#licenseAndCertsGroup'+i).find('.licenseAndCerts').val(higherStudies)
-            });
-
-          },
-          error: function (error) { },
-          completed: function (res) {
-            document.getElementById('pageLoader').classList.add('d-none');
-            document.getElementById('pageContent').classList.remove('d-none');
-          }
-
-        })
-
-      } else {
-        var thisPage = window.location.href.split('/').pop();
-        window.location.href = "verify-account.php?redirect=" + thisPage;
+      //Mentor Fields
+      if (response.isMentor == 1) {
+        document.getElementById('mentorFields').classList.remove('d-none')
+        response.higherEd.split(',').forEach((higherStudies, i) => {
+          addFields('higherStudiesGroup');
+          $('#higherStudiesGroup'+i).find('.higherStudies').val(higherStudies)
+        });
+        response.licensesAndCerts.split(',').forEach((licenseAndCerts, i) => {
+          addFields('licenseAndCertsGroup');
+          $('#licenseAndCertsGroup'+i).find('.licenseAndCerts').val(licenseAndCerts)
+        });
       }
-    } else {
-      // signed out
-      window.location.href = "index.php";
-    }
-  });
+      
+      document.getElementById('pageLoader').classList.add('d-none');
+      document.getElementById('pageContent').classList.remove('d-none');
+    },
+    error: function (error) { },
 
-
+  })
+}
+$(document).ready(() => {
   // Generate dropdown values for batch
   var yearStarted = 2010;
   var currentYear = (new Date()).getFullYear();
@@ -173,8 +143,7 @@ $(document).ready(() => {
       var formdata = new FormData();
       if (!!$('.uploadProfileInput').get(0).files[0])
         formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
-      else
-        formdata.append("profilePic", document.getElementById('profilePic').src)
+
       formdata.append("fullName", document.getElementById('fullName').value);
       formdata.append("email", document.getElementById('email').value.trim());
       formdata.append("uid", window.uid);

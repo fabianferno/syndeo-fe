@@ -74,6 +74,7 @@
 
     <!-- Scripts -->
     <?php include "components/js-assets.php" ?>
+    <script src="js/auth-status.js"></script>
     <script src="js/home.js"></script>
 
 

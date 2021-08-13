@@ -165,7 +165,7 @@
                 This cannot be undone. 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="deleteAccount()">Yes, Delete this Account</button>
+                <button class="btn btn-secondary" id="deleteAccount" data-dismiss="modal">Yes, Delete this Account</button>
                 <button type="button" class="btn btn-dark-secondary">Cancel</button>
             </div>
             </div>
@@ -175,6 +175,7 @@
     <!-- Scripts -->
     <?php include "components/js-assets.php" ?>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="js/auth-status.js"></script>
     <script src="js/settings.js"></script>
 
 

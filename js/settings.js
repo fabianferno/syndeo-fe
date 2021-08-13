@@ -1,40 +1,19 @@
+function pageScript () {
+
+    if (localStorage.type == "Mentor") {
+        document.getElementById('mentor-message').classList.remove('d-none');
+        document.getElementById('profile-visibility').classList.remove('d-none');
+        document.getElementById('mentorship-switch').checked = localStorage.isActive;
+    } else {
+        document.getElementById('search-mentors-link').classList.remove('d-none')
+    }
+
+    document.getElementById('pageLoader').classList.add('d-none');
+    document.getElementById('pageContent').classList.remove('d-none');
+}
+
 $(document).ready(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          window.user = user;
-          if (user.emailVerified) {
-            window.uid = user.uid;
-            document.getElementById('pageLoader').classList.add('d-none');
-            document.getElementById('pageContent').classList.remove('d-none');
 
-            document.getElementById('username').innerHTML = user.displayName;
-            document.getElementById('avatar').innerHTML = user.profileURL;
-
-            if (localStorage.type == "mentor") {
-                document.getElementById('mentor-message').classList.remove('d-none');
-                document.getElementById('profile-visibility').classList.remove('d-none');
-                document.getElementById('mentorship-switch').checked = localStorage.isActive;
-            } else {
-                document.getElementById('search-mentors-link').classList.remove('d-none')
-            }
-
-            var path = window.location.pathname;
-            var page = path.split("/").pop();
-            console.log(page);
-        
-            $('[href="' + page + '"]').addClass("active");
-
-          } else {
-              var thisPage = window.location.href.split('/').pop();
-              window.location.href = "verify-account.php?redirect="+thisPage;
-          }
-
-        } else {
-            // signed out
-          window.location.href = "index.php";
-        }
-      });
-    
     document.getElementById('changePasswordForm').addEventListener('submit', (e) => {
         e.preventDefault();
         $('input[required=""]').removeClass('is-invalid');
@@ -79,6 +58,8 @@ $(document).ready(() => {
             showButton();
         }
     })
+
+    document.getElementById('deleteAccount').addEventListener('click', deleteAccount);
 })
 
 function showButton () {
@@ -88,33 +69,25 @@ function showButton () {
 }
 
 function deleteAccount() {
-    var user = firebase.auth().currentUser;
-    user
-        .delete()
-        .then(function () {
-            $.ajax({
-                type: "DELETE",
-                url: APIRoute + "users",
-                datatype: "html",
-                data: {
-                  uid: window.uid,
-                },
-                success: function (response) {
-                    if (response == "success") {
-                        localStorage.removeItem("type")
-                        localStorage.removeItem("isActive")
-                        window.location.replace("index.php");
-                    } else {
-                        document.getElementById('message-delete-fail').classList.remove('d-none')
-                    }
-                },
-                error: function (error) {}
+    $.ajax({
+        type: "DELETE",
+        url: APIRoute + "users",
+        datatype: "html",
+        data: {
+            uid: window.uid,
+        },
+        success: function (response) {
+            if (response == "success") {
+                localStorage.removeItem("type")
+                localStorage.removeItem("isActive")
+                window.location.replace("index.php");
+            } else {
+                document.getElementById('message-delete-fail').classList.remove('d-none')
+            }
+        },
+        error: function (error) {}
 
-            })
-        })
-        .catch(function (error) {
-        // An error happened.
-        });
+    })
 }
 
 function saveToggleButtonChanges() {
@@ -125,14 +98,12 @@ function saveToggleButtonChanges() {
     document.getElementById('ToggleSwitchLoader').classList.remove('d-none');
     var value = document.getElementById('mentorship-switch').checked;
     $.ajax({
-        type: "PATCH",
+        type: "PUT",
         url: APIRoute + "users",
         datatype: "html",
         data: {
-          op: 'update',
           uid: window.uid,
-          key: "isActive",
-          value: (value == true) ? 1 : 0,
+          isActive: (value == true) ? 1 : 0,
         },
         success: function (response) {
             if (response == "success") {
