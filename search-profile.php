@@ -69,7 +69,7 @@
                         <div class="col-lg-12">
                             <div class="search-result">
                                 <div class="result-body">
-
+                                
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -136,7 +136,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -161,7 +161,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -186,7 +186,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -211,7 +211,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -237,7 +237,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -262,7 +262,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -287,7 +287,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -313,7 +313,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
@@ -338,7 +338,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-emp-img">
-                                                                <img src="assets/images/search-profile/blnk.png" alt="Company" />
+                                                                <img src="assets/images/search-profile/placeholderr.png" alt="Company" />
                                                             </div>
                                                         </td>
                                                         <td>
