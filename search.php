@@ -36,7 +36,7 @@
                   <div class="row d-flex justify-content-between align-items-center">
                     <div class="input-group mb-3">
                       <input type="text" id="searchQuery" class="form-control form-control-lg" placeholder="Search for mentors by their name, designation, etc..." aria-label="Search for menttors.." aria-describedby="basic-addon1">
-                      <span class="input-group-text" onclick="search()"><span class="fas fa-search"></span></span>
+                      <a class="input-group-text" id="searchButton"><span class="fas fa-search"></span></a>
                     </div>
                   </div>
                 </form>
@@ -48,8 +48,8 @@
                 <!-- card  -->
                 <div class="card shadow-lg">
                   <!-- card header  -->
-                  <div class="card-header bg-white border-bottom-0 py-4">
-                    <h4 class="mb-0 result">Showing: <span id="from-to"></span> of <span id="total"></span> result</h4>
+                  <div class="card-header bg-white border-bottom-0 py-4 d-none" id="results-header">
+                    <h4 class="mb-0 result">Showing <span id="total"></span> result(s)</h4>
                   </div>
 
                   <div class="card-body text-center">
@@ -61,19 +61,23 @@
                         </div>
                       </div>
 
-                      <div class="d-flex justify-content-center d-none" id="svg">
+                      <div class="d-flex justify-content-center" id="svg">
                           <img src="assets/images/create-profile/enter-role.svg" class="rounded mx-auto d-block">
                       </div>
 
-                      <div id="no-result">
+                      <div id="no-result" class="d-none">
                           <p>No results found.</p>
+                      </div>
+
+                      <div class="spinner-border text-dark d-none" style="width: 3rem; height: 3rem;" role="status">
+                          <span class="visually-hidden">Loading...</span>
                       </div>
 
                       <div id="message-error" class="text-danger d-flex justify-content-center d-none">
                           <p>There was an error while Searching profiles. Please try again later.</p>
                       </div>
 
-                      <div class="card border-grey mx-3">
+                      <div class="card border-grey mx-3 d-none" id="table">
                         <div class="table-responsive">
                           <table class="table text-nowrap">
                             <tbody id="resultsHolder">

@@ -15,6 +15,8 @@ $(document).ready(() => {
                     .auth()
                     .currentUser.getIdToken(true)
                     .then(function (idToken) {
+                        localStorage.idToken = idToken;
+
                         $.ajax({
                             type: "POST",
                             url: APIRoute + "users/auth-status",

@@ -13,8 +13,10 @@ function pageScript () {
         datatype: "html",
         
         success: function (response) {
-            
-            document.getElementById('profileAvatar').src = response.profileURL;
+            if (response.profilePic == null)
+                document.getElementById('profileAvatar').src = "assets/images/png/avatar.jpg";
+            else
+                document.getElementById('profileAvatar').src = response.profilePic;
             document.getElementById('fullname').innerHTML = response.fullName;
             $('.designation').html(response.designation);
 

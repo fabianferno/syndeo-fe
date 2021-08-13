@@ -25,13 +25,13 @@ function pageScript() {
         document.getElementById('genderFemale').checked = true;
 
       document.getElementById('batch').value = response.batch;
-      document.getElementById('dob').value = response.dob;
-      document.getElementById('phone').value = response.phone;
+      document.getElementById('dob').value = response.dateOfBirth;
+      document.getElementById('phone').value = response.mobile;
       document.getElementById('designation').value = response.designation;
-      document.getElementById('prefContact').value = response.prefContact;
+      document.getElementById('prefContact').value = response.contactPref;
       document.getElementById('country').value = response.country;
-      document.getElementById('language').value = response.language;
-      document.getElementById('linkedIn').value = response.linkedIn;
+      document.getElementById('language').value = response.languages;
+      document.getElementById('linkedIn').value = response.linkedInURL;
       document.getElementById('resumeLink').value = response.resumeLink;
       document.getElementById('summary').value = response.summary;
       document.getElementById('areasOfInterest').value = response.areasOfInterest;

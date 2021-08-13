@@ -85,21 +85,21 @@
                       </div>
                       <div class="col-6">
                         <h6 class="text-uppercase fs-5 ls-2">Email </h6>
-                        <p class="mb-0" id="email"></p>
+                        <p id="email"></p>
                       </div>
                       <div class="col-6">
                         <h6 class="text-uppercase fs-5 ls-2">Country
                         </h6>
-                        <p class="mb-0" id="country"></p>
+                        <p id="country"></p>
                       </div>
                     </div>
                     <div class="row">
                         <h6 class="text-uppercase fs-5 ls-2">LinkedIn URL</h6>
-                        <p class="mb-0" id="linkedInUrl"></p>
+                        <p id="linkedInUrl"></p>
                     </div>
                     <div class="row">
                         <h6 class="text-uppercase fs-5 ls-2">Portfolio Link</h6>
-                        <p class="mb-0" id="portfolioLink"></p>
+                        <p id="portfolioLink"></p>
                     </div>
                   </div>
                 </div>
@@ -111,20 +111,20 @@
                     <h4 class="card-title mb-4">Academic Information</h4>
                     <div class="row">
                       <h6 class="text-uppercase fs-5 ls-2">Branch</h6>
-                      <p class="mb-0" id="branch"></p>
+                      <p id="branch"></p>
                     </div>
                     <div class="row">
                       <h6 class="text-uppercase fs-5 ls-2">Year</h6>
-                      <p class="mb-0" id="year"></p>
+                      <p id="year"></p>
                     </div>
                     <div id="mentorsInfo" class="d-none">
                       <div class="row">
                         <h6 class="text-uppercase fs-5 ls-2">Higher Education</h6>
-                        <div class="mb-0"  id="higherEd"></div>
+                        <div id="higherEd"></div>
                       </div>
                       <div class="row">
                         <h6 class="text-uppercase fs-5 ls-2">Licenses and Certifications</h6>
-                        <div class="mb-0" id="certs"></div>
+                        <div id="certs"></div>
                       </div>
                     </div>
                   </div>
@@ -134,11 +134,11 @@
                     <h4 class="card-title mb-4">More info</h4>
                     <div class="row">
                       <h6 class="text-uppercase fs-5 ls-2">Areas of Interest </h6>
-                      <p class="mb-0" id="areasOfInterest"></p>
+                      <p id="areasOfInterest"></p>
                     </div>
                     <div class="row">
                       <h6 class="text-uppercase fs-5 ls-2">Languages Known </h6>
-                      <p class="mb-0" id="languages"></p>
+                      <p id="languages"></p>
                     </div>
                   </div>
                 </div>
