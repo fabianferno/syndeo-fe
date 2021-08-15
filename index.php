@@ -23,11 +23,14 @@
         <div id="pageContent" class="d-none">
           <div class="text-center ">
             <div class="d-flex justify-content-center align-items-center">
-              <img src="./assets/images/svg/syndeo-full.svg" style="width:35vw; border-radius:500px" alt="" srcset="">
+              <img src="./assets/images/png/logo.png" style="height:100px;margin-right:15px;" alt="">
+              <img src="./assets/images/svg/syndeo-main-orange.svg" style="height:95px;" alt="" srcset="">
             </div>
-            <p class="mb-4"></p>
-            <a href="login.php" class="btn btn-primary">Login</a>
-            <a href="sign-up.php" class="btn btn-dark-secondary ">Sign Up</a>
+            <img src="./assets/images/svg/syndeo-text-blue.svg" style="height:80px; margin-top:30px" alt="" srcset="">
+            <div class="mt-5 d-flex justify-content-around px-5">
+              <a href="login.php" class="btn btn-lg btn-primary ">Login</a>
+              <a href="sign-up.php" class="btn btn-lg btn-dark-secondary ">Sign Up</a>
+            </div>
           </div>
         </div>
         <!-- content -->
