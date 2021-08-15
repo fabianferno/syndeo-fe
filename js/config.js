@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 var adminAppUrl = "https://syndeo-admin.herokuapp.com";
-var userAppUrl  = "http://localhost/syndeo-fe/";
+var userAppUrl  = "https://syndeo-fe.herokuapp.com/";
 
 // API Routes
 // var APIRoute = "https://syndeo-admin.herokuapp.com";
