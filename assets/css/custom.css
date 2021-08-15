@@ -106,13 +106,13 @@
 }
 
 #tagsRow > .bootstrap-tagsinput .tag {
-  background-color: #ed5b21;
+  background-color: #ff9300;
 }
 
 .tagsinput > .bootstrap-tagsinput .tag {
-  border: 1px solid #1e1445;
+  border: 1px solid #30326f;
   background-color: transparent !important;
-  color: #1e1445 !important;
+  color: #30326f !important;
 }
 
 .bootstrap-tagsinput {

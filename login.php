@@ -9,9 +9,9 @@
 <body>
   <!-- Page Loader Starts Here -->
   <div id="pageLoader" class="container text-center d-flex align-items-center justify-content-center w-100" style="height: 100vh;">
-      <div class="spinner-border text-dark" style="width: 3rem; height: 3rem;" role="status">
-          <span class="visually-hidden">Loading...</span>
-      </div>
+    <div class="spinner-border text-dark" style="width: 3rem; height: 3rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
   <!-- Page Loader Ends Here -->
   <div id="pageContent" class="d-none">
@@ -23,9 +23,9 @@
           <div class="card smooth-shadow-md">
             <!-- Card body -->
             <div class="card-body p-6">
-              <div class="mb-4 d-flex flex-row align-items-center">
+              <div class="mb-5 d-flex flex-row justify-content-start align-items-center">
                 <img src="assets/images/png/logo.png" style="width:40px; height:40px;" class="rounded-circle me-2" alt="image">
-                <h2 class="fw-bold my-auto">Syndeo</h2>
+                <img src="assets/images/svg/syndeo-text-blue.svg" style="height:40px; margin-left:8px" alt="image">
               </div>
               <!-- Form -->
               <form id="signInForm">
@@ -49,7 +49,7 @@
                     <button type="submit" class="btn btn-primary" id="signInButton">
                       <span id="signInButtonText">Sign in</span>
                       <div class="spinner-border spinner-border-sm text-light d-none" id="signInButtonLoader" role="status">
-                          <span class="visually-hidden">Loading...</span>
+                        <span class="visually-hidden">Loading...</span>
                       </div>
                     </button>
                   </div>

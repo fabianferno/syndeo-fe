@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <?php include "components/css-assets.php" ?>
     <title>Sign Up | Syndeo</title>
-  </head>
+</head>
 
-  <body>
-      <!-- Page Loader Starts Here -->
+<body>
+    <!-- Page Loader Starts Here -->
     <div id="pageLoader" class="container text-center d-flex align-items-center justify-content-center w-100" style="height: 100vh;">
         <div class="spinner-border text-dark" style="width: 3rem; height: 3rem;" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -20,12 +20,14 @@
                 <div class="col-12">
                     <div class="card vw-80 my-15">
                         <div class="card-body m-2">
-                            <div class="mb-4 d-flex flex-row align-items-center">
+                            <div class="mb-5 d-flex flex-row justify-content-center align-items-center">
                                 <img src="assets/images/png/logo.png" style="width:40px; height:40px;" class="rounded-circle me-2" alt="image">
-                                <h2 class="fw-bold my-auto">Syndeo</h2>
+                                <img src="assets/images/svg/syndeo-text-blue.svg" style="height:40px; margin-left:8px" alt="image">
                             </div>
-                            <h4 class="fw-bold text-start mb-3">Create Profile</h4>
-                            <form id="signUpForm">
+                            <h2 class="fw-bold text-center h4 mt-5 mb-3">Create Profile</h2>
+
+                            <hr>
+                            <form id="signUpForm" class="mt-5">
                                 <div class="row mb-3">
                                     <div class="col-12 col-md-4 mt-4">
                                         <!-- avatar -->
@@ -66,7 +68,7 @@
                                                     <input type="radio" class="form-check-input" id="genderMale" value="M" name="genderRadio" checked>
                                                     Male
                                                 </label>
-                                                <label class="form-check-label" for="genderFemale"> 
+                                                <label class="form-check-label" for="genderFemale">
                                                     <input type="radio" class="form-check-input" id="genderFemale" value="F" name="genderRadio">
                                                     Female
                                                 </label>
@@ -98,7 +100,7 @@
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="phone" class="form-label">Mobile</label>
                                         <input type="tel" id="phone" class="form-control" name="phone" placeholder="eg: +91 9876543210" required="">
-                                        <small class="text-danger d-none" style="font-size: 10px;" id="invalidPhone"> Invalid Phone Number.  </small>
+                                        <small class="text-danger d-none" style="font-size: 10px;" id="invalidPhone"> Invalid Phone Number. </small>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -111,7 +113,7 @@
                                                 <input type="radio" class="form-check-input" id="roleMentor" value="mentor" name="roleRadio">
                                                 Mentor
                                             </label>
-                                            <label class="form-check-label" for="roleStudent"> 
+                                            <label class="form-check-label" for="roleStudent">
                                                 <input type="radio" class="form-check-input" id="roleStudent" value="student" name="roleRadio" checked>
                                                 Student
                                             </label>
@@ -134,7 +136,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12 col-md-6 mb-3 tagsinput"> 
+                                    <div class="col-12 col-md-6 mb-3 tagsinput">
                                         <label for="areasOfInterest" class="form-label mb-0">Write down your areas of interest</label>
                                         <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
                                         <input type="text" id="areasOfInterest" class="form-control" data-role="tagsinput" name="areasOfInterest" required="">
@@ -163,7 +165,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-3">
-                                            <label for="higherStudies" class="form-label d-flex justify-content-between">Higher Studies (if any) 
+                                            <label for="higherStudies" class="form-label d-flex justify-content-between">Higher Studies (if any)
                                                 <a class="btn btn-primary btn-sm" onclick="addFields('higherStudiesGroup')"><span class="fas fa-plus text-white"></span> Add</a>
                                             </label>
                                             <div class="input-group mb-2 d-none" id="higherStudiesGroup">
@@ -186,11 +188,11 @@
                                     <div class="row mb-3 mx-0" id="tagsRow">
                                         <label for="tags" class="form-label mb-0">Tags</label>
                                         <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
-                                        <input type="text" id="tags" class="form-control" data-role="tagsinput" name="tags" placeholder="" > 
+                                        <input type="text" id="tags" class="form-control" data-role="tagsinput" name="tags" placeholder="">
                                     </div>
                                     <div class="row mb-3">
                                         <label class="form-check-label" for="agreeForMentorship">
-                                            <input type="checkbox" class="form-check-input mx-3" id="agreeForMentorship" >
+                                            <input type="checkbox" class="form-check-input mx-3" id="agreeForMentorship">
                                             I agree to take part in the Mentorship Program
                                         </label>
                                     </div>
@@ -217,8 +219,8 @@
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end">
                                     <button type="button" id="signUpButton" class="btn btn-dark-secondary">
-                                        <span id="signUpButtonText">Sign Up!</span> 
-                                        <span id="signUpButtonTextSuccess" class="d-none">Done!</span> 
+                                        <span id="signUpButtonText">Sign Up!</span>
+                                        <span id="signUpButtonTextSuccess" class="d-none">Done!</span>
                                         <div class="spinner-border spinner-border-sm text-white d-none" id="signUpButtonLoader">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
@@ -230,7 +232,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <!-- Scripts -->
@@ -238,6 +240,6 @@
     <script src="js/sign-up.js"></script>
 
 
-  </body>
+</body>
 
 </html>
