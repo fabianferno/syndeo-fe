@@ -21,7 +21,7 @@
         <!-- Page Loader Ends Here -->
         <!-- content -->
         <div id="pageContent" class="d-none">
-          <div class="text-center shadow p-5">
+          <div class="text-center card bg-white shadow p-5">
             <div class="p-4">
               <div class="d-flex justify-content-center align-items-center">
                 <img src="./assets/images/png/logo.png" style="height:100px;margin-right:15px;" alt="">
