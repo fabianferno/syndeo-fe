@@ -27,7 +27,7 @@
                  </a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link d-none" id="search-mentors-link" href="search.php">
+                 <a class="nav-link text-dark" style="background:#FF9300" id="search-mentors-link" href="search.php">
                      <i class="fas fa-search mx-2"></i>Search Mentors
                  </a>
              </li>
