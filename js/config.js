@@ -18,7 +18,7 @@ var userAppUrl  = "http://localhost/syndeo-fe/";
 
 // API Routes
 // var APIRoute = "https://syndeo-admin.herokuapp.com";
-var APIRoute = "http://127.0.0.1:5000/";
+var APIRoute = "https://syndeo-be.herokuapp.com/";
 
 
 function logout() {
