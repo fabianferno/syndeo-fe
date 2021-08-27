@@ -9,9 +9,9 @@
 <body>
   <!-- Page Loader Starts Here -->
   <div id="pageLoader" class="container text-center d-flex align-items-center justify-content-center w-100" style="height: 100vh;">
-      <div class="spinner-border text-dark" style="width: 3rem; height: 3rem;" role="status">
-          <span class="visually-hidden">Loading...</span>
-      </div>
+    <div class="spinner-border text-dark" style="width: 3rem; height: 3rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
   <!-- Page Loader Ends Here -->
   <div id="pageContent" class="d-none">
@@ -39,7 +39,7 @@
                         position-relative d-flex justify-content-end
                         align-items-end mt-n10">
                       <img src="assets/images/png/avatar.png" class="avatar-xxl
-                          rounded-circle border border-4 border-white-color-40" id="profileAvatar" alt="">
+                          rounded-circle border border-4 border-white-color-40" onerror="javascript: setDefaultAvatar()" id="profileAvatar" alt="">
                       <a href="#!" class="position-absolute top-0 right-0 me-2" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Verified">
                         <img src="assets/images/svg/checked-mark.svg" alt="" height="30" width="30">
                       </a>
@@ -53,14 +53,14 @@
                       <p class="mb-0 d-block designation"></p>
                     </div>
                   </div>
-                  
+
                 </div>
                 <!-- nav -->
                 <div class="d-flex justify-content-center justify-content-md-end pb-4 mx-4">
-                    <a href="edit-profile.php" class="btn btn-outline-primary d-none" id="editProfileButton">Edit Profile</a>
-                    <a class="btn btn-dark-secondary d-none" id="askMentorshipBtn" onclick="askForMentorship()">Ask for mentorship</a>
-                    <a class="btn btn-dark-secondary d-none" id="acceptMentorshipRequest" onclick="acceptMentorshipRequest()">Accept Mentorship Request</a>
-                  </div>
+                  <a href="edit-profile.php" class="btn btn-outline-primary d-none" id="editProfileButton">Edit Profile</a>
+                  <a class="btn btn-dark-secondary d-none" id="askMentorshipBtn" onclick="askForMentorship()">Ask for mentorship</a>
+                  <a class="btn btn-dark-secondary d-none" id="acceptMentorshipRequest" onclick="acceptMentorshipRequest()">Accept Mentorship Request</a>
+                </div>
               </div>
             </div>
           </div>
@@ -94,12 +94,12 @@
                       </div>
                     </div>
                     <div class="row">
-                        <h6 class="text-uppercase fs-5 ls-2">LinkedIn URL</h6>
-                        <p id="linkedInUrl"></p>
+                      <h6 class="text-uppercase fs-5 ls-2">LinkedIn URL</h6>
+                      <p id="linkedInUrl"></p>
                     </div>
                     <div class="row">
-                        <h6 class="text-uppercase fs-5 ls-2">Portfolio Link</h6>
-                        <p id="portfolioLink"></p>
+                      <h6 class="text-uppercase fs-5 ls-2">Portfolio Link</h6>
+                      <p id="portfolioLink"></p>
                     </div>
                   </div>
                 </div>
