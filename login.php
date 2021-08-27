@@ -39,7 +39,7 @@
                   <label for="password" class="form-label">Password</label>
                   <input type="password" id="password" class="form-control" name="password" placeholder="**************" required="">
                   <small class="my-2 d-flex justify-content-end">
-                    <a href="forget-password.php">Forgot your password?</a>
+                    <a href="forgot-password.php">Forgot your password?</a>
                   </small>
                   <small class="my-2 d-flex justify-content-end" id="message-error"></small>
                 </div>
