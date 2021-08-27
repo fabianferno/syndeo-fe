@@ -39,7 +39,7 @@
                                     <div class="col-12">
                                         <div class="row no-gutters">
                                             <div class="col-lg-8 col-md-6 col-sm-12 p-0">
-                                                <input type="text" placeholder="Search for Mentors..." class="form-control" id="search" name="search">
+                                                <input type="text" placeholder="Search for Mentors." class="form-control" id="search" name="search">
                                             </div>
                                             <div class=" col-md-4 ">
                                                 <button type="submit" class="btn btn-base">
@@ -62,7 +62,7 @@
 
 
 
-        <!--<div id="no-result"> 
+            <!--<div id="no-result"> 
             <div class="col-12">    
                 <div class="card card-margin">
                     <div class="card-body">
@@ -394,19 +394,19 @@
         </div>
     </main>
 
-        <!-- Footer Starts -->
-        <?php include "components/footer.php" ?>
-        <!-- Footer Ends -->
+    <!-- Footer Starts -->
+    <?php include "components/footer.php" ?>
+    <!-- Footer Ends -->
 
 
-        <!-- JS Assets -->
+    <!-- JS Assets -->
 
-        <?php include "components/js-assets.php" ?>
+    <?php include "components/js-assets.php" ?>
 
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-        </script>
+    </script>
 </body>
 
 </html>

@@ -60,6 +60,13 @@ function search() {
 
 function getChildElement(fullName, Designation, Country) {
   var tr = document.createElement("tr");
+  tr.classList.add(
+    "btn",
+    "d-flex",
+    "justify-content-between",
+    "border-bottom",
+    "rounded-bottom"
+  );
 
   var profile = document.createElement("td");
   var country = document.createElement("td");

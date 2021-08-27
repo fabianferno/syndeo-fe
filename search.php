@@ -35,7 +35,7 @@
               <form id="search">
                 <div class="row d-flex justify-content-between align-items-center">
                   <div class="input-group mb-3">
-                    <input type="text" id="searchQuery" class="form-control form-control-lg" placeholder="Search for mentors by their name, designation, etc..." aria-label="Search for menttors.." aria-describedby="basic-addon1">
+                    <input type="text" id="searchQuery" class="form-control form-control-lg" placeholder="Search for mentors - Use name, designation, certifications, company etc" aria-label="Search for menttors.." aria-describedby="basic-addon1">
                     <a class="input-group-text" style="background-color: #FF9300;" id="searchButton"><span class="fas fa-search text-dark"></span></a>
                   </div>
                 </div>
