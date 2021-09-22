@@ -53,7 +53,9 @@
                       <p class="mb-0 d-block designation"></p>
                     </div>
                   </div>
-
+                  <button type="button" onclick="askForMentorship()" class="btn btn-lg btn-primary">
+                    Connect to Mentor
+                  </button>
                 </div>
                 <!-- nav -->
                 <div class="d-flex justify-content-center justify-content-md-end pb-4 mx-4">

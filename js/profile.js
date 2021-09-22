@@ -111,6 +111,8 @@ function askForMentorship() {
       menteeUid: window.uid,
       mentorUid: mentorUid,
     },
-    success: function (response) {},
+    success: function (response) {
+      console.log(response);
+    },
   });
 }
