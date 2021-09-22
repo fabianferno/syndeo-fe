@@ -118,6 +118,7 @@ function askForMentorship() {
       mentorMail: window.currentProfileMail,
       menteeName: localStorage.displayName,
       mentorName: window.currentProfileName,
+      menteeSummary: "I am Fabian Ferno, I am paavam, pls work aidu!",
     },
     success: function (response) {
       console.log(response);
