@@ -17,10 +17,14 @@ function pageScript() {
           "assets/images/png/avatar.jpg";
       else document.getElementById("profileAvatar").src = response.profilePic;
       document.getElementById("fullname").innerHTML = response.fullName;
+      window.currentProfileName = response.fullName;
+
       $(".designation").html(response.designation);
 
       document.getElementById("summary").innerHTML = response.summary;
       document.getElementById("email").innerHTML = response.email;
+      window.currentProfileMail = response.email;
+
       document.getElementById("country").innerHTML = response.country;
       document.getElementById("linkedInUrl").innerHTML = response.linkedInURL;
       document.getElementById("portfolioLink").innerHTML = response.resumeLink;
@@ -108,11 +112,18 @@ function askForMentorship() {
     url: APIRoute + "allocations",
     datatype: "html",
     data: {
+      uid: window.uid,
       menteeUid: window.uid,
       mentorUid: mentorUid,
+      mentorMail: window.currentProfileMail,
+      menteeName: localStorage.displayName,
+      mentorName: window.currentProfileName,
     },
     success: function (response) {
       console.log(response);
+      if (response == "success") {
+        alert("Request sent successfully");
+      }
     },
   });
 }

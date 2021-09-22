@@ -14,17 +14,21 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 var adminAppUrl = "https://syndeo-admin.herokuapp.com";
-var userAppUrl  = "https://syndeo-fe.herokuapp.com/";
+var userAppUrl = "https://syndeo-fe.herokuapp.com/";
 
 // API Routes
 // var APIRoute = "https://syndeo-admin.herokuapp.com";
-var APIRoute = "https://syndeo-be.herokuapp.com/";
-
+// var APIRoute = "https://syndeo-be.herokuapp.com/";
+var APIRoute = "http://127.0.0.1:5000/";
 
 function logout() {
-    firebase.auth().signOut().then(() => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
       window.location.href = "index.php";
-    }).catch((error) => {
+    })
+    .catch((error) => {
       // An error happened.
     });
 }

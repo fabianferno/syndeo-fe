@@ -40,6 +40,49 @@
               </div>
             </div>
           </div>
+
+          <div id="mentorActions" class="row mt-6 ">
+            <H1 class="fw-bold text-white">Mentor Actions 🛠️</H1>
+
+            <div class="col-md-6 col-12">
+              <!-- mentee card  -->
+              <div class="card card-body my-2">
+                <h4 class="mb-2 w-50">
+                  Fabian Ferno</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum magni aperiam animi laborum, aliquam fugiat quos corrupti nobis ratione, dolores perferendis, culpa id illo nam. Id doloribus unde nobis!</p>
+                <!-- card footer  -->
+                <div class="card-footer bg-white border-white text-end">
+                  <a href="edit-profile.php" class="btn btn-primary">View Profile</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <!-- mentee card  -->
+              <div class="card card-body my-2">
+                <h4 class="mb-2 w-50">
+                  Fabian Ferno</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum magni aperiam animi laborum, aliquam fugiat quos corrupti nobis ratione, dolores perferendis, culpa id illo nam. Id doloribus unde nobis!</p>
+                <!-- card footer  -->
+                <div class="card-footer bg-white border-white text-end">
+                  <a href="edit-profile.php" class="btn btn-primary">View Profile</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <!-- mentee card  -->
+              <div class="card card-body my-2">
+                <h4 class="mb-2 w-50">
+                  Fabian Ferno</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum magni aperiam animi laborum, aliquam fugiat quos corrupti nobis ratione, dolores perferendis, culpa id illo nam. Id doloribus unde nobis!</p>
+                <!-- card footer  -->
+                <div class="card-footer bg-white border-white text-end">
+                  <a href="edit-profile.php" class="btn btn-primary">View Profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <!-- row  -->
           <div class="row mt-6">
             <div class="col-md-12 col-12">

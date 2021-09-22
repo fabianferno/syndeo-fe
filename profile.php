@@ -53,7 +53,7 @@
                       <p class="mb-0 d-block designation"></p>
                     </div>
                   </div>
-                  <button type="button" onclick="askForMentorship()" class="btn btn-lg btn-primary">
+                  <button type="button" id="askMentorshipBtn" onclick="askForMentorship()" class="d-none btn btn-lg btn-primary">
                     Connect to Mentor
                   </button>
                 </div>
