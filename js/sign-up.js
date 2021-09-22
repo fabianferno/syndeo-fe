@@ -64,7 +64,7 @@ $(document).ready(() => {
     var email = document.getElementById('email').value.trim();
     var password = document.getElementById('password').value.trim();
     var confirmPassword = document.getElementById('reTypePassword').value.trim();
-    var type = $('input[name="roleRadio"]').val();
+    var type = $('input[name="roleRadio"]:checked').val();
 
     var validDomain = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(licet.ac.in)$/;
     console.log(email.toLowerCase().match(validDomain) ? "Licet domain" : "Not a licet domain");
