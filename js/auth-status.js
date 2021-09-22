@@ -27,10 +27,7 @@ $(document).ready(() => {
               },
 
               success: function (response) {
-                if (
-                  response.authStatus == "true" &&
-                  !(response.userType == "admin")
-                ) {
+                if (response.authStatus == "true") {
                   localStorage.displayName = user.displayName;
                   document.getElementById("username").innerHTML =
                     user.displayName;
