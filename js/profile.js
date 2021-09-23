@@ -26,22 +26,15 @@ function pageScript() {
       window.currentProfileMail = response.email;
 
       document.getElementById("country").innerHTML = response.country;
-      document.getElementById("linkedInUrl").innerHTML = response.linkedInURL;
+      document.getElementById("linkedInUrl").innerHTML = (response.linkedInURL.trim() == '' ? 'None' : response.linkedInURL);
       if (response.linkedInURL != "None") document.getElementById('linkedInAnchorTag').href = response.linkedInURL
-      document.getElementById("portfolioLink").innerHTML = response.resumeLink;
+      document.getElementById("portfolioLink").innerHTML = (response.resumeLink.trim() == '' ? 'None' : response.resumeLink);
       if (response.resumeLink != "None")document.getElementById('portfolioLinkAnchorTag').href = response.resumeLink
       document.getElementById("branch").innerHTML = response.department;
       document.getElementById("year").innerHTML = response.batch;
       document.getElementById("areasOfInterest").innerHTML =
         response.areasOfInterest;
-      document.getElementById("languages").innerHTML = response.languages;
-
-      if (localStorage.type == "Student" && response.isMentor == 1) {
-        document.getElementById("askMentorshipBtn").classList.remove("d-none");
-        document
-          .getElementById("askMentorshipBtn")
-          .setAttribute("data-uid", response.uid);
-      }
+      document.getElementById("languages").innerHTML = response.languages; 
 
       if (response.isMentor == 1) {
         document.getElementById("mentorsInfo").classList.remove("d-none");
@@ -53,7 +46,7 @@ function pageScript() {
         else {
           response.higherEd.split(",").forEach((ed) => {
             var ele = document.createElement("p");
-            ele.innerHTML = ed;
+            ele.innerHTML = ed.trim() == '' ? 'None' : ed;
             document.getElementById("higherEd").appendChild(ele);
           });
         }
@@ -62,21 +55,47 @@ function pageScript() {
         else {
           response.licensesAndCerts.split(",").forEach((ed) => {
             var ele = document.createElement("p");
-            ele.innerHTML = ed;
+            ele.innerHTML = ed.trim() == '' ? 'None' : ed;
             document.getElementById("certs").appendChild(ele);
           });
         }
-      }
-
-      if (localStorage.type == "Mentor" && response.isMentor == 0) {
-          var allocationId = url.searchParams.get("allocationId"); 
-          // Get allocationId from BE
-          document
-            .getElementById("acceptMentorshipRequest")
-            .classList.remove("d-none");
+      } 
+      if (localStorage.type == "Student" && response.isMentor == 1) {
+        if (response.allocation.isAllocated == true) {
+          document.getElementById("askMentorshipBtn").classList.remove("d-none");
+          document.getElementById("askMentorshipBtn").disabled = 'disabled';
+          
+          if(response.allocation.status == "pendingRequest") {
+            document.getElementById("askMentorshipBtn").innerHTML = 'Pending Request';
+          }   else if (response.allocation.status == "mentorAgreed") {
+            document.getElementById("askMentorshipBtn").innerHTML = 'Not yet validated';
+          }         
+        } else {
+          document.getElementById("askMentorshipBtn").classList.remove("d-none");
           document
             .getElementById("askMentorshipBtn")
-            .getAttribute("data-allocationId", allocationId);
+            .setAttribute("data-uid", response.uid); 
+        }
+      } else if (localStorage.type == "Mentor" && response.isMentor == 0) {
+          if (response.allocation.isAllocated == true) { 
+            if(response.allocation.status == "pendingRequest") {
+              document
+                .getElementById("acceptMentorshipRequest")
+                .classList.remove("d-none");
+              document
+                .getElementById("acceptMentorshipRequest")
+                .getAttribute("data-allocationId", response.allocation.allocationId);
+            } else if(response.allocation.status == "mentorAgreed") {
+              document
+                .getElementById("acceptMentorshipRequest")
+                .classList.remove("d-none");
+                document
+                .getElementById("acceptMentorshipRequest").innerHTML = "Not yet Validated"
+                document
+                .getElementById("acceptMentorshipRequest").setAttribute('disabled', 'disabled');
+            }
+          } 
+          
           } 
         document.getElementById("pageLoader").classList.add("d-none");
         document.getElementById("pageContent").classList.remove("d-none");
@@ -89,7 +108,7 @@ function pageScript() {
 
 function acceptMentorshipRequest() {
   var allocationId = document
-    .getElementById("askMentorshipBtn")
+    .getElementById("acceptMentorshipRequest")
     .getAttribute("data-allocationId");
   $.ajax({
     type: "PUT",

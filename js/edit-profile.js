@@ -3,7 +3,7 @@ function pageScript() {
 
   $.ajax({
     type: "GET",
-    url: APIRoute + "users?uid=" + window.uid,
+    url: APIRoute + "users?uid=" + window.uid + "&profileUid=" + window.uid,
     datatype: "html",
 
     success: function (response) {
