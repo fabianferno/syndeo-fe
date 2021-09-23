@@ -53,7 +53,8 @@ $(document).ready(() => {
       }
     } else {
       // signed out
-      window.location.href = "index.php";
+      var thisPage = window.location.href.split("/").pop();
+      window.location.href = "login.php?redirect="+thisPage;
     }
   });
 });

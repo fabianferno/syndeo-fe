@@ -164,7 +164,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">Close</button>
-          <button type="button" class="btn btn-primary" onclick="askForMentorship(e)">Connect <span class="spinner-loader spinner-loader-sm text-light d-none" id="mentorshipLoader"></span> </button>
+          <button type="button" class="btn btn-primary" onclick="askForMentorship()" id="connectBtn">Connect <span class="spinner-loader spinner-loader-sm text-light d-none" id="mentorshipLoader"></span> </button>
         </div>
       </div>
     </div>

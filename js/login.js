@@ -1,8 +1,17 @@
 $(document).ready(() => {
     firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            if (user.emailVerified) window.location.href = "home.php";
-            else window.location.href = "verify-account.php";
+        if (user) { 
+            var redirectPage = url.searchParams.get("redirect");
+
+            
+            if (user.emailVerified) { 
+                if (redirectPage) window.location.href = redirectPage;
+                else window.location.href = "home.php";
+            }
+            else {
+                if (redirectPage) window.location.href = "verify-account.php?redirect=" + redirectPage;
+                else window.location.href = "verify-account.php";
+            }
 
             
         } else {
@@ -27,9 +36,6 @@ $(document).ready(() => {
             .then((userCredential) => {
                 // Signed in
                 window.user = userCredential.user;
-
-                // TODO: get userType and isActive and save in localstorage
-                window.location.href = "home.php";
             })
             .catch((error) => {
                 var errorCode = error.code;
