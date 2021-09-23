@@ -4,7 +4,7 @@ function pageScript() {
   if (!reqUid) {
     reqUid = window.uid;
     document.getElementById("editProfileButton").classList.remove("d-none");
-  }
+  } 
 
   $.ajax({
     type: "GET",
@@ -27,7 +27,9 @@ function pageScript() {
 
       document.getElementById("country").innerHTML = response.country;
       document.getElementById("linkedInUrl").innerHTML = response.linkedInURL;
+      if (response.linkedInURL != "None") document.getElementById('linkedInAnchorTag').href = response.linkedInURL
       document.getElementById("portfolioLink").innerHTML = response.resumeLink;
+      if (response.resumeLink != "None")document.getElementById('portfolioLinkAnchorTag').href = response.resumeLink
       document.getElementById("branch").innerHTML = response.department;
       document.getElementById("year").innerHTML = response.batch;
       document.getElementById("areasOfInterest").innerHTML =
@@ -80,6 +82,8 @@ function pageScript() {
     },
     error: function (error) {},
   });
+  window.Modal = new bootstrap.Modal(document.getElementById('askForMentorshipModal'));
+  
 }
 
 function acceptMentorshipRequest() {
@@ -103,28 +107,52 @@ function setDefaultAvatar() {
   profileAvatar.src = "assets/images/png/avatar.jpg";
 }
 
-function askForMentorship() {
-  var mentorUid = document
-    .getElementById("askMentorshipBtn")
-    .getAttribute("data-uid");
-  $.ajax({
-    type: "POST",
-    url: APIRoute + "allocations",
-    datatype: "html",
-    data: {
-      uid: window.uid,
-      menteeUid: window.uid,
-      mentorUid: mentorUid,
-      mentorMail: window.currentProfileMail,
-      menteeName: localStorage.displayName,
-      mentorName: window.currentProfileName,
-      menteeSummary: "I am Fabian Ferno, I am paavam, pls work aidu!",
-    },
-    success: function (response) {
-      console.log(response);
-      if (response == "success") {
-        alert("Request sent successfully");
-      }
-    },
-  });
+function askForMentorship(e) { 
+  document.getElementById('message-error').classList.add('d-none');
+  document.getElementById('menteeSummary').classList.remove('is-invalid');
+  const menteeSummary = document.getElementById('menteeSummary').value;
+  if (menteeSummary == '' ) {
+    document.getElementById('message-error').classList.remove('d-none');
+    document.getElementById('menteeSummary').classList.add('is-invalid');
+  }
+  else {
+    document.getElementById('mentorshipLoader').classList.remove('d-none')
+    e.target.setAttribute('disabled', 'disabled');
+    var mentorUid = document
+      .getElementById("askMentorshipBtn")
+      .getAttribute("data-uid");
+    $.ajax({
+      type: "POST",
+      url: APIRoute + "allocations",
+      datatype: "html",
+      data: {
+        uid: window.uid,
+        menteeUid: window.uid,
+        mentorUid: mentorUid,
+        mentorMail: window.currentProfileMail,
+        menteeName: localStorage.displayName,
+        mentorName: window.currentProfileName,
+        menteeSummary: menteeSummary
+      },
+      success: function (response) {
+        console.log(response);
+        if (response == "success") {
+          closeModal();
+          document.getElementById('askMentorshipBtn').disabled = "disabled"
+          document.getElementById('askMentorshipBtn').innerHTML = "Request Sent!"
+        } else {
+          document.getElementById('mentorshipLoader').classList.add('d-none')
+          e.target.removeAttribute('disabled');
+        }
+      },
+    });
+  }
+}
+
+function showModal() {
+  window.Modal.show();
+} 
+
+function closeModal() {
+  window.Modal.hide(); 
 }

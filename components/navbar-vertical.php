@@ -26,8 +26,8 @@
                      <i class="fas fa-edit mx-2"></i> Edit Profile
                  </a>
              </li>
-             <li class="nav-item">
-                 <a class="nav-link text-dark" style="background:#FF9300" id="search-mentors-link" href="search.php">
+             <li class="d-none nav-item" id="search-mentors-link">
+                 <a class="nav-link text-dark" style="background:#FF9300" href="search.php">
                      <i class="fas fa-search mx-2"></i>Search Mentors
                  </a>
              </li>

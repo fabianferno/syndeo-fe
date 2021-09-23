@@ -53,15 +53,12 @@
                       <p class="mb-0 d-block designation"></p>
                     </div>
                   </div>
-                  <button type="button" id="askMentorshipBtn" onclick="askForMentorship()" class="d-none btn btn-lg btn-primary">
-                    Connect to Mentor
-                  </button>
                 </div>
                 <!-- nav -->
                 <div class="d-flex justify-content-center justify-content-md-end pb-4 mx-4">
                   <a href="edit-profile.php" class="btn btn-outline-primary d-none" id="editProfileButton">Edit Profile</a>
-                  <a class="btn btn-dark-secondary d-none" id="askMentorshipBtn" onclick="askForMentorship()">Ask for mentorship</a>
-                  <a class="btn btn-dark-secondary d-none" id="acceptMentorshipRequest" onclick="acceptMentorshipRequest()">Accept Mentorship Request</a>
+                  <button type="button" class="btn btn-lg btn-primary d-none" id="askMentorshipBtn" onclick="showModal()">Connect to Mentor</button>
+                  <a class="btn btn-lg btn-primary d-none" id="acceptMentorshipRequest" onclick="acceptMentorshipRequest()">Accept Mentorship Request</a>
                 </div>
               </div>
             </div>
@@ -97,11 +94,11 @@
                     </div>
                     <div class="row">
                       <h6 class="text-uppercase fs-5 ls-2">LinkedIn URL</h6>
-                      <p id="linkedInUrl"></p>
+                      <a id="linkedInAnchorTag"> <p id="linkedInUrl"></p> </a>
                     </div>
                     <div class="row">
                       <h6 class="text-uppercase fs-5 ls-2">Portfolio Link</h6>
-                      <p id="portfolioLink"></p>
+                      <a id="portfolioLinkAnchorTag"><p id="portfolioLink"></p> </a>
                     </div>
                   </div>
                 </div>
@@ -150,7 +147,30 @@
         </div>
       </div>
     </div>
+  </div> 
+
+  <!-- connect to mentor modal -->
+  <div class="modal fade" id="askForMentorshipModal" tabindex="-1" aria-labelledby="askForMentorshipModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fw-bold" id="askForMentorshipModalLabel">Add a note</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <p>This will help the mentor to get know more about you. </p>
+          <textarea id="menteeSummary" rows="3" class="form-control" maxlength="100" autofocus></textarea> 
+          <small class="text-danger d-none" id="message-error">This is Required!</small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">Close</button>
+          <button type="button" class="btn btn-primary" onclick="askForMentorship(e)">Connect <span class="spinner-loader spinner-loader-sm text-light d-none" id="mentorshipLoader"></span> </button>
+        </div>
+      </div>
+    </div>
   </div>
+
+
   <!-- Scripts -->
   <?php include "components/js-assets.php" ?>
   <script src="js/auth-status.js"></script>
