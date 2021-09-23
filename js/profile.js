@@ -8,7 +8,7 @@ function pageScript() {
 
   $.ajax({
     type: "GET",
-    url: APIRoute + "users?uid=" + reqUid,
+    url: APIRoute + "users?uid=" + window.uid + "&profileUid=" + reqUid,
     datatype: "html",
 
     success: function (response) {
@@ -69,16 +69,17 @@ function pageScript() {
       }
 
       if (localStorage.type == "Mentor" && response.isMentor == 0) {
-        var allocationId = url.searchParams.get("allocationId");
-        document
-          .getElementById("acceptMentorshipRequest")
-          .classList.remove("d-none");
-        document
-          .getElementById("askMentorshipBtn")
-          .getAttribute("data-allocationId", allocationId);
-      }
-      document.getElementById("pageLoader").classList.add("d-none");
-      document.getElementById("pageContent").classList.remove("d-none");
+          var allocationId = url.searchParams.get("allocationId"); 
+          // Get allocationId from BE
+          document
+            .getElementById("acceptMentorshipRequest")
+            .classList.remove("d-none");
+          document
+            .getElementById("askMentorshipBtn")
+            .getAttribute("data-allocationId", allocationId);
+          } 
+        document.getElementById("pageLoader").classList.add("d-none");
+        document.getElementById("pageContent").classList.remove("d-none");
     },
     error: function (error) {},
   });
@@ -107,7 +108,7 @@ function setDefaultAvatar() {
   profileAvatar.src = "assets/images/png/avatar.jpg";
 }
 
-function askForMentorship(e) { 
+function askForMentorship() { 
   document.getElementById('message-error').classList.add('d-none');
   document.getElementById('menteeSummary').classList.remove('is-invalid');
   const menteeSummary = document.getElementById('menteeSummary').value;
@@ -117,7 +118,7 @@ function askForMentorship(e) {
   }
   else {
     document.getElementById('mentorshipLoader').classList.remove('d-none')
-    e.target.setAttribute('disabled', 'disabled');
+    document.getElementById('connectBtn').setAttribute('disabled', 'disabled');
     var mentorUid = document
       .getElementById("askMentorshipBtn")
       .getAttribute("data-uid");
