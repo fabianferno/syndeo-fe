@@ -34,14 +34,14 @@
               <div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="mb-2 mb-lg-0">
-                    <h3 class="mb-0 fw-bold text-white">Hey, <span id="name-holder"></span>. Let's see what Syndeo has to offer.</h3>
+                    <h3 class="mb-0  text-white">Hey, <span id="name-holder" class="fw-bold"></span>. Let's see what Syndeo has to offer.</h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div id="mentorActions" class="row mt-6 ">
+          <div id="mentorActions" class="row mt-6 d-none">
             <H1 class="fw-bold text-white">Mentor Actions 🛠️</H1>
 
             <div class="col-md-6 col-12">
@@ -56,6 +56,8 @@
                 </div>
               </div>
             </div>
+
+
             <div class="col-md-6 col-12">
               <!-- mentee card  -->
               <div class="card card-body my-2">
