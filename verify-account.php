@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="d-flex flex-column align-items-center">
-                                <a id="emailVerifiedBtn" class="btn btn-dark-secondary btn-block mt-4">
+                                <a id="emailVerifiedBtn" class="btn btn-dark-secondary btn-block mt-4" onclick="emailVerified()">
                                     I Have Verified My Email
                                 </a>
                                 <button onclick="resendVerificationEmail()" class="btn btn-dark-secondary btn-block mt-2">
