@@ -166,8 +166,9 @@ $(document).ready(() => {
                             // Signed in
                             window.user = userCredential.user;
 
-                            window.user.sendEmailVerification()
-                            window.location.href = "verify-account.php";
+                            window.user.sendEmailVerification().then(() => {
+                              window.location.href = "verify-account.php";
+                            })
                         })
                         .catch(function (error) {});
 
