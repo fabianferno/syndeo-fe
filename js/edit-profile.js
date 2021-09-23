@@ -26,33 +26,48 @@ function pageScript() {
       else document.getElementById("genderFemale").checked = true;
 
       document.getElementById("batch").value = response.batch;
-      document.getElementById("dob").value = response.dateOfBirth;
+      document.getElementById("department").value = response.department;
+      var dob = new Date(response.dateOfBirth)
+      dob = dob.getFullYear() + '-' + ('0' + (dob.getMonth() + 1)).slice(-2) + '-' + dob.getDate() 
+      console.log(dob)
+      document.getElementById("dob").value = dob;
       document.getElementById("phone").value = response.mobile;
       document.getElementById("designation").value = response.designation;
       document.getElementById("prefContact").value = response.contactPref;
-      document.getElementById("country").value = response.country;
-      document.getElementById("language").value = response.languages;
+      document.getElementById("country").value = response.country; 
+      response.languages.split(',').forEach(lang => {
+        $('#language').tagsinput('add', lang);
+      })
       document.getElementById("linkedIn").value = response.linkedInURL;
       document.getElementById("resumeLink").value = response.resumeLink;
       document.getElementById("summary").value = response.summary;
-      document.getElementById("areasOfInterest").value =
-        response.areasOfInterest;
+      response.areasOfInterest.split(',').forEach(item => {
+        $('#areasOfInterest').tagsinput('add', item);
+      })
 
       //Mentor Fields
       if (response.isMentor == 1) {
         document.getElementById("mentorFields").classList.remove("d-none");
         response.higherEd.split(",").forEach((higherStudies, i) => {
-          addFields("higherStudiesGroup");
+          addFields("higherStudiesGroup"); 
+          console.log(higherStudies)
           $("#higherStudiesGroup" + i)
             .find(".higherStudies")
             .val(higherStudies);
         });
         response.licensesAndCerts.split(",").forEach((licenseAndCerts, i) => {
           addFields("licenseAndCertsGroup");
+          console.log(licenseAndCerts)
           $("#licenseAndCertsGroup" + i)
             .find(".licenseAndCerts")
             .val(licenseAndCerts);
-        });
+        }); 
+        if (tags.length > 1) {
+          response.tags.split(',').forEach(tag => {
+            $('#tags').tagsinput('add', tag);
+          })
+        }
+        
       }
 
       document.getElementById("pageLoader").classList.add("d-none");
