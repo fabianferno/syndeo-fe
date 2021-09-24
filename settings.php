@@ -104,7 +104,7 @@
                                         </div>
 
                                         <h5 class="mt-4"> Let me take part in the Mentorship Program</h5>
-                                        <p> By Turning on this switch, your profile will be visible to students who are in search for mentors.</p>
+                                        <p> By Turning on this switch, your profile will be visible to students who are in search of mentors.</p>
                                     </div>
                                     <div class="row">
                                         <small class="text-success d-none" id="message-saved">Saved!</small>
@@ -139,7 +139,7 @@
                                         <h4 class="mb-1 font-weight-bold">Delete your account</h4>
                                     </div>
                                     <p>This will Delete your account in Syndeo. </p>
-                                    <p id="mentor-message" class="d-none"> If you are a Mentor and you are willing to take a break from mentorship programme, simply turn off the mentorship program switch above.</p>
+                                    <p id="mentor-message" class="d-none"> If you're a Mentor and you are willing to take a break from the mentorship programme, turn off the mentorship program switch above.</p>
                                     <button class="btn btn-danger" id="deleteAccountBtn" data-toggle="modal" data-target="#deleteModal"> Delete Account</button>
                                     <p class="text-danger d-none" id="message-delete-fail">Failed to delete!</p>
                                 </div>
