@@ -3,7 +3,7 @@
 
 <head>
     <?php include "components/css-assets.php" ?>
-    <title>Admin - Mentorship Allocations</title>
+    <title>Admin | Mentorship Allocations</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
                             <div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="mb-2 mb-lg-0">
-                                        <h3 class="mb-0 fw-bold text-white">Hey, <span id="name-holder"></span>. Let's see what Syndeo has to offer.</h3>
+                                        <h3 class="mb-0 text-white">Hey, <span class="fw-bold " id="name-holder"></span>. Validate mentorship requests here.</h3>
                                     </div>
                                 </div>
                             </div>
@@ -42,44 +42,40 @@
                     </div>
 
                     <div id="mentorActions" class="row mt-6 ">
-                        <H1 class="fw-bold text-white">Admin Actions 🛠️</H1>
+                        <H1 class="fw-bold text-white mb-3">Admin Actions | Validate Requests 🛠️</H1>
+
 
                         <div class="col-md-6 col-12">
                             <!-- mentee card  -->
                             <div class="card card-body my-2">
                                 <h4 class="mb-2 w-50">
-                                    Fabian Ferno</h4>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum magni aperiam animi laborum, aliquam fugiat quos corrupti nobis ratione, dolores perferendis, culpa id illo nam. Id doloribus unde nobis!</p>
+                                    Fabian Ferno ▶️ Rohan Jebaraj</h4>
                                 <!-- card footer  -->
                                 <div class="card-footer bg-white border-white text-end">
-                                    <a href="edit-profile.php" class="btn btn-primary">View Profile</a>
+                                    <a href="edit-profile.php" class="btn btn-primary">Validate</a>
+                                    <a href="profile.php" class="btn btn-secondary">View Mentor</a>
+                                    <a href="profile.php" class="btn btn-secondary">View Student</a>
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="col-md-6 col-12">
                             <!-- mentee card  -->
                             <div class="card card-body my-2">
                                 <h4 class="mb-2 w-50">
-                                    Fabian Ferno</h4>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum magni aperiam animi laborum, aliquam fugiat quos corrupti nobis ratione, dolores perferendis, culpa id illo nam. Id doloribus unde nobis!</p>
+                                    Fabian Ferno ▶️ Rohan Jebaraj</h4>
                                 <!-- card footer  -->
                                 <div class="card-footer bg-white border-white text-end">
-                                    <a href="edit-profile.php" class="btn btn-primary">View Profile</a>
+                                    <a href="edit-profile.php" class="btn btn-primary">Validate</a>
+                                    <a href="profile.php" class="btn btn-secondary">View Mentor</a>
+                                    <a href="profile.php" class="btn btn-secondary">View Student</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-12">
-                            <!-- mentee card  -->
-                            <div class="card card-body my-2">
-                                <h4 class="mb-2 w-50">
-                                    Fabian Ferno</h4>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum magni aperiam animi laborum, aliquam fugiat quos corrupti nobis ratione, dolores perferendis, culpa id illo nam. Id doloribus unde nobis!</p>
-                                <!-- card footer  -->
-                                <div class="card-footer bg-white border-white text-end">
-                                    <a href="edit-profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
+
+
                     </div>
 
 

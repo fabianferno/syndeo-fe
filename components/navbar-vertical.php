@@ -26,6 +26,11 @@
                      <i class="fas fa-edit mx-2"></i> Edit Profile
                  </a>
              </li>
+             <li class="nav-item">
+                 <a class="nav-link" href="allocations.php">
+                     <i class="fas fa-check mx-2"></i> Admin Actions
+                 </a>
+             </li>
              <li class="d-none nav-item" id="search-mentors-link">
                  <a class="nav-link text-dark" style="background:#FF9300" href="search.php">
                      <i class="fas fa-search mx-2"></i>Search Mentors
