@@ -42,7 +42,7 @@
           </div>
 
           <div id="mentorActions" class="row mt-6 d-none">
-            <H1 class="fw-bold text-white">Mentor Actions 🛠️</H1>
+            <H1 class="fw-bold text-white">Mentor Actions 🛠️ | Agree to Mentorship Requests</H1>
 
             <div id="no-allocations-message" class="col-md-12 col-12 d-none">
               <!-- mentee card  -->
