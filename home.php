@@ -58,7 +58,7 @@
 
 
           <!-- row  -->
-          <div class="row mt-6">
+          <div class="row mt-6 pb-4">
             <div class="col-md-12 col-12">
               <!-- card  -->
               <div class="card card-body my-2">
