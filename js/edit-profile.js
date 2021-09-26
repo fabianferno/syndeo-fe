@@ -50,15 +50,13 @@ function pageScript() {
         document.getElementById("mentorFields").classList.remove("d-none");
         response.higherEd.split(",").forEach((higherStudies, i) => {
           addFields("higherStudiesGroup"); 
-          console.log(higherStudies)
-          $("#higherStudiesGroup" + i)
+          $("#higherStudiesGroup-" + (i+1))
             .find(".higherStudies")
             .val(higherStudies);
         });
         response.licensesAndCerts.split(",").forEach((licenseAndCerts, i) => {
           addFields("licenseAndCertsGroup");
-          console.log(licenseAndCerts)
-          $("#licenseAndCertsGroup" + i)
+          $("#licenseAndCertsGroup-" + (i+1))
             .find(".licenseAndCerts")
             .val(licenseAndCerts);
         }); 

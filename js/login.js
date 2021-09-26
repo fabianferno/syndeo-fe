@@ -1,6 +1,7 @@
 $(document).ready(() => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) { 
+            var url = new URL(window.location.href);
             var redirectPage = url.searchParams.get("redirect");
 
             

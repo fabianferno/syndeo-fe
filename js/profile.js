@@ -79,13 +79,14 @@ function pageScript() {
           } else if (response.allocation.status == "mentorAgreed") {
             document.getElementById("askMentorshipBtn").innerHTML =
               "Yet to be validated by an Admin";
+              document.getElementById("askMentorshipBtn").disabled = "disabled"
           }
         } else {
           document
             .getElementById("askMentorshipBtn")
             .classList.remove("d-none");
           document
-            .getElementById("askMentorshipBtn")
+            .getElementById("connectBtn")
             .setAttribute("data-uid", response.uid);
         }
       } else if (localStorage.type == "Mentor" && response.isMentor == 0) {
@@ -97,8 +98,8 @@ function pageScript() {
             document
               .getElementById("acceptMentorshipRequest")
               .setAttribute(
-                "data-allocationId",
-                response.allocation.allocationId
+                "onclick",
+                "acceptMentorshipRequest('"+response.allocation.allocationId+"')"
               );
           } else if (response.allocation.status == "mentorAgreed") {
             document
@@ -109,7 +110,7 @@ function pageScript() {
             document
               .getElementById("acceptMentorshipRequest")
               .setAttribute("disabled", "disabled");
-          }
+          } 
         }
       }
       document.getElementById("pageLoader").classList.add("d-none");
@@ -122,11 +123,7 @@ function pageScript() {
   );
 }
 
-function acceptMentorshipRequest() {
-  var allocationId = document
-    .getElementById("acceptMentorshipRequest")
-    .getAttribute("data-allocationId");
-
+function acceptMentorshipRequest(allocationId) {
   $.ajax({
     type: "POST",
     url: APIRoute + "mentors/agree",
@@ -160,7 +157,7 @@ function askForMentorship() {
     document.getElementById("mentorshipLoader").classList.remove("d-none");
     document.getElementById("connectBtn").setAttribute("disabled", "disabled");
     var mentorUid = document
-      .getElementById("askMentorshipBtn")
+      .getElementById("connectBtn")
       .getAttribute("data-uid");
     $.ajax({
       type: "POST",

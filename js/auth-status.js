@@ -28,6 +28,7 @@ $(document).ready(() => {
 
               success: function (response) {
                 if (response.authStatus == "true") {
+                  console.log(response.userType)
                   localStorage.displayName = user.displayName;
                   document.getElementById("username").innerHTML =
                     user.displayName;
@@ -40,6 +41,8 @@ $(document).ready(() => {
                     document
                       .getElementById("search-mentors-link")
                       .classList.remove("d-none");
+                  } else if (response.userType == "admin") {
+                    document.getElementById('admin-actions-link').classList.remove('d-none')
                   }
 
                   pageScript();

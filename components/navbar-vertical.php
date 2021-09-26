@@ -26,7 +26,7 @@
                      <i class="fas fa-edit mx-2"></i> Edit Profile
                  </a>
              </li>
-             <li class="nav-item">
+             <li class="d-none nav-item" id="admin-actions-link">
                  <a class="nav-link" href="allocations.php">
                      <i class="fas fa-check mx-2"></i> Admin Actions
                  </a>

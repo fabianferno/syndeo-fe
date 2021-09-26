@@ -58,7 +58,7 @@
                 <div class="d-flex justify-content-center justify-content-md-end pb-4 mx-4">
                   <a href="edit-profile.php" class="btn btn-outline-primary d-none" id="editProfileButton">Edit Profile</a>
                   <button type="button" class="btn btn-lg btn-primary d-none" id="askMentorshipBtn" onclick="showModal()">Connect to Mentor</button>
-                  <a class="btn btn-lg btn-primary d-none" id="acceptMentorshipRequest" onclick="acceptMentorshipRequest()">Accept Mentorship Request</a>
+                  <a class="btn btn-lg btn-primary d-none" id="acceptMentorshipRequest">Accept Mentorship Request</a>
                 </div>
               </div>
             </div>

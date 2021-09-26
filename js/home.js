@@ -1,7 +1,5 @@
 function pageScript() {
   document.getElementById("name-holder").innerHTML = localStorage.displayName;
-  document.getElementById("pageLoader").classList.add("d-none");
-  document.getElementById("pageContent").classList.remove("d-none");
 
   if (localStorage.type == "Mentor") {
     document.getElementById("mentorActions").classList.remove("d-none");
@@ -53,6 +51,8 @@ function pageScript() {
           .getElementById("no-allocations-message")
           .classList.remove("d-none");
       }
+      document.getElementById("pageLoader").classList.add("d-none");
+      document.getElementById("pageContent").classList.remove("d-none");
     },
   });
 }

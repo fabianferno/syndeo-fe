@@ -41,45 +41,10 @@
                         </div>
                     </div>
 
-                    <div id="mentorActions" class="row mt-6 ">
+                    <div id="adminActions" class="row mt-6 ">
                         <H1 class="fw-bold text-white mb-3">Admin Actions | Validate Requests 🛠️</H1>
-
-
-                        <div class="col-md-6 col-12">
-                            <!-- mentee card  -->
-                            <div class="card card-body my-2">
-                                <h4 class="mb-2 w-50">
-                                    Fabian Ferno ▶️ Rohan Jebaraj</h4>
-                                <!-- card footer  -->
-                                <div class="card-footer bg-white border-white text-end">
-                                    <a href="edit-profile.php" class="btn btn-primary">Validate</a>
-                                    <a href="profile.php" class="btn btn-secondary">View Mentor</a>
-                                    <a href="profile.php" class="btn btn-secondary">View Student</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-md-6 col-12">
-                            <!-- mentee card  -->
-                            <div class="card card-body my-2">
-                                <h4 class="mb-2 w-50">
-                                    Fabian Ferno ▶️ Rohan Jebaraj</h4>
-                                <!-- card footer  -->
-                                <div class="card-footer bg-white border-white text-end">
-                                    <a href="edit-profile.php" class="btn btn-primary">Validate</a>
-                                    <a href="profile.php" class="btn btn-secondary">View Mentor</a>
-                                    <a href="profile.php" class="btn btn-secondary">View Student</a>
-                                </div>
-                            </div>
-                        </div>
-
-
+                        <div class="d-flex flex-column" id="allocations"></div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
