@@ -43,6 +43,9 @@ $(document).ready(() => {
                       .classList.remove("d-none");
                   } else if (response.userType == "admin") {
                     document.getElementById('admin-actions-link').classList.remove('d-none')
+                    document
+                      .getElementById("search-mentors-link")
+                      .classList.remove("d-none");
                   }
 
                   pageScript();

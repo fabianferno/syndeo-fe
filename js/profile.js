@@ -25,17 +25,20 @@ function pageScript() {
       document.getElementById("email").innerHTML = response.email;
       window.currentProfileMail = response.email;
 
-      document.getElementById("country").innerHTML = response.country;
-      document.getElementById("linkedInUrl").innerHTML =
-        response.linkedInURL.trim() == "" ? "None" : response.linkedInURL;
-      if (response.linkedInURL != "None")
+      document.getElementById("country").innerHTML = response.country; 
+      if (isValidUrl(response.linkedInURL)) {
+        document.getElementById("linkedInUrl").innerHTML = response.linkedInURL.trim(); 
         document.getElementById("linkedInAnchorTag").href =
-          response.linkedInURL;
-      document.getElementById("portfolioLink").innerHTML =
-        response.resumeLink.trim() == "" ? "None" : response.resumeLink;
-      if (response.resumeLink != "None")
-        document.getElementById("portfolioLinkAnchorTag").href =
-          response.resumeLink;
+        response.linkedInURL;
+      }
+      else document.getElementById("linkedInUrl").innerHTML = "None"
+
+      if (isValidUrl(response.resumeLink)) {
+          document.getElementById("portfolioLink").innerHTML = response.resumeLink.trim(); 
+          document.getElementById("portfolioLinkAnchorTag").href = response.resumeLink;
+        }
+      else document.getElementById("portfolioLink").innerHTML = "None"
+
       document.getElementById("branch").innerHTML = response.department;
       document.getElementById("year").innerHTML = response.batch;
       document.getElementById("areasOfInterest").innerHTML =
@@ -194,4 +197,9 @@ function showModal() {
 
 function closeModal() {
   window.Modal.hide();
+}
+
+function isValidUrl(_string){
+  const matchPattern = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+  return matchPattern.test(_string);
 }

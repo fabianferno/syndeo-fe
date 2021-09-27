@@ -27,9 +27,23 @@
                  </a>
              </li>
              <li class="d-none nav-item" id="admin-actions-link">
-                 <a class="nav-link" href="allocations.php">
-                     <i class="fas fa-check mx-2"></i> Admin Actions
-                 </a>
+                 <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#admin-actions" role="button" aria-expanded="false" aria-controls="admin-actions">
+                    <i class="fas fa-cogs mx-2"></i> Admin Actions <i class="fas fa-angle-down mx-auto"></i>
+                 </a> 
+                 <div id="admin-actions" class="collapse show">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-allocations.php" aria-expanded="true">
+                                <i class="fas fa-eye mx-2"></i> View Allocations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="allocations.php" aria-expanded="true">
+                                <i class="fas fa-check mx-2"></i> Validate Requests 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
              </li>
              <li class="d-none nav-item" id="search-mentors-link">
                  <a class="nav-link text-dark" style="background:#FF9300" href="search.php">

@@ -4,8 +4,6 @@ function pageScript () {
         document.getElementById('mentor-message').classList.remove('d-none');
         document.getElementById('profile-visibility').classList.remove('d-none');
         document.getElementById('mentorship-switch').checked = localStorage.isActive == 1 ? true : false;
-    } else {
-        document.getElementById('search-mentors-link').classList.remove('d-none')
     }
 
     document.getElementById('pageLoader').classList.add('d-none');
