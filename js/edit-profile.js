@@ -28,13 +28,14 @@ function pageScript() {
       document.getElementById("batch").value = response.batch;
       document.getElementById("department").value = response.department;
       var dob = new Date(response.dateOfBirth)
-      dob = dob.getFullYear() + '-' + ('0' + (dob.getMonth() + 1)).slice(-2) + '-' + dob.getDate() 
+      dob = ('0' + (dob.getMonth() + 1)).slice(-2) + '/' + ("0" + dob.getDate()).slice(-2)
+        + '/' + dob.getFullYear()
       console.log(dob)
       document.getElementById("dob").value = dob;
       document.getElementById("phone").value = response.mobile;
       document.getElementById("designation").value = response.designation;
       document.getElementById("prefContact").value = response.contactPref;
-      document.getElementById("country").value = response.country; 
+      document.getElementById("country").value = response.country;
       response.languages.split(',').forEach(lang => {
         $('#language').tagsinput('add', lang);
       })
@@ -49,29 +50,29 @@ function pageScript() {
       if (response.isMentor == 1) {
         document.getElementById("mentorFields").classList.remove("d-none");
         response.higherEd.split(",").forEach((higherStudies, i) => {
-          addFields("higherStudiesGroup"); 
-          $("#higherStudiesGroup-" + (i+1))
+          addFields("higherStudiesGroup");
+          $("#higherStudiesGroup-" + (i + 1))
             .find(".higherStudies")
             .val(higherStudies);
         });
         response.licensesAndCerts.split(",").forEach((licenseAndCerts, i) => {
           addFields("licenseAndCertsGroup");
-          $("#licenseAndCertsGroup-" + (i+1))
+          $("#licenseAndCertsGroup-" + (i + 1))
             .find(".licenseAndCerts")
             .val(licenseAndCerts);
-        }); 
+        });
         if (tags.length > 1) {
           response.tags.split(',').forEach(tag => {
             $('#tags').tagsinput('add', tag);
           })
         }
-        
+
       }
 
       document.getElementById("pageLoader").classList.add("d-none");
       document.getElementById("pageContent").classList.remove("d-none");
     },
-    error: function (error) {},
+    error: function (error) { },
   });
 }
 $(document).ready(() => {
@@ -153,10 +154,6 @@ $(document).ready(() => {
     _tags.forEach((tag) => tag.trim());
     tags = _tags.length != 0 ? _tags.join(",") : null;
 
-    var isActive = document.getElementById("agreeForMentorship").checked
-      ? 1
-      : 0;
-
     // ------------------------ MENTOR's FIELDS -----------------------------
 
     if (validateForm()) {
@@ -166,7 +163,7 @@ $(document).ready(() => {
           "profilePic",
           $(".uploadProfileInput").get(0).files[0],
           "ProfileImage." +
-            $(".uploadProfileInput").get(0).files[0].name.split(".").pop()
+          $(".uploadProfileInput").get(0).files[0].name.split(".").pop()
         );
 
       formdata.append("fullName", document.getElementById("fullName").value);
@@ -198,13 +195,15 @@ $(document).ready(() => {
       formdata.append("higherEd", higherStudies);
       formdata.append("licensesAndCerts", licenseAndCerts);
       formdata.append("tags", tags);
-      formdata.append("isActive", isActive);
 
       $.ajax({
         type: "PUT",
         url: APIRoute + "users",
         datatype: "html",
         data: formdata,
+        cache: false,
+        contentType: false,
+        processData: false,
 
         success: function (response) {
           if (response == "success") {

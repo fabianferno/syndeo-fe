@@ -5,7 +5,7 @@
          <a class="navbar-brand m-2">
              <div class="mb-5 d-flex flex-row justify-content-start align-items-center">
                  <!-- <img src="assets/images/png/logo.png" style="width:40px; height:40px;" class="rounded-circle me-2" alt="image"> -->
-                 <img src="assets/images/svg/syndeo-full.svg" style="height:70px" alt="image">
+                 <img src="assets/images/png/syndeo-full.png" style="height:70px" alt="image">
              </div>
          </a>
 
@@ -28,25 +28,25 @@
              </li>
              <li class="d-none nav-item" id="admin-actions-link">
                  <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#admin-actions" role="button" aria-expanded="false" aria-controls="admin-actions">
-                    <i class="fas fa-cogs mx-2"></i> Admin Actions <i class="fas fa-angle-down mx-auto"></i>
-                 </a> 
+                     <i class="fas fa-cogs mx-2"></i> Admin Actions <i class="fas fa-angle-down mx-auto"></i>
+                 </a>
                  <div id="admin-actions" class="collapse show">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="view-allocations.php" aria-expanded="true">
-                                <i class="fas fa-eye mx-2"></i> View Allocations
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="allocations.php" aria-expanded="true">
-                                <i class="fas fa-check mx-2"></i> Validate Requests 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                     <ul class="nav flex-column">
+                         <li class="nav-item">
+                             <a class="nav-link" href="view-allocations.php" aria-expanded="true">
+                                 <i class="fas fa-eye mx-2"></i> View Allocations
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="allocations.php" aria-expanded="true">
+                                 <i class="fas fa-check mx-2"></i> Validate Requests
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
              </li>
              <li class="d-none nav-item" id="search-mentors-link">
-                 <a class="nav-link text-dark" style="background:#FF9300" href="search.php">
+                 <a class="nav-link" href="search.php">
                      <i class="fas fa-search mx-2"></i>Search Mentors
                  </a>
              </li>

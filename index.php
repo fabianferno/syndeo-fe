@@ -25,9 +25,9 @@
             <div class="p-4">
               <div class="d-flex justify-content-center align-items-center">
                 <img src="./assets/images/png/logo.png" style="height:100px;margin-right:15px;" alt="">
-                <img src="./assets/images/svg/syndeo-main-blue.svg" style="height:97px;" alt="" srcset="">
+                <img src="./assets/images/png/syndeo-main-blue.png" style="height:97px;" alt="" srcset="">
               </div>
-              <img src="./assets/images/svg/syndeo-text-blue.svg" style="height:80px; margin-top:15px" alt="" srcset="">
+              <img src="./assets/images/png/syndeo-text-blue.png" style="height:80px; margin-top:15px" alt="" srcset="">
               <p class="mt-2">Licet Alumni Mentorship Platform</p>
             </div>
             <div class="d-flex justify-content-around px-5 pt-5 mt-2">

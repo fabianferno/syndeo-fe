@@ -12,7 +12,7 @@
             .cls-3 {
                 font-size: 90.61px;
                 fill: #fff;
-                font-family: Montserrat-Bold, Montserrat;
+                font-family: Montserrat-Bold, Montserrat,Sans-Serif;
                 font-weight: 700;
             }
 

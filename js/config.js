@@ -18,9 +18,9 @@ var userAppUrl = "https://syndeo-fe.herokuapp.com/";
 
 // API Routes
 // var APIRoute = "https://syndeo-admin.herokuapp.com";
+// var APIRoute = "https://syndeo-be.fabianferno.repl.co/";
 // var APIRoute = "https://syndeo-be.herokuapp.com/";
 var APIRoute = "http://127.0.0.1:5000/";
-// var APIRoute = "https://syndeo-be.fabianferno.repl.co/"
 
 function logout() {
   firebase
