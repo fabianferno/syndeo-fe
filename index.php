@@ -24,7 +24,8 @@
           <div class="text-center card bg-white shadow p-5">
             <div class="p-4">
               <div class="d-flex justify-content-center align-items-center">
-                <img src="./assets/images/png/logo.png" style="height:100px;margin-right:15px;" alt="">
+                <img src="./assets/images/png/she-logo-orange2.png" style="height:100px;margin-right:15px;" alt="">
+                <img src="./assets/images/png/logo.png" style="height:100px;margin-right:15px;" alt="" srcset="">
                 <img src="./assets/images/png/syndeo-main-blue.png" style="height:97px;" alt="" srcset="">
               </div>
               <img src="./assets/images/png/syndeo-text-blue.png" style="height:80px; margin-top:15px" alt="" srcset="">
