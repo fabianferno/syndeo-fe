@@ -213,7 +213,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label class="labels">Tags</label><br>
-                                            <input type="text" id="#inputTag" value="" data-role="tagsinput" placeholder="Add Tags">
+                                            <input type="text" id="#inputTag" value="" data-role="tagsinput" placeholder="(Your areas of expertise - ex. AWS, Cloud, IoT, ML etc. Please enter comma separated values.)">
                                         </div>
                                         <div class="col-md-12">
                                             <label class="labels">A summary about yourself</label>

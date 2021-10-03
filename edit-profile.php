@@ -181,8 +181,9 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3 mx-0" id="tagsRow">
-                                                <label for="tags" class="form-label mb-0">Tags</label>
-                                                <small class="mb-2" style="font-size: 10px;">(Enter comma-separated values)</small>
+                                                <label for="tags" class="form-label mb-0">Tags
+</label>
+                                                <small class="mb-2" style="font-size: 10px;">(Your areas of expertise - ex. AWS, Cloud, IoT, ML etc. Please enter comma separated values.)</small>
                                                 <input type="text" id="tags" class="form-control" data-role="tagsinput" name="tags" placeholder="">
                                             </div>
                                         </div>

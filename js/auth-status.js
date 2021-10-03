@@ -60,7 +60,7 @@ $(document).ready(() => {
     } else {
       // signed out
       var thisPage = window.location.href.split("/").pop();
-      window.location.href = "login.php?redirect="+thisPage;
+      window.location.href = "login.php?redirect=" + thisPage;
     }
   });
 });
