@@ -22,7 +22,7 @@
                         <div class="card-body m-2">
                             <div class="mb-5 d-flex flex-row justify-content-center align-items-center">
                                 <img src="assets/images/png/logo.png" style="width:40px; height:40px;" class="rounded-circle me-2" alt="image">
-                                <img src="assets/images/svg/syndeo-text-blue.svg" style="height:40px; margin-left:8px" alt="image">
+                                <img src="assets/images/png/syndeo-text-blue.png" style="height:40px; margin-left:8px" alt="image">
                             </div>
                             <h2 class="fw-bold text-center h4 mt-5 mb-3">Create Profile</h2>
 

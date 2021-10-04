@@ -25,7 +25,7 @@
             <div class="card-body p-6">
               <div class="mb-5 d-flex flex-row justify-content-start align-items-center">
                 <img src="assets/images/png/logo.png" style="width:40px; height:40px;" class="rounded-circle me-2" alt="image">
-                <img src="assets/images/svg/syndeo-text-blue.svg" style="height:40px; margin-left:8px" alt="image">
+                <img src="assets/images/png/syndeo-text-blue.png" style="height:40px; margin-left:8px" alt="image">
               </div>
               <!-- Form -->
               <form id="signInForm">
