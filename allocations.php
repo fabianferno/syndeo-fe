@@ -45,20 +45,24 @@
                         <H1 class="fw-bold text-white mb-3">Admin Actions | Validate Requests 🛠️</H1>
                         <div class="d-flex flex-column" id="allocations">
                         <!--Filter-->
+                        <form>
                         <div class="d-flex flex-row mb-3 text-white" id="filters">
-                        <label class="form-check-label" for="filters">
-                            <input type="radio" class="form-check-input" id="" value="All" name="">
-                            All &nbsp; &nbsp; 
-                        </label>
-                        <label class="form-check-label" for="filters">
-                            <input type="radio" class="form-check-input" id="" value="Validated" name="">
-                            Validated &nbsp; &nbsp; 
-                        </label>
-                        <label class="form-check-label" for="filters">
-                            <input type="radio" class="form-check-input" id="" value="Pending" name="">
-                            Pending &nbsp; &nbsp; 
-                        </label>
-                        </div>
+                            <input type="radio" class="form-check-input" id="filters" value="All" name="filters">
+                            <label class="form-check-label" for="filters">
+                                All &nbsp; &nbsp; 
+                            </label>
+                        
+                            <input type="radio" class="form-check-input" id="filters" value="Validated" name="filters">
+                            <label class="form-check-label" for="filters">    
+                                Validated &nbsp; &nbsp; 
+                            </label>
+                        
+                            <input type="radio" class="form-check-input" id="filters" value="Pending" name="filters">
+                            <label class="form-check-label" for="filters">
+                                Pending &nbsp; &nbsp; 
+                            </label>
+                            </div>
+                        </form>
                         </div>
                     </div>
                 </div>
