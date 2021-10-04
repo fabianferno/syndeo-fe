@@ -44,25 +44,11 @@
                     <div id="adminActions" class="row mt-6 ">
                         <H1 class="fw-bold text-white mb-3">Admin Actions | Validate Requests 🛠️</H1>
                         <div class="d-flex flex-column" id="allocations">
-                        <!--Filter-->
-                        <form>
-                        <div class="d-flex flex-row mb-3 text-white" id="filters">
-                            <input type="radio" class="form-check-input" id="filters" value="All" name="filters">
-                            <label class="form-check-label" for="filters">
-                                All &nbsp; &nbsp; 
-                            </label>
-                        
-                            <input type="radio" class="form-check-input" id="filters" value="Validated" name="filters">
-                            <label class="form-check-label" for="filters">    
-                                Validated &nbsp; &nbsp; 
-                            </label>
-                        
-                            <input type="radio" class="form-check-input" id="filters" value="Pending" name="filters">
-                            <label class="form-check-label" for="filters">
-                                Pending &nbsp; &nbsp; 
-                            </label>
-                            </div>
-                        </form>
+                            <!-- This will be changed by AJAX -->
+                        </div>
+
+                        <div id="no-allocations-message" class="mt-5 text-secondary d-none h4 font-weight-bold card card-body d-flex justify-content-center align-items-center p-3">
+                            Um... No mentorship requests to be validated.
                         </div>
                     </div>
                 </div>

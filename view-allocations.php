@@ -40,11 +40,40 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="adminActions" class="row mt-6 ">
-                        <H1 class="fw-bold text-white mb-3">Admin Actions | View Allocations</H1>
-                        <div class="d-flex flex-column" id="allocations"></div>
+                        <H1 class="fw-bold text-white mb-3">Admin Actions | Validate Requests 🛠️</H1>
+                        <!--Filter-->
+                        <div class="d-flex bg-white p-5 justify-content-center my-4" id="filters">
+                            <label class="form-check-label" for="filters">
+                                <input type="radio" class="form-check-input" id="filterRadioAll" value="all" name="filterRadio">
+                                All &nbsp; &nbsp;
+                            </label>
+                            <label class="form-check-label" for="filters">
+                                <input checked type="radio" class="form-check-input" id="filterRadioValidated" value="validated" name="filterRadio">
+                                Active &nbsp; &nbsp;
+                            </label>
+                            <label class="form-check-label" for="filters">
+                                <input checked type="radio" class="form-check-input" id="filterRadioAgreed" value="agreed" name="filterRadio">
+                                Yet to Validate &nbsp; &nbsp;
+                            </label>
+                            <label class="form-check-label" for="filters">
+                                <input type="radio" class="form-check-input" id="filterRadioPending" value="pending" name="filterRadio">
+                                Yet to be Agreed by Mentor &nbsp; &nbsp;
+                            </label>
+                        </div>
+
+                        <div class="d-flex flex-column" id="allocations">
+                            <!-- This will be updated by the AJAX code -->
+                        </div>
+
+                        <div id="no-allocations-message" class="mt-5 text-secondary d-none h4 font-weight-bold card card-body d-flex justify-content-center align-items-center p-3">
+                            Um... No mentorship requests to be validated.
+                        </div>
+
+
                     </div>
+
+
                 </div>
             </div>
         </div>

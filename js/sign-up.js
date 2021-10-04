@@ -71,130 +71,132 @@ $(document).ready(() => {
 
     var phone = document.getElementById('phone').value;
     const phoneRegEx = /^\+?[1-9]\d{1,14}$/;
-    
 
-    if (validateForm()) { 
+
+    if (validateForm()) {
       if (phoneRegEx.test(phone)) {
-          if (password === confirmPassword) {
-            
-            var prefContact = document.getElementById('prefContact').value;
-            prefContact = (prefContact != '') ? prefContact : null;
+        if (password === confirmPassword) {
 
-            var linkedIn = document.getElementById('linkedIn').value;
-            linkedIn = (linkedIn != '') ? linkedIn : null;
+          var prefContact = document.getElementById('prefContact').value;
+          prefContact = (prefContact != '') ? prefContact : null;
 
-            var resumeLink = document.getElementById('resumeLink').value;
-            resumeLink = (resumeLink != '') ? resumeLink : null;     
+          var linkedIn = document.getElementById('linkedIn').value;
+          linkedIn = (linkedIn != '') ? linkedIn : null;
 
-            if (type == "student" && !(email.toLowerCase().match(validDomain))) {
-              document.getElementById('email').classList.add('is-invalid');
-              document.getElementById('invalidEmail').classList.remove('d-none');
-              showSubmitButton();
-            }
-            else {
-                // ------------------------ MENTOR's FIELDS -----------------------------
+          var resumeLink = document.getElementById('resumeLink').value;
+          resumeLink = (resumeLink != '') ? resumeLink : null;
 
-                let higherStudies = [];
-                Array.from(document.getElementsByClassName('higherStudies')).forEach(field => {
-                  if (field.value != '' && i != 0)
-                    higherStudies.push(field.value);
-                })
-                higherStudies.length == 0 ? null : higherStudies.join(',');
-
-
-                let licenseAndCerts = [];
-                Array.from(document.getElementsByClassName('licenseAndCerts')).forEach(field => {
-                  if (field.value != '' && i != 0)
-                    licenseAndCerts.push(field.value);
-                })
-                licenseAndCerts.length == 0 ? null : licenseAndCerts.join(',');
-
-
-                var tags = document.getElementById('tags').value;
-                let _tags = tags.split(',')
-                _tags.forEach(tag => tag.trim())
-                tags = _tags.length != 0 ? _tags.join(",") : null;
-
-                var isActive = document.getElementById('agreeForMentorship').checked ? 1 : 0;
-                
-                // ------------------------ MENTOR's FIELDS -----------------------------
-
-                var formdata = new FormData();
-                if (!!$('.uploadProfileInput').get(0).files[0])
-                  formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
-                formdata.append("fullName", document.getElementById('fullName').value);
-                formdata.append("email", email);
-                formdata.append("gender", $('input[name="genderRadio"]').val());
-                formdata.append("dateOfBirth", document.getElementById('dob').value);
-                formdata.append("mobile", phone);
-                formdata.append("batch", document.getElementById('batch').value);
-                formdata.append("department", document.getElementById('department').value);
-                formdata.append("designation", document.getElementById('designation').value);
-                formdata.append("languages", document.getElementById('language').value);
-                formdata.append("areasOfInterest", document.getElementById('areasOfInterest').value);
-                formdata.append("country", document.getElementById('country').value);
-                formdata.append("summary", document.getElementById('summary').value);
-                formdata.append("isMentor", (type == "mentor") ? 1 : 0);
-                formdata.append("linkedInURL", linkedIn);
-                formdata.append("contactPref", prefContact);
-                formdata.append("resumeLink", resumeLink);
-                formdata.append("higherEd", higherStudies);
-                formdata.append("licensesAndCerts", licenseAndCerts);
-                formdata.append("tags", tags);
-                formdata.append("isActive", isActive);
-                formdata.append("password", password);
-
-                $.ajax({
-                  type: "POST",
-                  url: APIRoute + "users",
-                  datatype: "html",
-                  data: formdata,
-                  cache: false,
-                  contentType: false,
-                  processData: false,
-
-                  success: function (response) {
-                    if (response == "success") {
-
-                      localStorage.type = type;
-                      localStorage.isActive = isActive;
-                      document.getElementById('signUpButtonLoader').classList.add('d-none');
-                      document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
-
-                      firebase.auth().signInWithEmailAndPassword(email, password)
-                        .then((userCredential) => {
-                            // Signed in
-                            window.user = userCredential.user;
-
-                            window.user.sendEmailVerification().then(() => {
-                              window.location.href = "verify-account.php";
-                            })
-                        })
-                        .catch(function (error) {});
-
-                    } else if (response == "exists") {
-                      document.getElementById('message-exists').classList.remove('d-none');
-                      showSubmitButton();
-                    } else {
-                      document.getElementById('message-error').classList.remove('d-none');
-                      showSubmitButton();
-                    }
-
-                  },
-                  error: (error) => {
-                    console.log(error);
-                    document.getElementById('message-error').classList.remove('d-none');
-                    showSubmitButton();
-                  },
-                })
-
-            }
-
-          } else {
-            document.getElementById('reTypePassword').classList.add('is-invalid');
-            document.getElementById('incorrectPassword').classList.remove('d-none');
+          if (type == "student" && !(email.toLowerCase().match(validDomain))) {
+            document.getElementById('email').classList.add('is-invalid');
+            document.getElementById('invalidEmail').classList.remove('d-none');
             showSubmitButton();
           }
+          else {
+            // ------------------------ MENTOR's FIELDS -----------------------------
+
+            let higherStudies = [];
+            Array.from(document.getElementsByClassName('higherStudies')).forEach(field => {
+              if (field.value != '' && i != 0)
+                higherStudies.push(field.value);
+            })
+            higherStudies.length == 0 ? null : higherStudies.join(',');
+
+
+            let licenseAndCerts = [];
+            Array.from(document.getElementsByClassName('licenseAndCerts')).forEach(field => {
+              if (field.value != '' && i != 0)
+                licenseAndCerts.push(field.value);
+            })
+            licenseAndCerts.length == 0 ? null : licenseAndCerts.join(',');
+
+
+            var tags = document.getElementById('tags').value;
+            let _tags = tags.split(',')
+            _tags.forEach(tag => tag.trim())
+            tags = _tags.length != 0 ? _tags.join(",") : null;
+
+            var isActive = document.getElementById('agreeForMentorship').checked ? 1 : 0;
+
+            // ------------------------ MENTOR's FIELDS -----------------------------
+
+            var formdata = new FormData();
+            if (!!$('.uploadProfileInput').get(0).files[0])
+              formdata.append("profilePic", $('.uploadProfileInput').get(0).files[0], "ProfileImage." + $('.uploadProfileInput').get(0).files[0].name.split('.').pop());
+            formdata.append("fullName", document.getElementById('fullName').value);
+            formdata.append("email", email);
+            formdata.append("gender", $('input[name="genderRadio"]').val());
+            formdata.append("dateOfBirth", document.getElementById('dob').value);
+            formdata.append("mobile", phone);
+            formdata.append("batch", document.getElementById('batch').value);
+            formdata.append("department", document.getElementById('department').value);
+            formdata.append("designation", document.getElementById('designation').value);
+            formdata.append("languages", document.getElementById('language').value);
+            formdata.append("areasOfInterest", document.getElementById('areasOfInterest').value);
+            formdata.append("country", document.getElementById('country').value);
+            formdata.append("summary", document.getElementById('summary').value);
+            formdata.append("isMentor", (type == "mentor") ? 1 : 0);
+            formdata.append("linkedInURL", linkedIn);
+            formdata.append("contactPref", prefContact);
+            formdata.append("resumeLink", resumeLink);
+            formdata.append("higherEd", higherStudies);
+            formdata.append("licensesAndCerts", licenseAndCerts);
+            formdata.append("tags", tags);
+            formdata.append("isActive", isActive);
+            formdata.append("password", password);
+
+            $.ajax({
+              type: "POST",
+              url: APIRoute + "users",
+              datatype: "html",
+              data: formdata,
+              cache: false,
+              contentType: false,
+              processData: false,
+
+              success: function (response) {
+                if (response == "success") {
+
+                  localStorage.type = type;
+                  localStorage.isActive = isActive;
+                  document.getElementById('signUpButtonLoader').classList.add('d-none');
+                  document.getElementById('signUpButtonTextSuccess').classList.remove('d-none');
+
+                  firebase.auth().signInWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                      // Signed in
+                      window.user = userCredential.user;
+
+                      window.user.sendEmailVerification().then(() => {
+                        window.location.href = "verify-account.php";
+                      })
+                    })
+                    .catch(function (error) { });
+
+                } else if (response == "exists") {
+                  document.getElementById('message-exists').classList.remove('d-none');
+                  showSubmitButton();
+                } else if (response.status == 'fail') {
+                  document.getElementById('message-error').innerHTML = response.reason;
+                } else {
+                  document.getElementById('message-error').classList.remove('d-none');
+                  showSubmitButton();
+                }
+
+              },
+              error: (error) => {
+                console.log(error);
+                document.getElementById('message-error').classList.remove('d-none');
+                showSubmitButton();
+              },
+            })
+
+          }
+
+        } else {
+          document.getElementById('reTypePassword').classList.add('is-invalid');
+          document.getElementById('incorrectPassword').classList.remove('d-none');
+          showSubmitButton();
+        }
       } else {
         document.getElementById('phone').classList.add('is-invalid');
         document.getElementById('invalidPhone').classList.remove('d-none');

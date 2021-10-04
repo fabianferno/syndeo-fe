@@ -27,13 +27,18 @@ $(document).ready(() => {
               },
 
               success: function (response) {
+                console.log(response);
                 if (response.authStatus == "true") {
-                  console.log(response.userType)
-                  localStorage.displayName = user.displayName;
+                  console.log(response.userType);
+
+
+
                   document.getElementById("username").innerHTML =
                     user.displayName;
                   document.getElementById("avatar").innerHTML =
                     response.profilePic;
+
+                  localStorage.displayName = user.displayName;
                   localStorage.type = response.userType;
                   localStorage.isActive = response.isActive;
 
