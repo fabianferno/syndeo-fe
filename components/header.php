@@ -76,7 +76,7 @@
           </div>
         </div>
       </li> -->
-      <img src="assets/images/png/she-logo-orange2.png" style="height:40px"  alt="image">
+      <img src="assets/images/png/chii.png" style="height:40px"  alt="image">
 
       <!-- List -->
       <li class="dropdown ms-2">
