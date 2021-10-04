@@ -66,7 +66,6 @@ function pageScript() {
             $('#tags').tagsinput('add', tag);
           })
         }
-
       }
 
       document.getElementById("pageLoader").classList.add("d-none");
