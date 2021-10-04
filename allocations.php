@@ -43,7 +43,23 @@
 
                     <div id="adminActions" class="row mt-6 ">
                         <H1 class="fw-bold text-white mb-3">Admin Actions | Validate Requests 🛠️</H1>
-                        <div class="d-flex flex-column" id="allocations"></div>
+                        <div class="d-flex flex-column" id="allocations">
+                        <!--Filter-->
+                        <div class="d-flex flex-row mb-3 text-white" id="filters">
+                        <label class="form-check-label" for="filters">
+                            <input type="radio" class="form-check-input" id="" value="All" name="">
+                            All &nbsp; &nbsp; 
+                        </label>
+                        <label class="form-check-label" for="filters">
+                            <input type="radio" class="form-check-input" id="" value="Validated" name="">
+                            Validated &nbsp; &nbsp; 
+                        </label>
+                        <label class="form-check-label" for="filters">
+                            <input type="radio" class="form-check-input" id="" value="Pending" name="">
+                            Pending &nbsp; &nbsp; 
+                        </label>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
