@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div id="adminActions" class="row mt-6 ">
-                        <H1 class="fw-bold text-white mb-3">Admin Actions | Validate Requests 🛠️</H1>
+                        <H1 class="fw-bold text-white mb-3">Admin Actions | View Allocations 🧐</H1>
                         <!--Filter-->
                         <div class="d-flex bg-white p-5 justify-content-center my-4" id="filters">
                             <label class="form-check-label" for="filters">
@@ -67,6 +67,7 @@
                         </div>
 
                         <div id="no-allocations-message" class="mt-5 text-secondary d-none h4 font-weight-bold card card-body d-flex justify-content-center align-items-center p-3">
+                            <img src="assets/images/svg/empty-box.svg" class="w-25 rounded mx-auto d-block">
                             Um... No mentorship requests to be validated.
                         </div>
 

@@ -48,6 +48,7 @@
                         </div>
 
                         <div id="no-allocations-message" class="mt-5 text-secondary d-none h4 font-weight-bold card card-body d-flex justify-content-center align-items-center p-3">
+                            <img src="assets/images/svg/empty-box.svg" class="w-25 rounded mx-auto d-block">
                             Um... No mentorship requests to be validated.
                         </div>
                     </div>
