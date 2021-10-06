@@ -71,7 +71,7 @@
 
 
               <!-- card  -->
-              <div class="card card-body my-2">
+              <div class="card card-body my-2 d-none" id="search-mentors-card">
                 <h4 class="mb-2 w-50">Find yourself a Mentor who matches your interests! Build strong connections with the industry experts.</h4>
                 <!-- card footer  -->
                 <div class="card-footer bg-white border-white text-end">

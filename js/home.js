@@ -4,7 +4,9 @@ function pageScript() {
   if (localStorage.type == "Mentor") {
     document.getElementById("mentorActions").classList.remove("d-none");
   }
-
+  else if (localStorage.type == "Student") {
+    document.getElementById("search-mentors-card").classList.remove("d-none");
+  }
   $.ajax({
     type: "GET",
     url: APIRoute + "allocations?uid=" + window.uid,
