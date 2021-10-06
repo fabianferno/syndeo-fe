@@ -75,7 +75,7 @@
                 <h4 class="mb-2 w-50">Find yourself a Mentor who matches your interests! Build strong connections with the industry experts.</h4>
                 <!-- card footer  -->
                 <div class="card-footer bg-white border-white text-end">
-                  <a href="search-profile.php" class="btn btn-primary">Search for Mentors</a>
+                  <a href="search.php" class="btn btn-primary">Search for Mentors</a>
                 </div>
               </div>
 
