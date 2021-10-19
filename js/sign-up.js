@@ -31,6 +31,7 @@ $(document).ready(() => {
       $('#mentorFields').addClass('d-none');
 
   })
+  
 
   $(".uploadProfileInput").on("change", function () {
     var holder = $(this).closest(".pic-holder");
