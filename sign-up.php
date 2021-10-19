@@ -119,7 +119,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div id = "mentorFields" class="col-12 col-md-6 mb-3">
+                                    <div class="col-12 col-md-6 mb-3">
                                         <label for="designation" class="form-label">Designation</label>
                                         <input type="text" id="designation" class="form-control" name="designation" placeholder="Eg. Senior Analyst" required="">
                                     </div>
