@@ -28,8 +28,8 @@ function pageScript() {
       document.getElementById("batch").value = response.batch;
       document.getElementById("department").value = response.department;
       var dob = new Date(response.dateOfBirth)
-      dob = ('0' + (dob.getMonth() + 1)).slice(-2) + '/' + ("0" + dob.getDate()).slice(-2)
-        + '/' + dob.getFullYear()
+      dob = ('0' + (dob.getMonth() + 1)).slice(-2) + '-' + ("0" + dob.getDate()).slice(-2)
+        + '-' + dob.getFullYear()
       console.log(dob)
       document.getElementById("dob").value = dob;
       document.getElementById("phone").value = response.mobile;
@@ -61,11 +61,10 @@ function pageScript() {
             .find(".licenseAndCerts")
             .val(licenseAndCerts);
         });
-        if (tags.length > 1) {
+        
           response.tags.split(',').forEach(tag => {
             $('#tags').tagsinput('add', tag);
           })
-        }
       }
 
       document.getElementById("pageLoader").classList.add("d-none");

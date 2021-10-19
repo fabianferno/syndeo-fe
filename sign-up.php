@@ -203,11 +203,11 @@
                                 <div class="row">
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password" id="password" class="form-control" name="password" placeholder="**************" required="">
+                                        <input type="password" id="password" class="form-control" name="password" placeholder="Enter Password" required="">
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="reTypePassword" class="form-label">Re-Type Password</label>
-                                        <input type="password" id="reTypePassword" class="form-control" name="reTypePassword" placeholder="**************" required="">
+                                        <input type="password" id="reTypePassword" class="form-control" name="reTypePassword" placeholder="Re-Type Password" required="">
                                         <small class="text-danger d-none" style="font-size: 10px;" id="incorrectPassword"> Incorrect Password </small>
                                     </div>
                                 </div>

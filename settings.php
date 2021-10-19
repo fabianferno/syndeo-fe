@@ -59,16 +59,16 @@
                                         <!-- row -->
                                         <div class="mb-3 row">
                                             <label for="oldPassword" class="form-label">Current Password</label>
-                                            <input type="password" class="form-control w-75 mx-3" placeholder="************" id="oldPassword" required="">
+                                            <input type="password" class="form-control w-75 mx-3" placeholder="Enter Current Password" id="oldPassword" required="">
                                             <small class="text-danger d-none" style="font-size: 10px;" id="incorrect-password">Incorrect Password</small>
                                         </div>
                                         <div class="mb-3 row">
                                             <label for="NewPassword" class="form-label ">New Password</label>
-                                            <input type="password" class="form-control w-75 mx-3" placeholder="************" id="NewPassword" required="">
+                                            <input type="password" class="form-control w-75 mx-3" placeholder="Enter New Password" id="NewPassword" required="">
                                         </div>
                                         <div class="mb-3 row">
                                             <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
-                                            <input type="password" class="form-control w-75 mx-3" placeholder="************" id="confirmNewPassword" required="">
+                                            <input type="password" class="form-control w-75 mx-3" placeholder="Re-enter Password" id="confirmNewPassword" required="">
                                             <small class="text-danger d-none" style="font-size: 10px;" id="password-mismatch-message">Password does not match</small>
                                         </div>
                                         <div class="mb-3 d-flex justify-content-end">
