@@ -38,6 +38,7 @@
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
                   <input type="password" id="password" class="form-control" name="password" placeholder="Password" required="">
+                  <span class="fa fa-fw fa-eye field_icon toggle-password"></span>
                   <small class="my-2 d-flex justify-content-end">
                     <a href="forgot-password.php">Forgot your password?</a>
                   </small>
